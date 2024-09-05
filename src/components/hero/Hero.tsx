@@ -5,7 +5,7 @@ import WaitlistButton from "./WaitlistButton";
 
 const Hero = () => {
   return (
-    <div className="mt-24 mx-14">
+    <div className="mt-24 mx-24">
       <WaitlistButton />
       <HeroText />
       <HeroCallToActions />
