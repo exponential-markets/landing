@@ -5,7 +5,7 @@ const StickyNavbarTab = () => {
   const [activeLink, setActiveLink] = useState<string>("home");
 
   return (
-    <div className="fixed left-1/2 transform -translate-x-1/2 flex justify-center">
+    <div className="fixed rounded-full backdrop-blur-sm left-1/2 transform -translate-x-1/2 flex justify-center">
       <div className="z-10 w-fit flex gap-2 px-2 border border-[#393939] rounded-full bg-[#0b0b0b] opacity-90">
         {navLinks.map((link) => (
           <a

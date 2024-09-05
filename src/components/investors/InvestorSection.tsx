@@ -51,11 +51,16 @@ const InvestorSection = () => {
                 We Handle the Code
               </h3>
               <p className="text-sm text-gray-300 max-w-[60%] mt-2">
-                Our advanced algorithms and expert team manage the technical aspects, 
-                allowing you to concentrate on your investment strategy.
+                Our advanced algorithms and expert team manage the technical
+                aspects, allowing you to concentrate on your investment
+                strategy.
               </p>
             </div>
-            <img src={glassMarbles} alt="glass marbles" className="h-40 self-end" />
+            <img
+              src={glassMarbles}
+              alt="glass marbles"
+              className="h-40 self-end"
+            />
           </div>
           <div className="mt-auto">
             <img src={fillerArrow} alt="filler arrow" className="w-16 h-10" />
@@ -69,7 +74,11 @@ const InvestorSection = () => {
             <br />& start rightaway!
           </h3>
           <div className="mt-auto flex justify-between items-end">
-            <img src={fillerArrow} alt="filler arrow" className="px-5 w-16 h-10" />
+            <img
+              src={fillerArrow}
+              alt="filler arrow"
+              className="mx-5 w-16 h-10"
+            />
             <img src={globe} alt="globe" className="h-28 mr-0" />
           </div>
         </div>

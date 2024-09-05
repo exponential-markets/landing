@@ -62,6 +62,8 @@ export default {
           "conic-gradient(from 53.09deg at 50% 50%, #000000 0deg, #ABABAB 23.17deg, #818181 72deg, #3F3F3F 180deg, #000000 360deg)",
         "angular-gradient-3":
           "conic-gradient(from 53.09deg at 50% 50%, #000000 -51.12deg, rgba(229, 228, 226, 0.5) 69.48deg, #848884 143.28deg, #71797E 215.28deg, #000000 308.88deg, rgba(229, 228, 226, 0.5) 429.48deg)",
+        "card-gradient":
+          "linear-gradient(354.6deg, rgba(29, 29, 29, 0.6) 10.25%, rgba(0, 0, 0, 0.6) 33.18%, rgba(0, 0, 0, 0.6) 68.59%)",
       },
     },
   },
