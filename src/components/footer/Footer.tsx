@@ -4,7 +4,7 @@ import XLogo from "@/assets/Xlogo";
 
 const Footer = () => {
   return (
-    <div id="contact" className="lg:mx-24 mt-16 xl:mt-32 mb-8 lg:mb-16">
+    <div id="contact" className="lg:mx-24 mt-16 xl:mt-32 mb-16 md:mb-20">
       <div className="flex justify-center w-full">
         <h2 className="p-1 w-fit text-center text-3xl lg:text-4xl text-transparent bg-gradient-to-r from-[#747478] via-white to-[#434345] bg-clip-text">
           Ready to Start Your Exponential Journey?

@@ -30,12 +30,12 @@ const Pricing = () => {
                   </p>
                   <div
                     className={cn(
-                      "flex gap-2 lg:justify-center items-center",
+                      "flex gap-2 items-center",
                       card.subSubtitle && "mt-5"
                     )}
                   >
                     <h3 className="text-3xl">{card.entryFee}</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground w-1/2 leading-4">
                       {card.feeDescription}
                     </p>
                   </div>

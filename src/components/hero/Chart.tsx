@@ -38,11 +38,9 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const renderCustomizedLabel: ContentType = (props) => {
-  const { x, y, width, index } = props;
+  const { x, y, width, value } = props;
   const rectWidth = Number(width);
   const rectHeight = 3;
-
-  const differentColoredCapIndex: number[] = [1, 4, 5, 9, 10];
 
   return (
     <g>
@@ -63,6 +61,14 @@ const renderCustomizedLabel: ContentType = (props) => {
             style={{ stopColor: "#207661", stopOpacity: 1 }}
           />
         </linearGradient>
+        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style={{ stopColor: "#AF3E0D", stopOpacity: 1 }} />
+          <stop offset="50%" style={{ stopColor: "#FF4D01", stopOpacity: 1 }} />
+          <stop
+            offset="100%"
+            style={{ stopColor: "#AF3E0D", stopOpacity: 1 }}
+          />
+        </linearGradient>
       </defs>
       <rect
         x={x}
@@ -72,7 +78,9 @@ const renderCustomizedLabel: ContentType = (props) => {
         rx={rectHeight / 2}
         ry={rectHeight / 2}
         fill={
-          index && differentColoredCapIndex.includes(index)
+          Number(value) < -150
+            ? "url(#gradient3)"
+            : Number(value) > 240
             ? "url(#gradient2)"
             : "url(#gradient1)"
         }
@@ -118,14 +126,17 @@ export function Chart() {
           </Select>
 
           <div className="md:mt-2 flex gap-2 items-center">
-            <div className="flex items-center gap-3 p-1.5 pr-4 rounded-full bg-secondary w-fit">
-              <Avatar className="size-6">
+            <div className="text-sm md:text-base flex items-center gap-3 p-1.5 pr-4 rounded-full bg-secondary w-fit">
+              <Avatar className="size-5 md:size-6">
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               Vihaan
             </div>
-            <Button variant={"outline"} className="border-white rounded-full">
+            <Button
+              variant={"outline"}
+              className="text-sm md:text-base py-1.5 h-8 md:h-9 md:py-2 border-white rounded-full"
+            >
               {
                 heroChartData.find((data) => data.name === selectedAlgorithm)!
                   .currency
@@ -135,7 +146,10 @@ export function Chart() {
         </CardHeader>
         <div className="pt-6 pr-6 text-right">
           <span>AUM</span>
-          <h3 className="text-xl md:text-2xl w-fit">$ 190k</h3>
+          <h3 className="text-xl md:text-2xl w-fit">
+            ${" "}
+            {heroChartData.find((data) => data.name === selectedAlgorithm)!.aum}
+          </h3>
         </div>
       </div>
       <CardContent>

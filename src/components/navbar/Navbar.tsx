@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <>
       <div id="home">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-center md:justify-between items-center">
           <Brand />
           <CallToAction />
         </div>

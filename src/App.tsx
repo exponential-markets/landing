@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import DeveloperSection from "./components/developers/DeveloperSection";
 import Footer from "./components/footer/Footer";
 import Hero from "./components/hero/Hero";
@@ -16,6 +17,7 @@ const App = () => {
       <Pricing />
       <Footer />
       <StickyNavbarTab />
+      <Toaster position="top-center" richColors />
     </>
   );
 };
