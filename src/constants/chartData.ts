@@ -1,6 +1,9 @@
 export const heroChartData = [
   {
     name: "Vortex Algorithm",
+    currency: "ETH/USD",
+    roi: "43.32%",
+    profitableTrades: "68.4%",
     data: [
       { month: "January", value: 186 },
       { month: "February", value: 305 },
@@ -18,6 +21,9 @@ export const heroChartData = [
   },
   {
     name: "RSI Algorithm",
+    currency: "ETH/GBP",
+    roi: "33.69%",
+    profitableTrades: "78.6%",
     data: [
       { month: "January", value: 210 },
       { month: "February", value: 250 },
@@ -35,6 +41,9 @@ export const heroChartData = [
   },
   {
     name: "MACD Algorithm",
+    currency: "ETH/EUR",
+    roi: "38.72%",
+    profitableTrades: "71.34%",
     data: [
       { month: "January", value: 195 },
       { month: "February", value: 315 },

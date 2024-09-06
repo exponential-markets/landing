@@ -55,6 +55,7 @@ export default {
         urbanist: ["Urbanist", "sans-serif"],
       },
       backgroundImage: {
+        "wave-background": "url('/src/assets/Wave background.png')",
         "noise-background": "url('/src/assets/noisebackground.png')",
         "angular-gradient-1":
           "conic-gradient(from 180deg at 50% 50%, rgba(217, 217, 217, 0.2) -30.91deg, #393939 28.87deg, #070707 97.79deg, #171717 182.64deg, #8D8D8D 260.16deg, rgba(221, 222, 222, 0.3) 307.42deg, rgba(217, 217, 217, 0.2) 329.09deg, #393939 388.87deg)",

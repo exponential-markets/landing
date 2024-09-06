@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const HeroCallToActions = () => {
   return (
-    <div className="mt-8 flex gap-6">
+    <div className="mt-4 lg:mt-8 flex gap-3 lg:gap-6">
       <Button className="py-4 rounded-full flex gap-2 justify-center items-center">
         Join the Waitlist <ArrowUpRight size={18} />
       </Button>

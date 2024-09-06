@@ -66,7 +66,7 @@ const renderCustomizedLabel: ContentType = (props) => {
       </defs>
       <rect
         x={x}
-        y={y ? Number(y) - rectHeight - 2 : rectHeight - 2}
+        y={y ? Number(y) - rectHeight - 3 : rectHeight - 3}
         width={rectWidth}
         height={rectHeight}
         rx={rectHeight / 2}
@@ -92,7 +92,7 @@ export function Chart() {
   return (
     <Card className="border rounded-3xl bg-card-gradient">
       <div className="flex justify-between">
-        <CardHeader>
+        <CardHeader className="pr-0">
           <CardDescription>Algorithm Overview</CardDescription>
           <Select
             onValueChange={async (value: string) => {
@@ -100,11 +100,11 @@ export function Chart() {
             }}
             value={selectedAlgorithm}
           >
-            <SelectTrigger className="border-none focus:ring-0">
+            <SelectTrigger className="pl-0 border-none focus:ring-0">
               <SelectValue asChild>
                 <div className="flex gap-2 items-center">
-                  <h3 className="text-2xl">{selectedAlgorithm}</h3>
-                  <ChevronDown className="h-8 w-8 hover:cursor-pointer" />
+                  <h3 className="text-xl md:text-2xl">{selectedAlgorithm}</h3>
+                  <ChevronDown className="size-6 md:size-8 hover:cursor-pointer" />
                 </div>
               </SelectValue>
             </SelectTrigger>
@@ -117,7 +117,7 @@ export function Chart() {
             </SelectContent>
           </Select>
 
-          <div className="mt-2 flex gap-2 items-center">
+          <div className="md:mt-2 flex gap-2 items-center">
             <div className="flex items-center gap-3 p-1.5 pr-4 rounded-full bg-secondary w-fit">
               <Avatar className="size-6">
                 <AvatarImage src="https://github.com/shadcn.png" />
@@ -126,13 +126,16 @@ export function Chart() {
               Vihaan
             </div>
             <Button variant={"outline"} className="border-white rounded-full">
-              ETH/USD
+              {
+                heroChartData.find((data) => data.name === selectedAlgorithm)!
+                  .currency
+              }
             </Button>
           </div>
         </CardHeader>
-        <div className="p-6 text-right">
+        <div className="pt-6 pr-6 text-right">
           <span>AUM</span>
-          <h3 className="text-2xl">$ 190k</h3>
+          <h3 className="text-xl md:text-2xl w-fit">$ 190k</h3>
         </div>
       </div>
       <CardContent>
@@ -169,7 +172,7 @@ export function Chart() {
                 />
               </linearGradient>
             </defs>
-            <Bar dataKey="value" fill="url(#fillValue)">
+            <Bar dataKey="value" fill="url(#fillValue)" radius={5}>
               <LabelList
                 position="top"
                 offset={12}
@@ -182,21 +185,33 @@ export function Chart() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex justify-between w-full">
+        <div className="flex gap-4 justify-between w-full">
           <div>
-            <h4 className="text-xl">Return on Investment</h4>
-            <span className="text-3xl font-semibold text-[#2ACCA4]">
-              43.32%
+            <h4 className="text-lg lg:w-min leading-5 md:text-xl">
+              Return on Investment
+            </h4>
+            <span className="text-2xl lg:text-3xl font-semibold text-[#2ACCA4]">
+              {
+                heroChartData.find((data) => data.name === selectedAlgorithm)!
+                  .roi
+              }
             </span>
           </div>
           <div>
-            <div className="flex justify-between text-xl">
-              <span className="font-semibold text-[#2ACCA4]">68.4%</span>
-              <h4>Profitable trades</h4>
+            <div className="flex gap-1 justify-between text-lg leading-5 md:text-xl">
+              <span className="font-semibold text-[#2ACCA4]">
+                {
+                  heroChartData.find((data) => data.name === selectedAlgorithm)!
+                    .profitableTrades
+                }
+              </span>
+              <h4 className="w-max">Profitable trades</h4>
             </div>
-            <div className="flex justify-between text-xl">
+            <div className="flex mt-1 justify-end text-lg leading-5 md:text-xl">
               <span className="mr-3">$10</span>
-              <h4>Minimum Investment</h4>
+              <h4 className="min-[820px]:w-min lg:w-auto">
+                Minimum Investment
+              </h4>
             </div>
           </div>
         </div>

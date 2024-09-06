@@ -6,8 +6,8 @@ import WaitlistButton from "./WaitlistButton";
 
 const Hero = () => {
   return (
-    <div className="mt-24 mx-24">
-      <div className="grid grid-cols-2 gap-32">
+    <div className="mt-12 xl:mt-24 xl:mx-24">
+      <div className="grid grid-cols-1 min-[820px]:grid-cols-2 gap-12 lg:gap-32">
         <div>
           <WaitlistButton />
           <HeroText />
