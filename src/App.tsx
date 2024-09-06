@@ -15,7 +15,7 @@ const App = () => {
       <DeveloperSection />
       <Pricing />
       <Footer />
-      {/* <StickyNavbarTab /> */}
+      <StickyNavbarTab />
     </>
   );
 };
