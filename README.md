@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# Exponential - Algorithmic Trading Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="./public/logo.svg" alt="Exponential Logo" width="160" align="right" />
 
-Currently, two official plugins are available:
+Exponential is a cutting-edge algorithmic trading platform that bridges the gap between expert developers and investors. Our platform allows developers to create and deploy trading algorithms while providing investors with access to a curated marketplace of expert-crafted strategies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit [exponential.markets](https://exponential.markets) to get started or schedule a call with us:
 
-## Expanding the ESLint configuration
+<a href="https://cal.com/shubhamintech/exponential-exploration"><img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-dark.svg" /></a>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+### For Investors
+- Start with as low as $10
+- Real-time monitoring of your investments
+- Withdraw anytime, anywhere
+- No KYC needed - deposit crypto and start right away
+- Access to a curated marketplace of expert-crafted algorithms
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### For Developers
+- Write algorithms in Python with access to standard libraries and helper methods
+- Focus on algorithm development while we handle investor relations
+- Backtest your strategies with our powerful engine
+- Retain ownership of your algorithm's IP and earn commissions
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+### Technology Stack
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- PostHog for analytics
+- Formbricks for user feedback
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+## Contact
+
+For more information, please email us at [contact@exponential.markets](mailto:contact@exponential.markets)
