@@ -7,7 +7,7 @@ import fillerArrow from "../../assets/filler arrow.png";
 
 const InvestorSection = () => {
   return (
-    <div id="investor" className="mt-16 xl:mx-24 xl:mt-32">
+    <div id="investor" className="mt-4 pt-4 lg:pt-24 xl:mt-0 xl:mx-24">
       <div className="flex justify-center">
         <h2 className="w-fit text-3xl lg:text-4xl text-transparent bg-gradient-to-r from-[#747478] via-white to-[#434345] bg-clip-text">
           For Investors

@@ -5,7 +5,10 @@ import { cn } from "@/lib/utils";
 
 const Pricing = () => {
   return (
-    <div id="pricing" className="lg:mx-12 xl:mx-24 mt-16 xl:mt-32">
+    <div
+      id="pricing"
+      className="mt-4 pt-4 xl:mt-0 md:mb-56 min-[820px]:mb-0 lg:mx-12 xl:mx-24 xl:pt-24"
+    >
       <div className="flex justify-center w-full">
         <h2 className="p-1 w-fit text-4xl text-transparent bg-gradient-to-r from-[#747478] via-white to-[#434345] bg-clip-text">
           Pricing

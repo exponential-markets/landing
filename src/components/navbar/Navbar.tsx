@@ -4,7 +4,7 @@ import CallToAction from "./CallToAction";
 const Navbar = () => {
   return (
     <>
-      <div id="home">
+      <div className="pt-6 md:pt-12 min-[820px]:pt-8 lg:pt-10 xl:pt-6">
         <div className="flex justify-center md:justify-between items-center">
           <Brand />
           <CallToAction />
