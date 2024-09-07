@@ -12,12 +12,12 @@ export const pricingCardData = [
     ],
     entryFee: "0$",
     feeDescription: "entry fee",
-    button: { text: "Get started", link: "#" },
+    button: { text: "Are you an investor?", link: "#" },
   },
   {
     title: "Developer",
     subtitle: "Earn",
-    subSubtitle: "",
+    subSubtitle: "just by developing",
     features: [
       "Access to online IDE",
       "Access Backtest Engine",
@@ -27,6 +27,6 @@ export const pricingCardData = [
     ],
     entryFee: "20%",
     feeDescription: "of profits per strategy",
-    button: { text: "Get started", link: "#" },
+    button: { text: "Are you a developer?", link: "#" },
   },
 ];

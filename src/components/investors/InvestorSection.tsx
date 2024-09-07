@@ -76,7 +76,8 @@ const InvestorSection = () => {
                 <br />
                 We Handle the Code
               </h3>
-              <p className="text-sm text-gray-300 my-2 min-[820px]:mb-0">
+              <br/>
+              <p className="text-base text-gray-300 my-2 min-[820px]:mb-0 w-full md:w-1/2">
                 Our advanced algorithms and expert team manage the technical
                 aspects, allowing you to concentrate on your investment
                 strategy.

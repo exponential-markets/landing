@@ -1,4 +1,4 @@
-import { ArrowUpRight, Sparkle } from "lucide-react";
+import { MessageSquareQuote, Sparkle } from "lucide-react";
 import { Button } from "../ui/button";
 import { pricingCardData } from "@/constants/pricings";
 import { cn } from "@/lib/utils";
@@ -45,7 +45,7 @@ const Pricing = () => {
                 </div>
                 <Button className="rounded-full mt-2 mb-4 lg:m-0">
                   {card.button.text}
-                  <ArrowUpRight size={18} className="ml-2" />
+                  <MessageSquareQuote size={18} className="ml-2" />
                 </Button>
               </div>
               <div className="text-muted-foreground lg:w-1/2">

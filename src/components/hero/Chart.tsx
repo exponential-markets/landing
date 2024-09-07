@@ -125,9 +125,9 @@ export function Chart() {
             </SelectContent>
           </Select>
 
-          <div className="md:mt-2 flex gap-2 items-center">
-            <div className="text-sm md:text-base flex items-center gap-3 p-1.5 pr-4 rounded-full bg-secondary w-fit">
-              <Avatar className="size-5 md:size-6">
+          <div className="mt-1 md:mt-2 flex gap-2 items-center">
+            <div className="text-xs md:text-sm flex items-center gap-2 p-1 pr-3 rounded-full bg-secondary w-fit">
+              <Avatar className="size-4 md:size-5">
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
@@ -135,7 +135,7 @@ export function Chart() {
             </div>
             <Button
               variant={"outline"}
-              className="text-sm md:text-base py-1.5 h-8 md:h-9 md:py-2 border-white rounded-full"
+              className="text-xs md:text-sm py-1 h-6 md:h-7 md:py-1.5 border-white rounded-full cursor-default"
             >
               {
                 heroChartData.find((data) => data.name === selectedAlgorithm)!
@@ -144,8 +144,8 @@ export function Chart() {
             </Button>
           </div>
         </CardHeader>
-        <div className="pt-6 pr-6 text-right">
-          <span>AUM</span>
+        <div className="pt-6 pr-6 text-right ">
+          <span className="text-muted-foreground">AUM</span>
           <h3 className="text-xl md:text-2xl w-fit">
             ${" "}
             {heroChartData.find((data) => data.name === selectedAlgorithm)!.aum}
@@ -199,11 +199,13 @@ export function Chart() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-4 justify-between w-full">
+        <div className="flex gap-2 justify-between w-full">
           <div>
-            <h4 className="text-lg lg:w-min leading-5 md:text-xl">
-              Return on Investment
-            </h4>
+            <div className="flex items-center gap-2">
+              <h4 className="text-base leading-5 whitespace-nowrap">
+                Return on Investment
+              </h4>
+            </div>
             <span className="text-2xl lg:text-3xl font-semibold text-[#2ACCA4]">
               {
                 heroChartData.find((data) => data.name === selectedAlgorithm)!
@@ -219,11 +221,13 @@ export function Chart() {
                     .profitableTrades
                 }
               </span>
-              <h4 className="w-max">Profitable trades</h4>
+              <h4 className="lg:w-auto text-base justify-between text-muted-foreground">
+                Profitable trades
+              </h4>
             </div>
-            <div className="flex mt-1 justify-end text-lg leading-5 md:text-xl">
-              <span className="mr-3">$10</span>
-              <h4 className="min-[820px]:w-min lg:w-auto">
+            <div className="flex mt-1 justify-end text-lg leading-5">
+              <span className="mr-3 text-base">$10</span>
+              <h4 className="min-[820px]:w-min lg:w-auto text-base text-muted-foreground">
                 Minimum Investment
               </h4>
             </div>

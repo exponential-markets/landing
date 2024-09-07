@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronUp, CirclePlay, Loader2 } from "lucide-react";
+import { ArrowUpRight, ChevronUp, Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -49,13 +49,12 @@ const HeroCallToActions = () => {
 
     setLoading(true);
     console.log({ name, email: fullEmail, role });
-
-    toast.success("You've been added to the waitlist!");
+    toast.success("Sending you an invite soon!");
     setOpen(false);
   };
 
   return (
-    <div className="my-6 lg:mt-8 flex gap-3 lg:gap-6">
+    <div className="my-6 lg:mt-8 flex gap-3 lg:gap-4 justify-center lg:justify-start">
       <Button
         className="py-4 rounded-full flex gap-1 justify-center items-center"
         onClick={() => setOpen(true)}
@@ -63,9 +62,9 @@ const HeroCallToActions = () => {
         Join Waitlist <ChevronUp size={18} />
       </Button>
       {open && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 sm:p-0">
           <div className="bg-background rounded-lg p-6 w-96 max-w-full">
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-center md:text-left text-xl md:text-2xl font-bold mb-4">
               Request Exponential Access
             </h2>
             <div className="grid gap-4">
@@ -143,8 +142,20 @@ const HeroCallToActions = () => {
           </div>
         </div>
       )}
-      <Button className="bg-[#393939] hover:bg-[#393939] text-foreground py-4 rounded-full flex gap-2 justify-center items-center">
+      {/* <Button className="bg-[#393939] hover:bg-[#393939] text-foreground py-4 rounded-full flex gap-2 justify-center items-center">
         See How It Works <CirclePlay size={18} />
+      </Button> */}
+      <Button
+        className="bg-[#393939] hover:bg-[#393939] text-foreground py-4 rounded-full flex justify-center items-center"
+        onClick={() => {
+          window.open(
+            "https://cal.com/shubhamintech/exponential-exploration",
+            "_blank"
+          );
+        }}
+      >
+        Schedule a Call
+        <ArrowUpRight size={16} className="ml-2" />
       </Button>
     </div>
   );
