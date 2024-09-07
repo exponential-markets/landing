@@ -27,6 +27,7 @@ import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
 import { heroChartData } from "@/constants/chartData";
 import { useState } from "react";
+import { usePostHog } from "posthog-js/react";
 
 export const description = "A bar chart with a label";
 
@@ -90,8 +91,14 @@ const renderCustomizedLabel: ContentType = (props) => {
 };
 
 export function Chart() {
+  const posthog = usePostHog();
   const [selectedAlgorithm, setSelectedAlgorithm] =
     useState<string>("Vortex Algorithm");
+
+  const handleAlgorithmChange = (value: string) => {
+    setSelectedAlgorithm(value);
+    posthog.capture("selected_algorithm", { algorithm: value });
+  };
 
   const chartData = heroChartData.find(
     (data) => data.name === selectedAlgorithm
@@ -103,9 +110,7 @@ export function Chart() {
         <CardHeader className="pr-0">
           <CardDescription>Algorithm Overview</CardDescription>
           <Select
-            onValueChange={async (value: string) => {
-              setSelectedAlgorithm(value);
-            }}
+            onValueChange={handleAlgorithmChange}
             value={selectedAlgorithm}
           >
             <SelectTrigger className="pl-0 border-none focus:ring-0">

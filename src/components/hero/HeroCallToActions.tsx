@@ -12,8 +12,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { usePostHog } from "posthog-js/react";
 
 const HeroCallToActions = () => {
+  const posthog = usePostHog();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [emailDomain, setEmailDomain] = useState("@gmail.com");
@@ -51,6 +53,27 @@ const HeroCallToActions = () => {
     console.log({ name, email: fullEmail, role });
     toast.success("Sending you an invite soon!");
     setOpen(false);
+
+    posthog.identify(fullEmail, {
+      name: name,
+      email: fullEmail,
+      role: role,
+    });
+
+    posthog.capture("joined_waitlist", {
+      name: name,
+      email: fullEmail,
+      role: role,
+    });
+  };
+
+  // Track when user schedules a call
+  const handleScheduleCall = () => {
+    posthog.capture("scheduled_call");
+    window.open(
+      "https://cal.com/shubhamintech/exponential-exploration",
+      "_blank"
+    );
   };
 
   return (
@@ -147,12 +170,7 @@ const HeroCallToActions = () => {
       </Button> */}
       <Button
         className="bg-[#393939] hover:bg-[#393939] text-foreground py-4 rounded-full flex justify-center items-center"
-        onClick={() => {
-          window.open(
-            "https://cal.com/shubhamintech/exponential-exploration",
-            "_blank"
-          );
-        }}
+        onClick={handleScheduleCall}
       >
         Schedule a Call
         <ArrowUpRight size={16} className="ml-2" />

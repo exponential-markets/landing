@@ -2,8 +2,19 @@ import { MessageSquareQuote, Sparkle } from "lucide-react";
 import { Button } from "../ui/button";
 import { pricingCardData } from "@/constants/pricings";
 import { cn } from "@/lib/utils";
+import { usePostHog } from "posthog-js/react";
+import formbricks from "@formbricks/js/website";
 
 const Pricing = () => {
+  const posthog = usePostHog();
+
+  const handlePricingClick = (title: string) => {
+    posthog.capture("triggered_pricing_card", { plan: title });
+    const trackEvent =
+      title === "Investor" ? "pricing_investor" : "pricing_developer";
+    formbricks.track(trackEvent);
+  };
+
   return (
     <div
       id="pricing"
@@ -43,7 +54,12 @@ const Pricing = () => {
                     </p>
                   </div>
                 </div>
-                <Button className="rounded-full mt-2 mb-4 lg:m-0">
+                <Button
+                  className="rounded-full mt-2 mb-4 lg:m-0"
+                  onClick={() => {
+                    handlePricingClick(card.title);
+                  }}
+                >
                   {card.button.text}
                   <MessageSquareQuote size={18} className="ml-2" />
                 </Button>
