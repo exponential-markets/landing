@@ -39,6 +39,20 @@ const HeroCallToActions = () => {
     }
   }, [open]);
 
+  // Function to handle email input change
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputEmail = e.target.value;
+    setEmail(inputEmail);
+
+    // Check if the input contains '@' and some text after it
+    if (inputEmail.includes('@') && inputEmail.split('@')[1].length > 0) {
+      setEmailDomain('custom');
+    } else if (emailDomain === 'custom') {
+      // If it doesn't contain '@' and domain was custom, reset to default
+      setEmailDomain('@gmail.com');
+    }
+  };
+
   // Function to handle form submission
   const handleJoinWaitlist = async () => {
     const fullEmail =
@@ -127,7 +141,7 @@ const HeroCallToActions = () => {
                     }
                     className="flex-grow"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
                   />
                   {emailDomain !== "custom" && (
                     <Select value={emailDomain} onValueChange={setEmailDomain}>
@@ -137,9 +151,7 @@ const HeroCallToActions = () => {
                       <SelectContent>
                         <SelectItem value="@gmail.com">@gmail.com</SelectItem>
                         <SelectItem value="@yahoo.com">@yahoo.com</SelectItem>
-                        <SelectItem value="@outlook.com">
-                          @outlook.com
-                        </SelectItem>
+                        <SelectItem value="@outlook.com">@outlook.com</SelectItem>
                         <SelectItem value="custom">Custom</SelectItem>
                       </SelectContent>
                     </Select>

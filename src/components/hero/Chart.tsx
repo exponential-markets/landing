@@ -1,32 +1,14 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Bar, BarChart, LabelList, LabelProps, XAxis, YAxis } from "recharts";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { Button } from "../ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Info } from "lucide-react";
 import { heroChartData } from "@/constants/chartData";
 import { useState, useEffect } from "react";
 import { usePostHog } from "posthog-js/react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 const chartConfig = {
   value: {
@@ -102,6 +84,25 @@ const renderCustomizedLabel = (props: CustomizedLabelProps) => {
     </g>
   );
 };
+
+const InfoTooltip = ({ content }: { content: string }) => (
+  <TooltipPrimitive.Provider delayDuration={0}>
+    <TooltipPrimitive.Root>
+      <TooltipPrimitive.Trigger asChild>
+        <Info className="h-4 w-4 ml-1 text-muted-foreground" />
+      </TooltipPrimitive.Trigger>
+      <TooltipPrimitive.Portal>
+        <TooltipPrimitive.Content
+          className="bg-popover text-popover-foreground px-3 py-1.5 text-xs rounded-md shadow-md max-w-xs animate-in fade-in-0 zoom-in-95"
+          sideOffset={5}
+        >
+          {content}
+          <TooltipPrimitive.Arrow className="fill-popover" />
+        </TooltipPrimitive.Content>
+      </TooltipPrimitive.Portal>
+    </TooltipPrimitive.Root>
+  </TooltipPrimitive.Provider>
+);
 
 export function Chart() {
   const posthog = usePostHog();
@@ -199,11 +200,17 @@ export function Chart() {
             </Button>
           </div>
         </CardHeader>
-        <div className="pt-6 pr-6 text-right ">
-          <span className="text-muted-foreground">AUM</span>
-          <h3 className="text-xl md:text-2xl w-fit">
-            ${" "}
-            {heroChartData.find((data) => data.name === selectedAlgorithm)!.aum}
+        {/* Add tooltips to the AUM section */}
+        <div className="pt-6 pr-6 text-right">
+          <div className="flex items-center justify-end">
+            <span className="text-muted-foreground mr-1">AUM</span>
+            <div className="hidden md:block">
+            <InfoTooltip content="Assets Under Management: The total value of assets currently managed by this algorithm." />
+
+            </div>
+          </div>
+          <h3 className="text-xl md:text-2xl">
+            $ {heroChartData.find((data) => data.name === selectedAlgorithm)!.aum}
           </h3>
         </div>
       </div>
@@ -222,7 +229,14 @@ export function Chart() {
               tickMargin={10}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <YAxis axisLine={false} tickLine={false} />
+            <YAxis
+              label={{
+                value: "% Change in Investment",
+                angle: -90,
+                position: "insideLeft",
+                style: { textAnchor: "middle" },
+              }}
+            />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
@@ -262,6 +276,10 @@ export function Chart() {
               <h4 className="text-base leading-5 whitespace-nowrap">
                 Return on Investment
               </h4>
+              <div className="hidden md:block">
+              <InfoTooltip content="The total percentage gain or loss on the initial investment over the past year." />
+
+            </div>
             </div>
             <span className="text-2xl lg:text-3xl font-semibold text-[#2ACCA4]">
               {
@@ -281,12 +299,20 @@ export function Chart() {
               <h4 className="lg:w-auto text-base justify-between text-muted-foreground">
                 Profitable trades
               </h4>
+              <div className="hidden md:block">
+              <InfoTooltip content="The percentage of trades that resulted in a profit over the past year." />
+
+            </div>
             </div>
             <div className="flex mt-1 justify-end text-lg leading-5">
               <span className="mr-3 text-base">$10</span>
               <h4 className="min-[820px]:w-min lg:w-auto text-base text-muted-foreground">
                 Minimum Investment
               </h4>
+              <div className="hidden md:block">
+              <InfoTooltip content="The smallest amount you can invest in this algorithm." />
+
+            </div>
             </div>
           </div>
         </div>
