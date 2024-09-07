@@ -26,10 +26,9 @@ import { ContentType } from "recharts/types/component/Label";
 import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
 import { heroChartData } from "@/constants/chartData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePostHog } from "posthog-js/react";
 
-export const description = "A bar chart with a label";
 
 const chartConfig = {
   value: {
@@ -93,16 +92,34 @@ const renderCustomizedLabel: ContentType = (props) => {
 export function Chart() {
   const posthog = usePostHog();
   const [selectedAlgorithm, setSelectedAlgorithm] =
-    useState<string>("Vortex Algorithm");
+    useState<string>(heroChartData[0].name);
 
   const handleAlgorithmChange = (value: string) => {
     setSelectedAlgorithm(value);
     posthog.capture("selected_algorithm", { algorithm: value });
   };
 
-  const chartData = heroChartData.find(
-    (data) => data.name === selectedAlgorithm
-  )!.data;
+  const [chartData, setChartData] = useState(
+    heroChartData.find((data) => data.name === selectedAlgorithm)!.data
+  );
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+    const updatedChartData = heroChartData
+      .find((data) => data.name === selectedAlgorithm)!
+      .data.map((item, index) => ({
+        ...item,
+        month: months[(currentMonth + index + 1) % 12]
+      }));
+
+    setChartData(updatedChartData);
+  }, [selectedAlgorithm]);
 
   return (
     <Card className="border rounded-3xl bg-card-gradient">
@@ -133,10 +150,16 @@ export function Chart() {
           <div className="mt-1 md:mt-2 flex gap-2 items-center">
             <div className="text-xs md:text-sm flex items-center gap-2 p-1 pr-3 rounded-full bg-secondary w-fit">
               <Avatar className="size-4 md:size-5">
-                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarImage src={
+                  heroChartData.find((data) => data.name === selectedAlgorithm)!
+                    .image
+                } />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              Vihaan
+              {
+                heroChartData.find((data) => data.name === selectedAlgorithm)!
+                  .creator
+              }
             </div>
             <Button
               variant={"outline"}
