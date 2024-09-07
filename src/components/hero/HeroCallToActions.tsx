@@ -62,12 +62,9 @@ const HeroCallToActions = () => {
           body: JSON.stringify({ name, email: fullEmail, role }),
         }
       );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
       await response.json();
     } catch (error) {
-      toast.error("An error occurred. Please try again.");
+      console.log("Error:", error);
     }
     toast.success("Sending you an invite soon!");
     setOpen(false);
