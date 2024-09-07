@@ -50,7 +50,25 @@ const HeroCallToActions = () => {
     }
 
     setLoading(true);
-    console.log({ name, email: fullEmail, role });
+    try {
+      const response = await fetch(
+        "https://waitlist.exponential.markets",
+        {
+          mode:"no-cors",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email: fullEmail, role }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      await response.json();
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+    }
     toast.success("Sending you an invite soon!");
     setOpen(false);
 
