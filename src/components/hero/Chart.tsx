@@ -1,5 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bar, BarChart, LabelList, XAxis, YAxis } from "recharts";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Bar, BarChart, LabelList, LabelProps, XAxis, YAxis } from "recharts";
 
 import {
   Select,
@@ -22,13 +22,11 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { ContentType } from "recharts/types/component/Label";
 import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
 import { heroChartData } from "@/constants/chartData";
 import { useState, useEffect } from "react";
 import { usePostHog } from "posthog-js/react";
-
 
 const chartConfig = {
   value: {
@@ -37,10 +35,32 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const renderCustomizedLabel: ContentType = (props) => {
-  const { x, y, width, value } = props;
+interface CustomizedLabelProps extends LabelProps {
+  chartData: {
+    month: string;
+    value: number;
+  }[];
+}
+
+const renderCustomizedLabel = (props: CustomizedLabelProps) => {
+  const { x, y, width, value, chartData } = props;
   const rectWidth = Number(width);
   const rectHeight = 3;
+
+  // Sort the chart data and get the top 6 values
+  const sortedValues = chartData
+    .map((item) => item.value)
+    .sort((a, b) => b - a);
+  const top6Values = sortedValues.slice(0, 6);
+
+  // Determine which gradient to apply
+  const isTop6 = top6Values.includes(Number(value));
+  const fillGradient =
+    Number(value) < 0
+      ? "url(#gradient3)"
+      : isTop6
+      ? "url(#gradient2)"
+      : "url(#gradient1)";
 
   return (
     <g>
@@ -77,13 +97,7 @@ const renderCustomizedLabel: ContentType = (props) => {
         height={rectHeight}
         rx={rectHeight / 2}
         ry={rectHeight / 2}
-        fill={
-          Number(value) < -150
-            ? "url(#gradient3)"
-            : Number(value) > 240
-            ? "url(#gradient2)"
-            : "url(#gradient1)"
-        }
+        fill={fillGradient}
       />
     </g>
   );
@@ -91,8 +105,9 @@ const renderCustomizedLabel: ContentType = (props) => {
 
 export function Chart() {
   const posthog = usePostHog();
-  const [selectedAlgorithm, setSelectedAlgorithm] =
-    useState<string>(heroChartData[0].name);
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState<string>(
+    heroChartData[0].name
+  );
 
   const handleAlgorithmChange = (value: string) => {
     setSelectedAlgorithm(value);
@@ -107,15 +122,25 @@ export function Chart() {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     const months = [
-      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ];
 
     const updatedChartData = heroChartData
       .find((data) => data.name === selectedAlgorithm)!
       .data.map((item, index) => ({
         ...item,
-        month: months[(currentMonth + index + 1) % 12]
+        month: months[(currentMonth + index + 1) % 12],
       }));
 
     setChartData(updatedChartData);
@@ -150,11 +175,13 @@ export function Chart() {
           <div className="mt-1 md:mt-2 flex gap-2 items-center">
             <div className="text-xs md:text-sm flex items-center gap-2 p-1 pr-3 rounded-full bg-secondary w-fit">
               <Avatar className="size-4 md:size-5">
-                <AvatarImage src={
-                  heroChartData.find((data) => data.name === selectedAlgorithm)!
-                    .image
-                } />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarImage
+                  src={
+                    heroChartData.find(
+                      (data) => data.name === selectedAlgorithm
+                    )!.image
+                  }
+                />
               </Avatar>
               {
                 heroChartData.find((data) => data.name === selectedAlgorithm)!
@@ -220,7 +247,9 @@ export function Chart() {
                 offset={12}
                 className="fill-foreground"
                 fontSize={12}
-                content={renderCustomizedLabel}
+                content={(props) =>
+                  renderCustomizedLabel({ ...props, chartData })
+                }
               />
             </Bar>
           </BarChart>

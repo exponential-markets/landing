@@ -1,8 +1,12 @@
+import shubhamImg from "../assets/shubham.jpeg";
+import parthImg from "../assets/parth.png";
+import ritikImg from "../assets/ritik.jpeg";
+
 export const heroChartData = [
   {
     name: "Vortex Stochastic",
     creator: "Shubham",
-    image: "https://github.com/ShubhamPalriwala.png",
+    image: shubhamImg,
     currency: "ETH/USDT",
     roi: "43.32%",
     aum: "190k",
@@ -25,7 +29,7 @@ export const heroChartData = [
   {
     name: "Quantum Oscillator",
     creator: "Parth",
-    image: "https://github.com/AjmeraParth132.png",
+    image: parthImg,
     currency: "ETH/USDT",
     roi: "33.69%",
     aum: "323k",
@@ -48,7 +52,7 @@ export const heroChartData = [
   {
     name: "Nebula Pulse",
     creator: "Ritik",
-    image: "https://media.licdn.com/dms/image/v2/C5103AQEOFvC8PJ1-wA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1560971707513?e=1730937600&v=beta&t=t6vVD7K8F_1PTw56pw-ghCrpAufVsk1obUxUL9gIOgY",
+    image: ritikImg,
     currency: "ETH/USDT",
     roi: "47.72%",
     aum: "65k",
