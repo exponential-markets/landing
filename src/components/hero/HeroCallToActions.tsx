@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { ArrowUpRight, CirclePlay, Loader2 } from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { useState, useEffect } from "react";
+import { ChevronUp, CirclePlay, Loader2 } from "lucide-react";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { toast } from "sonner";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
@@ -12,98 +12,137 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import { toast } from "sonner";
 
 const HeroCallToActions = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+  const [emailDomain, setEmailDomain] = useState("@gmail.com");
+  const [role, setRole] = useState("Investor");
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Function to reset all states
+  const resetStates = () => {
+    setName("");
+    setEmail("");
+    setEmailDomain("@gmail.com");
+    setRole("Investor");
+    setLoading(false);
+  };
+
+  // Reset states when popup closes
+  useEffect(() => {
+    if (!open) {
+      resetStates();
+    }
+  }, [open]);
+
   // Function to handle form submission
   const handleJoinWaitlist = async () => {
-    if (!name || !email || !role) {
+    const fullEmail =
+      emailDomain === "custom" ? email : `${email}${emailDomain}`;
+
+    if (!name || !fullEmail || !role) {
       toast.error("Please fill out all fields.");
       return;
     }
 
     setLoading(true);
-    console.log({ name, email, role });
+    console.log({ name, email: fullEmail, role });
 
     toast.success("You've been added to the waitlist!");
-    setName("");
-    setEmail("");
-    setRole("");
     setOpen(false);
-    setLoading(false);
   };
 
   return (
     <div className="my-6 lg:mt-8 flex gap-3 lg:gap-6">
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button className="py-4 rounded-full flex gap-2 justify-center items-center">
-            Join the Waitlist <ArrowUpRight size={18} />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-80">
-          <div className="grid gap-2">
-            <div className="grid gap-2">
-              <div className="grid grid-cols-3 items-center gap-4">
+      <Button
+        className="py-4 rounded-full flex gap-1 justify-center items-center"
+        onClick={() => setOpen(true)}
+      >
+        Join Waitlist <ChevronUp size={18} />
+      </Button>
+      {open && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-background rounded-lg p-6 w-96 max-w-full">
+            <h2 className="text-2xl font-bold mb-4">
+              Request Exponential Access
+            </h2>
+            <div className="grid gap-4">
+              <div className="grid gap-2">
                 <Label htmlFor="name">Name</Label>
                 <Input
                   id="name"
-                  placeholder="name"
-                  className="col-span-2 h-8"
+                  placeholder="Enter your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="grid grid-cols-3 items-center gap-4">
+              <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  placeholder="email"
-                  className="col-span-2 h-8"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <div className="flex gap-2">
+                  <Input
+                    id="email"
+                    placeholder={
+                      emailDomain === "custom"
+                        ? "Enter your full email"
+                        : "Enter your email"
+                    }
+                    className="flex-grow"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  {emailDomain !== "custom" && (
+                    <Select value={emailDomain} onValueChange={setEmailDomain}>
+                      <SelectTrigger className="w-[140px]">
+                        <SelectValue placeholder="Domain" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="@gmail.com">@gmail.com</SelectItem>
+                        <SelectItem value="@yahoo.com">@yahoo.com</SelectItem>
+                        <SelectItem value="@outlook.com">
+                          @outlook.com
+                        </SelectItem>
+                        <SelectItem value="custom">Custom</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  )}
+                </div>
               </div>
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="role">Role</Label>
-                <Select value={role} onValueChange={(value) => setRole(value)}>
-                  <SelectTrigger className="col-span-2 h-8">
-                    <SelectValue placeholder="Role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Investor">Investor</SelectItem>
-                    <SelectItem value="Developer">Developer</SelectItem>
-                  </SelectContent>
-                </Select>
+              <div className="grid gap-2">
+                <Label>Role</Label>
+                <Tabs value={role} onValueChange={setRole} className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="Investor">Investor</TabsTrigger>
+                    <TabsTrigger value="Developer">Developer</TabsTrigger>
+                  </TabsList>
+                </Tabs>
               </div>
             </div>
-            <div className="flex w-full flex-row-reverse">
-              <div></div>
-              <div></div>
+            <div className="mt-6 flex justify-end gap-2">
               <Button
-                className="rounded-full w-fit"
+                variant="outline"
+                className="rounded-full"
+                onClick={() => setOpen(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                className="rounded-full"
                 onClick={handleJoinWaitlist}
                 disabled={loading}
               >
-                Submit
-                {loading && (
-                  <Loader2 className="ml-2 h-4 w-4 animate-spin text-background" />
-                )}
+                {loading ? "Submitting..." : "Join Now"}
+                {loading ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <ChevronUp size={18} />
+                )}{" "}
               </Button>
             </div>
           </div>
-        </PopoverContent>
-      </Popover>
+        </div>
+      )}
       <Button className="bg-[#393939] hover:bg-[#393939] text-foreground py-4 rounded-full flex gap-2 justify-center items-center">
         See How It Works <CirclePlay size={18} />
       </Button>
@@ -112,24 +151,3 @@ const HeroCallToActions = () => {
 };
 
 export default HeroCallToActions;
-
-{
-  /* <>
-          <div className="flex">
-            <Input
-              autoFocus
-              className="bg-background rounded-l-full focus-visible:ring-0"
-              placeholder="your email..."
-              onChange={(e) => setUserEmail(e.target.value)}
-              value={userEmail}
-            />
-            <Button
-              onClick={() => handleJoinWaitlist(userEmail)}
-              className="rounded-full -ml-4"
-            >
-              Join
-              {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
-            </Button>
-          </div>
-        </> */
-}
