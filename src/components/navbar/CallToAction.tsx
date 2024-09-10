@@ -12,7 +12,7 @@ import exponentialLogo from "@/assets/logo.svg";
 
 const CallToAction = () => {
   return (
-    <Dialog open>
+    <Dialog>
       <DialogTrigger asChild>
         <div className="flex items-center justify-center self-baseline md:flex h-full bg-continue-button-background shadow-continue-button-shadow rounded-full hover:cursor-pointer">
           <div className="flex gap-2 items-center justify-center bg-noise-background px-3 py-1.5 md:px-6 md:py-3">
