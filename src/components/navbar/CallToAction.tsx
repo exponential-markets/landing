@@ -2,17 +2,18 @@ import {
   Dialog,
   DialogContent,
   DialogOverlay,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "../ui/button";
 import SignInSlideShow from "./SignInSlideShow";
 import { CircleArrowRight } from "lucide-react";
-import googleIcon from "../../assets/googleicon.svg";
 import exponentialLogo from "@/assets/logo.svg";
+import { GoogleLogin } from "@react-oauth/google";
 
 const CallToAction = () => {
   return (
     <Dialog>
+      <DialogTitle className="hidden" />
       <DialogTrigger asChild>
         <div className="flex items-center justify-center self-baseline md:flex h-full bg-continue-button-background shadow-continue-button-shadow rounded-full hover:cursor-pointer">
           <div className="flex gap-2 items-center justify-center bg-noise-background px-3 py-1.5 md:px-6 md:py-3">
@@ -44,10 +45,16 @@ const CallToAction = () => {
                   Unlock your personalized dashboard now
                 </p>
               </div>
-              <Button className="flex items-center gap-2 mt-4">
-                <img src={googleIcon} alt="Google Logo" className="size-4" />
-                Sign in with Google
-              </Button>
+              <div className="mt-2">
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    console.log(credentialResponse);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
