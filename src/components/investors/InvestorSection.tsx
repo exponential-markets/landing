@@ -23,7 +23,7 @@ const InvestorSection = () => {
             <img
               src={fillerArrow}
               alt="filler arrow"
-              className="w-8 h-5 md:w-16 md:h-10"
+              className="mb-4 w-8 h-5 md:w-16 md:h-10"
             />
             <img
               src={coinStack}
@@ -41,7 +41,7 @@ const InvestorSection = () => {
             <img
               src={fillerArrow}
               alt="filler arrow"
-              className="w-8 h-5 md:w-16 md:h-10"
+              className="mb-4 w-8 h-5 md:w-16 md:h-10"
             />
             <img
               src={priceUp}
@@ -59,7 +59,7 @@ const InvestorSection = () => {
             <img
               src={fillerArrow}
               alt="filler arrow"
-              className="w-8 h-5 md:w-16 md:h-10"
+              className="mb-4 w-16 h-10"
             />
             <img
               src={piggyBank}
@@ -76,8 +76,7 @@ const InvestorSection = () => {
                 <br />
                 We Handle the Code
               </h3>
-              <br/>
-              <p className="text-base text-gray-300 my-2 min-[820px]:mb-0 w-full md:w-1/2">
+              <p className="text-base text-gray-300 my-2 min-[820px]:mb-0 w-full">
                 Our advanced algorithms and expert team manage the technical
                 aspects, allowing you to concentrate on your investment
                 strategy.
@@ -87,7 +86,7 @@ const InvestorSection = () => {
               <img
                 src={fillerArrow}
                 alt="filler arrow"
-                className="w-16 h-10 self-end"
+                className="mb-4 w-16 h-10 self-end"
               />
             </div>
           </div>
@@ -95,31 +94,29 @@ const InvestorSection = () => {
             <img
               src={glassMarbles}
               alt="glass marbles"
-              className="w-72 md:w-44 self-end"
+              className="mb-4 w-72 md:w-44 self-end"
             />
           </div>
         </div>
         <div className="col-span-2 md:col-span-1 border-[1.5px] rounded-xl pt-5 bg-angular-gradient-1 backdrop-blur-[70px] lg:h-64">
-          <div>
-            <div>
-              <h3 className="text-xl lg:text-2xl px-5 min-[820px]:mb-4">
-                No KYC needed,
-                <br />
-                Deposit Crypto,
-                <br />& start rightaway!
-              </h3>
-              <div className="mt-auto flex justify-between items-end">
-                <img
-                  src={fillerArrow}
-                  alt="filler arrow"
-                  className="mx-5 w-16 h-10"
-                />
-                <img
-                  src={globe}
-                  alt="globe"
-                  className="h-[7.5rem] min-[820px]:h-[4.5rem] lg:h-[7.5rem]"
-                />
-              </div>
+          <div className="h-full flex flex-col justify-between">
+            <h3 className="text-xl lg:text-2xl px-5 min-[820px]:mb-4">
+              No KYC needed,
+              <br />
+              Deposit Crypto,
+              <br />& start rightaway!
+            </h3>
+            <div className="mt-auto flex justify-between items-end">
+              <img
+                src={fillerArrow}
+                alt="filler arrow"
+                className="mb-4 mx-5 w-16 h-10"
+              />
+              <img
+                src={globe}
+                alt="globe"
+                className="h-[7.5rem] min-[820px]:h-[4.5rem] lg:h-[7.5rem]"
+              />
             </div>
           </div>
         </div>
