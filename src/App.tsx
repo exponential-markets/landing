@@ -26,9 +26,9 @@ formbricks.init({
 const App = () => {
   return (
     <>
-      <GoogleOAuthProvider clientId="<CLIENT_ID>">
-        {" "}
-        // TODO: Add Google OAuth Client ID
+      <GoogleOAuthProvider
+        clientId={import.meta.env.VITE_GOOGLE_OAUTH_CLIENT_ID}
+      >
         <PostHogProvider client={posthog}>
           <Navbar />
           <Hero />

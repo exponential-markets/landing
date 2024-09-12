@@ -47,11 +47,33 @@ const CallToAction = () => {
               </div>
               <div className="mt-2">
                 <GoogleLogin
-                  onSuccess={(credentialResponse) => {
-                    console.log(credentialResponse);
-                  }}
-                  onError={() => {
-                    console.log("Login Failed");
+                  onSuccess={async (credentialResponse) => {
+                    const formData = new FormData();
+                    formData.append(
+                      "credential",
+                      credentialResponse.credential!
+                    );
+
+                    const requestOptions = {
+                      method: "POST",
+                      body: formData,
+                    };
+
+                    try {
+                      const response = await fetch(
+                        `${import.meta.env.VITE_EXPONENTIAL_API_URL}/user/auth`,
+                        requestOptions
+                      );
+                      const result: { token: string } = await response.json();
+                      console.log(result);
+
+                      // Redirect to the dashboard app with the token as a URL parameter
+                      window.location.href = `${
+                        import.meta.env.VITE_EXPONENTIAL_DASHBOARD_URL
+                      }/auth?token=${encodeURIComponent(result.token)}`;
+                    } catch (error) {
+                      console.error(error);
+                    }
                   }}
                 />
               </div>
