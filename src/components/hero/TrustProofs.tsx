@@ -1,6 +1,5 @@
 import { Sparkle } from "lucide-react";
 import janeStreetLogo from "../../assets/jane street logo.png";
-import optiverLogo from "../../assets/optiver logo.png";
 import quadeyeLogo from "../../assets/quadeye logo.png";
 import gravitonLogo from "../../assets/graviton logo.png";
 
@@ -13,7 +12,6 @@ const TrustProofs = () => {
       </div>
       <div className="flex gap-4 mt-4 justify-center min-[820px]:justify-normal">
         <img src={janeStreetLogo} alt="Logo" className="h-6 lg:h-10" />
-        <img src={optiverLogo} alt="Logo" className="h-6 lg:h-10" />
         <img src={quadeyeLogo} alt="Logo" className="h-6 lg:h-10" />
         <img src={gravitonLogo} alt="Logo" className="h-6 lg:h-10" />
       </div>
