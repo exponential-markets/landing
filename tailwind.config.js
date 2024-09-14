@@ -57,6 +57,8 @@ export default {
       backgroundImage: {
         "wave-background": "url('/src/assets/Wave background.png')",
         "noise-background": "url('/src/assets/noisebackground.png')",
+        "continue-button-background":
+          "radial-gradient(50% 50% at 50% 50%, #171717 0%, #494949 100%)",
         "angular-gradient-1":
           "conic-gradient(from 180deg at 50% 50%, rgba(217, 217, 217, 0.2) -30.91deg, #393939 28.87deg, #070707 97.79deg, #171717 182.64deg, #8D8D8D 260.16deg, rgba(221, 222, 222, 0.3) 307.42deg, rgba(217, 217, 217, 0.2) 329.09deg, #393939 388.87deg)",
         "angular-gradient-2":
@@ -65,6 +67,10 @@ export default {
           "conic-gradient(from 53.09deg at 50% 50%, #000000 -51.12deg, rgba(229, 228, 226, 0.5) 69.48deg, #848884 143.28deg, #71797E 215.28deg, #000000 308.88deg, rgba(229, 228, 226, 0.5) 429.48deg)",
         "card-gradient":
           "linear-gradient(354.6deg, rgba(29, 29, 29, 0.6) 10.25%, rgba(0, 0, 0, 0.6) 33.18%, rgba(0, 0, 0, 0.6) 68.59%)",
+      },
+      boxShadow: {
+        "continue-button-shadow":
+          "0 0 20px #FFFFFF, 0 0 1px 4px rgba(255, 255, 255, 0.1), inset 0 -4px 2px rgba(0, 0, 0, 0.25), inset 0 2px 1px rgba(255, 255, 255, 0.25)",
       },
     },
   },

@@ -1,8 +1,25 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Bar, BarChart, LabelList, LabelProps, XAxis, YAxis } from "recharts";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 import { Button } from "../ui/button";
 import { ChevronDown, Info } from "lucide-react";
 import { heroChartData } from "@/constants/chartData";
@@ -156,7 +173,7 @@ export function Chart() {
             onValueChange={handleAlgorithmChange}
             value={selectedAlgorithm}
           >
-            <SelectTrigger className="pl-0 border-none focus:ring-0">
+            <SelectTrigger className="px-0 border-none focus:ring-0">
               <SelectValue asChild>
                 <div className="flex gap-2 items-center">
                   <h3 className="text-xl md:text-2xl">{selectedAlgorithm}</h3>
@@ -205,12 +222,12 @@ export function Chart() {
           <div className="flex items-center justify-end">
             <span className="text-muted-foreground mr-1">AUM</span>
             <div className="hidden md:block">
-            <InfoTooltip content="Assets Under Management: The total value of assets currently managed by this algorithm." />
-
+              <InfoTooltip content="Assets Under Management: The total value of assets currently managed by this algorithm." />
             </div>
           </div>
           <h3 className="text-xl md:text-2xl">
-            $ {heroChartData.find((data) => data.name === selectedAlgorithm)!.aum}
+            ${" "}
+            {heroChartData.find((data) => data.name === selectedAlgorithm)!.aum}
           </h3>
         </div>
       </div>
@@ -277,9 +294,8 @@ export function Chart() {
                 Return on Investment
               </h4>
               <div className="hidden md:block">
-              <InfoTooltip content="The total percentage gain or loss on the initial investment over the past year." />
-
-            </div>
+                <InfoTooltip content="The total percentage gain or loss on the initial investment over the past year." />
+              </div>
             </div>
             <span className="text-2xl lg:text-3xl font-semibold text-[#2ACCA4]">
               {
@@ -289,7 +305,7 @@ export function Chart() {
             </span>
           </div>
           <div>
-            <div className="flex gap-1 justify-between text-lg leading-5 md:text-xl">
+            <div className="flex gap-1 justify-between items-center text-lg leading-5 md:text-xl">
               <span className="font-semibold text-[#2ACCA4]">
                 {
                   heroChartData.find((data) => data.name === selectedAlgorithm)!
@@ -300,19 +316,17 @@ export function Chart() {
                 Profitable trades
               </h4>
               <div className="hidden md:block">
-              <InfoTooltip content="The percentage of trades that resulted in a profit over the past year." />
-
+                <InfoTooltip content="The percentage of trades that resulted in a profit over the past year." />
+              </div>
             </div>
-            </div>
-            <div className="flex mt-1 justify-end text-lg leading-5">
+            <div className="flex mt-1 justify-end items-center text-lg leading-5">
               <span className="mr-3 text-base">$10</span>
               <h4 className="min-[820px]:w-min lg:w-auto text-base text-muted-foreground">
                 Minimum Investment
               </h4>
               <div className="hidden md:block">
-              <InfoTooltip content="The smallest amount you can invest in this algorithm." />
-
-            </div>
+                <InfoTooltip content="The smallest amount you can invest in this algorithm." />
+              </div>
             </div>
           </div>
         </div>
