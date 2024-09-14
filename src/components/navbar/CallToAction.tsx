@@ -65,8 +65,6 @@ const CallToAction = () => {
                         requestOptions
                       );
                       const result: { token: string } = await response.json();
-                      console.log(result);
-
                       // Redirect to the dashboard app with the token as a URL parameter
                       window.location.href = `${
                         import.meta.env.VITE_EXPONENTIAL_DASHBOARD_URL
