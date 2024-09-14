@@ -237,7 +237,7 @@ export function Chart() {
             accessibilityLayer
             data={chartData}
             margin={{
-              top: 20,
+              left: -20,
             }}
           >
             <XAxis
@@ -252,6 +252,7 @@ export function Chart() {
                 angle: -90,
                 position: "insideLeft",
                 style: { textAnchor: "middle" },
+                dx: 20,
               }}
             />
             <ChartTooltip
@@ -272,7 +273,7 @@ export function Chart() {
                 />
               </linearGradient>
             </defs>
-            <Bar dataKey="value" fill="url(#fillValue)" radius={5}>
+            <Bar dataKey="value" fill="url(#fillValue)" radius={3}>
               <LabelList
                 position="top"
                 offset={12}
@@ -290,8 +291,11 @@ export function Chart() {
         <div className="flex gap-2 justify-between w-full">
           <div>
             <div className="flex items-center gap-2">
-              <h4 className="text-base leading-5 whitespace-nowrap">
+              <h4 className="hidden md:block min-[820px]:hidden xl:block text-base leading-5 whitespace-nowrap">
                 Return on Investment
+              </h4>
+              <h4 className="md:hidden text-base min-[820px]:block xl:hidden">
+                ROI
               </h4>
               <div className="hidden md:block">
                 <InfoTooltip content="The total percentage gain or loss on the initial investment over the past year." />
@@ -321,8 +325,8 @@ export function Chart() {
             </div>
             <div className="flex mt-1 justify-end items-center text-lg leading-5">
               <span className="mr-3 text-base">$10</span>
-              <h4 className="min-[820px]:w-min lg:w-auto text-base text-muted-foreground">
-                Minimum Investment
+              <h4 className="text-base text-muted-foreground">
+                Min. Investment
               </h4>
               <div className="hidden md:block">
                 <InfoTooltip content="The smallest amount you can invest in this algorithm." />

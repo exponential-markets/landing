@@ -26,7 +26,7 @@ const DeveloperSection = () => {
               <img
                 src={fillerArrow}
                 alt="filler arrow"
-                className="w-16 h-10 self-end"
+                className="mb-4 w-16 h-10 self-end"
               />
             </div>
           </div>
@@ -34,7 +34,7 @@ const DeveloperSection = () => {
             <img
               src={glassMarbles}
               alt="glass marbles"
-              className="w-36 self-end"
+              className="mb-4 w-28 md:w-36 self-end"
             />
           </div>
         </div>
@@ -47,9 +47,9 @@ const DeveloperSection = () => {
             <img
               src={fillerArrow}
               alt="filler arrow"
-              className="w-8 h-5 md:w-16 md:h-10"
+              className="mb-4 w-8 h-5 md:w-16 md:h-10"
             />
-            <img src={target} alt="target" className="w-20 lg:w-40" />
+            <img src={target} alt="target" className="mb-4 w-20 lg:w-40" />
           </div>
         </div>
         <div className="border-[1.5px] rounded-xl px-4 pt-4 lg:px-5 lg:pt-5 bg-angular-gradient-2 backdrop-blur-[70px] flex flex-col lg:h-64">
@@ -62,9 +62,9 @@ const DeveloperSection = () => {
             <img
               src={fillerArrow}
               alt="filler arrow"
-              className="w-8 h-5 md:w-16 md:h-10"
+              className="mb-4 w-8 h-5 md:w-16 md:h-10"
             />
-            <img src={clock} alt="clock" className="h-20 lg:h-36" />
+            <img src={clock} alt="clock" className="mb-2 h-20 lg:h-36" />
           </div>
         </div>
         <div className="col-span-2 border-[1.5px] rounded-xl px-4 pt-4 lg:px-5 lg:pt-5 bg-angular-gradient-2 backdrop-blur-[70px] flex justify-between lg:h-64">
@@ -76,7 +76,11 @@ const DeveloperSection = () => {
                 You own the Commission
               </h3>
             </div>
-            <img src={fillerArrow} alt="filler arrow" className="w-16 h-10" />
+            <img
+              src={fillerArrow}
+              alt="filler arrow"
+              className="mb-4 w-16 h-10"
+            />
           </div>
           <div className="flex items-center">
             <img src={console} alt="game console" className="h-36 lg:h-48" />

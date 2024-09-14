@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUpRight, ChevronUp, Loader2 } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -45,11 +45,11 @@ const HeroCallToActions = () => {
     setEmail(inputEmail);
 
     // Check if the input contains '@' and some text after it
-    if (inputEmail.includes('@') && inputEmail.split('@')[1].length > 0) {
-      setEmailDomain('custom');
-    } else if (emailDomain === 'custom') {
+    if (inputEmail.includes("@") && inputEmail.split("@")[1].length > 0) {
+      setEmailDomain("custom");
+    } else if (emailDomain === "custom") {
       // If it doesn't contain '@' and domain was custom, reset to default
-      setEmailDomain('@gmail.com');
+      setEmailDomain("@gmail.com");
     }
   };
 
@@ -65,17 +65,14 @@ const HeroCallToActions = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(
-        "https://waitlist.exponential.markets",
-        {
-          mode:"no-cors",
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email: fullEmail, role }),
-        }
-      );
+      const response = await fetch("https://waitlist.exponential.markets", {
+        mode: "no-cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email: fullEmail, role }),
+      });
       await response.json();
     } catch (error) {
       console.log("Error:", error);
@@ -106,12 +103,12 @@ const HeroCallToActions = () => {
   };
 
   return (
-    <div className="my-6 lg:mt-8 flex gap-3 lg:gap-4 justify-center lg:justify-start">
+    <div className="my-6 lg:mt-8 flex gap-3 lg:gap-4 justify-center min-[820px]:justify-start">
       <Button
         className="py-4 rounded-full flex gap-1 justify-center items-center"
         onClick={() => setOpen(true)}
       >
-        Join Waitlist <ChevronUp size={18} />
+        Join Waitlist <ChevronRight size={18} />
       </Button>
       {open && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 sm:p-0">
@@ -151,7 +148,9 @@ const HeroCallToActions = () => {
                       <SelectContent>
                         <SelectItem value="@gmail.com">@gmail.com</SelectItem>
                         <SelectItem value="@yahoo.com">@yahoo.com</SelectItem>
-                        <SelectItem value="@outlook.com">@outlook.com</SelectItem>
+                        <SelectItem value="@outlook.com">
+                          @outlook.com
+                        </SelectItem>
                         <SelectItem value="custom">Custom</SelectItem>
                       </SelectContent>
                     </Select>
@@ -185,7 +184,7 @@ const HeroCallToActions = () => {
                 {loading ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
-                  <ChevronUp size={18} />
+                  <ChevronRight size={18} />
                 )}{" "}
               </Button>
             </div>
