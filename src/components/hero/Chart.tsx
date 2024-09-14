@@ -173,7 +173,7 @@ export function Chart() {
             onValueChange={handleAlgorithmChange}
             value={selectedAlgorithm}
           >
-            <SelectTrigger className="pl-0 border-none focus:ring-0">
+            <SelectTrigger className="px-0 border-none focus:ring-0">
               <SelectValue asChild>
                 <div className="flex gap-2 items-center">
                   <h3 className="text-xl md:text-2xl">{selectedAlgorithm}</h3>
