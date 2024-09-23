@@ -1,47 +1,35 @@
-import { Toaster } from "sonner";
-import DeveloperSection from "./components/developers/DeveloperSection";
-import Footer from "./components/footer/Footer";
-import Hero from "./components/hero/Hero";
-import InvestorSection from "./components/investors/InvestorSection";
-import Navbar from "./components/navbar/Navbar";
-import StickyNavbarTab from "./components/navbar/StickyNavbarTab";
-import Pricing from "./components/pricing/Pricing";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import posthog from "posthog-js";
-import { PostHogProvider } from "posthog-js/react";
-import formbricks from "@formbricks/js/website";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-posthog.init("phc_Pf23onE68qvYSLrFboMEl6TdGqX3HIy2pLqGSlVfuwt", {
-  api_host: "https://us.i.posthog.com",
-  loaded: (posthog) => {
-    if (import.meta.env.DEV) posthog.debug();
-  },
-});
+function App() {
+  const [count, setCount] = useState(0)
 
-formbricks.init({
-  environmentId: "cm0rz69yp000kp9k5sk0lzrvm",
-  apiHost: "https://app.formbricks.com",
-});
-
-const App = () => {
   return (
     <>
-      <GoogleOAuthProvider
-        clientId={import.meta.env.VITE_GOOGLE_OAUTH_CLIENT_ID}
-      >
-        <PostHogProvider client={posthog}>
-          <Navbar />
-          <Hero />
-          <InvestorSection />
-          <DeveloperSection />
-          <Pricing />
-          <Footer />
-          <StickyNavbarTab />
-          <Toaster position="top-center" richColors />
-        </PostHogProvider>
-      </GoogleOAuthProvider>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
