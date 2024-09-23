@@ -1,5 +1,7 @@
 # Exponential - Algorithmic Trading Platform
 
+<!-- testing fetching -->
+
 <img src="./public/logo.svg" alt="Exponential Logo" width="160" align="right" />
 
 Exponential is a cutting-edge algorithmic trading platform that bridges the gap between expert developers and investors. Our platform allows developers to create and deploy trading algorithms while providing investors with access to a curated marketplace of expert-crafted strategies.
