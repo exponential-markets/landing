@@ -1,7 +1,7 @@
 import InfiniteHorizontalMovingCards from "@/components/ui/infinite-horizontal-moving-cards";
 import { PartyPopper } from "lucide-react";
 
-const Clients = () => {
+const Algorithms = () => {
   return (
     <div className="mt-14">
       <InfiniteHorizontalMovingCards
@@ -29,4 +29,4 @@ const Clients = () => {
   );
 };
 
-export default Clients;
+export default Algorithms;

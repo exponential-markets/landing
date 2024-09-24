@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 
 const PrivateSetup = () => {
   return (
-    <div id="private-setup" className="my-24 lg:px-24 xl:px-40">
+    <div id="private-setup" className="mt-24 lg:px-24 xl:px-40">
       <div className="border-2 border-foreground/10 rounded-lg">
         <div className="flex flex-col items-center gap-4 bg-gradient-to-b from-card to-transparent rounded-md p-8">
           <Badge

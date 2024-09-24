@@ -2,11 +2,16 @@ import Badge from "@/components/shared/Badge";
 import Mockup from "@/components/shared/Mockup";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Sparkle } from "lucide-react";
-import DeveloperDashboard from "@/assets/Light Developer Dashboard.png";
-import DeveloperIDE from "@/assets/Light Developer IDE.png";
-import DeveloperAlgorithms from "@/assets/Light Developer Algorithms.png";
+import { useTranslation } from "react-i18next";
 
-const DeveloperCallToAction = () => {
+const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
+  const { t } = useTranslation();
+  const contentKey = isDeveloperPage ? "developer.cta" : "investor.cta";
+
+  const mockups = t(`${contentKey}.mockups`, {
+    returnObjects: true,
+  }) as { imageSrc: string; altText: string }[];
+
   return (
     <div
       id="developer-cta"
@@ -18,13 +23,10 @@ const DeveloperCallToAction = () => {
       />
       <div>
         <p className="text-3xl md:text-[42px] lg:text-5xl xl:text-6xl font-medium text-center text-balance">
-          <span className="text-primary">Code</span> Algorithms? Get{" "}
-          <span className="text-primary">Paid</span>
+          {t(`${contentKey}.title`)}
         </p>
         <p className="mt-4 xl:text-xl text-center text-pretty text-muted-foreground min-[820px]:px-20 lg:px-36 xl:px-64">
-          Write Python algorithms with our backtesting engine & helper tools.
-          From our IDE, deploy strategies, retain full IP, & earn commissions as
-          investors engage!
+          {t(`${contentKey}.description`)}
         </p>
       </div>
       <div className="flex flex-col gap-4 xl:hidden">
@@ -34,7 +36,7 @@ const DeveloperCallToAction = () => {
             size="lg"
             className="rounded-full text-base border-2 border-foreground hover:bg-foreground hover:text-background"
           >
-            Join Dev Waitlist
+            {isDeveloperPage ? "Join Waitlist" : "Join Dev Waitlist"}
             <ArrowUpRight className="size-5 ml-2" />
           </Button>
           <Button size="lg" className="rounded-full text-base">
@@ -42,12 +44,12 @@ const DeveloperCallToAction = () => {
           </Button>
         </div>
         <div className="mt-12 flex flex-col md:grid md:grid-cols-2 xl:hidden gap-6 items-center">
-          <Mockup imageSrc={DeveloperDashboard} altText="Developer Dashboard" />
-          <Mockup imageSrc={DeveloperIDE} altText="Developer IDE" />
+          <Mockup imageSrc={mockups[0].imageSrc} altText={mockups[0].altText} />
+          <Mockup imageSrc={mockups[1].imageSrc} altText={mockups[1].altText} />
           <div className="col-span-2 flex justify-center">
             <Mockup
-              imageSrc={DeveloperAlgorithms}
-              altText="Developer Algorithms"
+              imageSrc={mockups[2].imageSrc}
+              altText={mockups[2].altText}
               className="md:w-1/2"
             />
           </div>
@@ -55,26 +57,26 @@ const DeveloperCallToAction = () => {
       </div>
       <div className="hidden xl:grid xl:grid-cols-3 gap-9 -mx-10">
         <Mockup
-          imageSrc={DeveloperDashboard}
-          altText="Developer Dashboard"
+          imageSrc={mockups[0].imageSrc}
+          altText={mockups[0].altText}
           className="mt-3"
         />
         <div className="flex flex-col gap-14">
-          <div className="flex gap-4">
+          <div className="flex justify-center gap-4">
             <Button
               variant="outline"
               className="rounded-full border-2 border-foreground hover:bg-foreground hover:text-background"
             >
-              Join Dev Waitlist
+              {isDeveloperPage ? "Join Waitlist" : "Join Dev Waitlist"}
               <ArrowUpRight className="size-5 ml-2" />
             </Button>
             <Button className="rounded-full">Book a Call with Founders</Button>
           </div>
-          <Mockup imageSrc={DeveloperIDE} altText="Developer IDE" />
+          <Mockup imageSrc={mockups[1].imageSrc} altText={mockups[1].altText} />
         </div>
         <Mockup
-          imageSrc={DeveloperAlgorithms}
-          altText="Developer Algorithms"
+          imageSrc={mockups[2].imageSrc}
+          altText={mockups[2].altText}
           className="mt-3"
         />
       </div>
@@ -82,4 +84,4 @@ const DeveloperCallToAction = () => {
   );
 };
 
-export default DeveloperCallToAction;
+export default CallToAction;

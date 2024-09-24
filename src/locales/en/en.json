@@ -1,0 +1,444 @@
+{
+  "investor": {
+    "hero": {
+      "title": [
+        {
+          "text": "Invest",
+          "className": "text-primary"
+        },
+        {
+          "text": " in",
+          "className": "text-white/60"
+        },
+        {
+          "text": " Algorithms",
+          "className": ""
+        },
+        {
+          "text": " by",
+          "className": "text-white/60"
+        },
+        {
+          "text": " Quant Developers",
+          "className": "text-primary"
+        }
+      ],
+      "description": "Exponential Developers, Exponential Algorithms! Are you an Exponential Investor?",
+      "features": ["No KYC needed", "Pay only on Profits"],
+      "mockup": "/src/assets/Light Investor Dashboard.png"
+    },
+    "features": {
+      "title": "Invest Exponentially",
+      "features": [
+        {
+          "title": "Start with $10",
+          "description": "Low ticket sizes to kickstart algorithmic trading journey",
+          "icon": "User"
+        },
+        {
+          "title": "No KYC needed",
+          "description": "We just execute trades from our co-owned wallet",
+          "icon": "User"
+        },
+        {
+          "title": "Pay only on Profits",
+          "description": "Fees solely when exiting an algorithm profitably",
+          "icon": "ChartColumn"
+        },
+        {
+          "title": "No API Integrations",
+          "description": "All you need is USDT in ETH wallet and you're good to go",
+          "icon": "WalletMinimal"
+        },
+        {
+          "title": "No Subscription Fee",
+          "description": "Access algorithms and their metrics for free to invest",
+          "icon": "User"
+        },
+        {
+          "title": "Withdraw Anytime",
+          "description": "Withdraw your funds from an algorithm anytime anywhere",
+          "icon": "HandCoins"
+        }
+      ]
+    },
+    "guide": {
+      "badge": "INVEST IN 3 STEPS",
+      "steps": [
+        {
+          "title": [
+            {
+              "text": "Find",
+              "className": "text-primary"
+            },
+            {
+              "text": " Algorithm",
+              "className": ""
+            }
+          ],
+          "description": "Explore algorithms created by elite developers on the platform, scrutinize their historical profits, AUM, profitable trades, and additional metrics to ascertain if this is the selection for you.",
+          "mockup": "/src/assets/find algorithm.png",
+          "features": []
+        },
+        {
+          "title": [
+            {
+              "text": "Connect",
+              "className": ""
+            },
+            {
+              "text": " Wallet",
+              "className": "text-primary"
+            }
+          ],
+          "description": "Transfer USDT on ETH chain from your wallet to your algorithm's wallet using Metamask or manually as per your convenience.",
+          "mockup": "/src/assets/Dark Wallet Integration.png",
+          "features": [
+            "No API Key Integration or Third Party Linking",
+            "Each user gets their own wallet for any algorithm they deploy",
+            "Withdraw anytime from an algorithm back to your wallet"
+          ]
+        },
+        {
+          "title": [
+            {
+              "text": "Algorithm in",
+              "className": ""
+            },
+            {
+              "text": " Action",
+              "className": "text-primary"
+            }
+          ],
+          "description": "Sit Back & Enjoy your Returns. Don't worry, we don't charge you until you exit the algorithm and also make a profit.",
+          "mockup": "/src/assets/Dark Algorithm Live.png",
+          "features": [
+            "Real-time Monitoring",
+            "100% Transparent on-chain transactions to see your funds in action",
+            "Time to Bull your portfolio in the Bear market"
+          ]
+        }
+      ]
+    },
+    "joinees": {
+      "title": "Latest Joinees",
+      "description": "Just welcomed our latest investors on board! Fancy seeing your profile here? Log in and refresh your screen ;)",
+      "cta": "Discover More"
+    },
+    "faq": [
+      {
+        "question": "How can I start investing in algorithmic trading strategies?",
+        "answer": "To begin investing in algorithms, simply sign up on our platform, browse through the available algorithmic trading strategies, and choose one to invest in. You can start with as little as $10, and no prior experience or technical knowledge is needed."
+      },
+      {
+        "question": "Are the algorithmic trading strategies reliable?",
+        "answer": "Yes, all algorithms on our platform undergo rigorous backtesting against years of historical market data, including bear markets. We take extra measures to minimize overfitting, ensuring that the algorithms perform well in real-world trading environments."
+      },
+      {
+        "question": "Do I need to pay any upfront fees or sign up for a subscription?",
+        "answer": "No, there are no subscription fees or upfront costs. You only pay a small fee when you exit an algorithm, but only if it has generated profits for you."
+      },
+      {
+        "question": "What happens if an algorithm doesn’t generate profits?",
+        "answer": "You only pay a fee when the algorithm generates profits. If an algorithm underperforms or doesn’t make money, there are no charges. Our goal is to protect your investments and ensure you only pay when you earn."
+      },
+      {
+        "question": "Are these algorithmic trading strategies designed for small investors?",
+        "answer": "Yes, our platform is built specifically for retail investors. It provides access to advanced algorithmic trading strategies, without the usual high entry costs or complexity, making it accessible to everyone."
+      }
+    ],
+    "cta": {
+      "badge": "Let your Code make Money!",
+      "title": "Code Algorithms? Get Paid",
+      "description": "Write Python algorithms with our backtesting engine & helper tools. From our IDE, deploy strategies, retain full IP, & earn commissions as investors engage!",
+      "mockups": [
+        {
+          "imageSrc": "/src/assets/Light Developer Dashboard.png",
+          "altText": "Developer Dashboard"
+        },
+        {
+          "imageSrc": "/src/assets/Light Developer IDE.png",
+          "altText": "Developer IDE"
+        },
+        {
+          "imageSrc": "/src/assets/Light Developer Algorithms.png",
+          "altText": "Developer Algorithms"
+        }
+      ]
+    }
+  },
+  "developer": {
+    "hero": {
+      "title": [
+        {
+          "text": "Get Paid",
+          "className": "text-primary"
+        },
+        {
+          "text": " to",
+          "className": "text-white/60"
+        },
+        {
+          "text": " Code Algorithms",
+          "className": ""
+        }
+      ],
+      "description": "Write algorithms, No investment needed. Earn top commissions as investors fund your strategies.",
+      "features": ["Minute-Level Data", "Backtesting Engine"],
+      "mockup": "/src/assets/Light Developer Dashboard.png"
+    },
+    "features": {
+      "title": "Develop Exponentially",
+      "features": [
+        {
+          "title": "No Investment",
+          "description": "You focus on algorithm, we're here to get you investors",
+          "icon": "DollarSign"
+        },
+        {
+          "title": "Code in Python",
+          "description": "No new language to learn. It's our  own easy to grasp Python",
+          "icon": "Code"
+        },
+        {
+          "title": "Free Backtesting",
+          "description": "Test your algo against years of data to verify performance",
+          "icon": "Activity"
+        },
+        {
+          "title": "Online IDE & Helpers",
+          "description": "Code on our online website with helper methods and libs",
+          "icon": "Monitor"
+        },
+        {
+          "title": "Own the IP",
+          "description": "Algorithm IP stays with you, always and will always",
+          "icon": "FileLock"
+        },
+        {
+          "title": "Earn Instantly",
+          "description": "Get your earnings instantly after investors cash out ",
+          "icon": "HandCoins"
+        }
+      ]
+    },
+    "guide": {
+      "badge": "DEVELOP IN 3 STEPS",
+      "steps": [
+        {
+          "title": [
+            {
+              "text": "Code",
+              "className": "text-primary"
+            },
+            {
+              "text": " Algorithm",
+              "className": ""
+            }
+          ],
+          "description": "Write algorithm in Python on our online IDE with the help of standard open source libraries, helper methods, ticker data. Test it against example dataset",
+          "mockup": "/src/assets/Light Developer IDE.png",
+          "features": []
+        },
+        {
+          "title": [
+            {
+              "text": "Backtest",
+              "className": "text-primary"
+            },
+            {
+              "text": " Algorithm",
+              "className": ""
+            }
+          ],
+          "description": "Backtest against multiple Test Cases we've designed for you to make sure your algorithm has what it takes to sustain market conditions be it a Bear or a Bull",
+          "mockup": "/src/assets/Light Developer Backtesting.png",
+          "features": [
+            "Free Backtesting upto minutely data",
+            "Set Algorithm frequeuncy anywhere between 1 second & 1 year",
+            "Write as many algorithms as you want at the same time"
+          ]
+        },
+        {
+          "title": [
+            {
+              "text": "Deploy",
+              "className": ""
+            },
+            {
+              "text": " Algorithm",
+              "className": "text-primary"
+            }
+          ],
+          "description": "Sit Back while Investors invest. Enjoy your Returns whenever they withdraw from your algorithm profitably",
+          "mockup": "/src/assets/Light Investor Algorithm View.png",
+          "features": [
+            "Real-time Monitoring",
+            "100% Transparent on-chain transactions to see how many $ are invested",
+            "Rank higher in the leaderboard as your algorithm grows older"
+          ]
+        }
+      ]
+    },
+    "joinees": {
+      "title": "Latest Developers",
+      "description": "Just welcomed our latest developers on board! Fancy seeing your profile here? Log in and refresh this page ;)",
+      "cta": "Discover More"
+    },
+    "faq": [
+      {
+        "question": "How do I start writing algorithms on the platform?",
+        "answer": "Sign up, access our cloud-hosted IDE, and use the provided backtesting engine to create and deploy your algorithms."
+      },
+      {
+        "question": "Do I need to invest money to test my algorithms?",
+        "answer": "No, you don’t need to invest your own money. Investors fund your strategies, and you earn commissions on profits."
+      },
+      {
+        "question": "Do I need to pay any upfront fees or sign up for a subscription?",
+        "answer": "No, there are no subscription fees or upfront costs. Pure earnings, no hidden charges"
+      },
+      {
+        "question": "What programming languages can I use, and is there support for testing algorithms?",
+        "answer": "You can write algorithms in Python, and we provide historical data along with a powerful backtesting engine to test and deploy your algorithms before they go live."
+      },
+      {
+        "question": "How can I track the performance of my algorithms?",
+        "answer": "Our platform provides detailed performance metrics, including profit, drawdown, Sharpe ratio and other key stats, in real-time."
+      }
+    ],
+    "cta": {
+      "badge": "Start Investing in Algorithms!",
+      "title": "Want to Invest in Algorithms?",
+      "description": "Invest in Algorithms written by Top Quant Developers",
+      "mockups": [
+        {
+          "imageSrc": "/src/assets/Light Investor Algorithms.png",
+          "altText": "Investor Algorithms"
+        },
+        {
+          "imageSrc": "/src/assets/Light Investor Dashboard.png",
+          "altText": "Investor Dashboard"
+        },
+        {
+          "imageSrc": "/src/assets/Light Investor Algorithm View.png",
+          "altText": "Investor Algorithm View"
+        }
+      ]
+    }
+  },
+  "pricing": {
+    "title": "Choose the right pricing plan for you",
+    "plans": [
+      {
+        "name": "Developer",
+        "description": "Join waitlist to claim while it lasts",
+        "price": "$0",
+        "earn": "20% of Profits Made by Investors",
+        "features": [
+          "Access to minutely data",
+          "Access to our cloud hosted IDE",
+          "All transactions on-chain",
+          "Chat with Founders anytime",
+          "Own the Algorithm IP",
+          "Access to our Backtesting Engine",
+          "Deploy Algorithm with $0 investments"
+        ],
+        "cta": { "text": "Claim Now", "type": "outline" }
+      },
+      {
+        "name": "Investor",
+        "description": "Join waitlist to claim while it lasts",
+        "price": "$0",
+        "earn": "",
+        "features": [
+          "Access to all strategies",
+          "Enter/Exit 24/7",
+          "All transactions on-chain",
+          "Chat with Founders anytime",
+          "Wallet Integration",
+          "Early Entry to Potential Token Airdrop",
+          "Pay 25% (of profit) Fee only on Profits"
+        ],
+        "cta": { "text": "Claim Now", "type": "primary" }
+      },
+      {
+        "name": "Enterprise",
+        "description": "We'd love to understand your needs",
+        "price": "Say Hi",
+        "earn": "",
+        "features": [
+          "Self Hosted on your own Servers",
+          "Both Investor & Developer Infra",
+          "Custom Trading Pair",
+          "Chat with Founders anytime",
+          "100% Data with you",
+          "Custom Domain with SSL",
+          "Prioritised Feature Requests",
+          "Minutely ETH/USDT dataset"
+        ],
+        "cta": { "text": "Reach Out", "type": "outline" }
+      }
+    ]
+  },
+  "about": {
+    "title": [
+      {
+        "text": "Empowering",
+        "className": "text-primary"
+      },
+      {
+        "text": " Teams with Innovative Project",
+        "className": ""
+      },
+      {
+        "text": " Management",
+        "className": "text-primary"
+      },
+      {
+        "text": " Solutions",
+        "className": ""
+      }
+    ],
+    "description": "We are a team of quant developers who are passionate about building algorithms that can beat the market.",
+    "cta": {
+      "title": [
+        {
+          "text": "Revolutionizing",
+          "className": "text-primary"
+        },
+        {
+          "text": " Project Management with Saasta",
+          "className": ""
+        }
+      ],
+      "description": "At Saasta, our journey began with a simple but powerful idea: to revolutionize project management for teams of all sizes. Frustrated by the complexities and limitations of existing solutions, we set out to create a platform that would empower teams to  more effectively, streamline workflows, and drive success."
+    },
+    "teamImage": "/src/assets/Light Investor Dashboard.png",
+    "team": {
+      "title": [
+        {
+          "text": "Introduce",
+          "className": "text-primary"
+        },
+        {
+          "text": "Our Team",
+          "className": ""
+        }
+      ],
+      "description": "Discover How Saasta Redefines Project Management for Modern Teams",
+      "members": [
+        {
+          "image": "/src/assets/vitalik buterin.jpg",
+          "name": "Vitalik Buterin",
+          "role": "Co-Founder",
+          "description": "Vitalik is a seasoned project management expert with over 20 years of experience in the industry. He is passionate about helping teams achieve their goals and drive success.",
+          "contacts": {
+            "twitter": "https://twitter.com/johndoe",
+            "mobile": "9292929292"
+          }
+        }
+      ]
+    }
+  }
+}

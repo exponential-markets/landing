@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import InfiniteVerticalMovingCards from "@/components/ui/infinite-vertical-moving-cards";
 import { Component, Figma } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const Joinees = () => {
+const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
+  const { t } = useTranslation();
+  const contentKey = isDeveloperPage ? "developer.joinees" : "investor.joinees";
+
   return (
     <div className="flex flex-col xl:grid xl:grid-cols-2 mt-40 xl:px-12">
       <div className="flex flex-col justify-center md:mx-32 lg:mx-44 xl:mx-0">
@@ -11,17 +15,16 @@ const Joinees = () => {
         </Button>
         <div className="flex gap-4 mt-6">
           <p className="text-3xl font-medium md:text-[42px] lg:text-5xl xl:text-6xl">
-            Latest Joinees
+            {t(`${contentKey}.title`)}
           </p>
         </div>
         <div className="my-6 xl:mt-2 xl:mb-6">
           <p className="text-base text-muted-foreground text-balance">
-            Just welcomed our latest investors on board! Fancy seeing your
-            profile here? Log in and refresh your screen ;)
+            {t(`${contentKey}.description`)}
           </p>
         </div>
         <Button size="lg" className="rounded-full w-fit text-base">
-          Discover More
+          {t(`${contentKey}.cta`)}
         </Button>
       </div>
       <div className="mt-20 min-[820px]:px-12 lg:px-24 xl:px-0 flex gap-4 w-full">

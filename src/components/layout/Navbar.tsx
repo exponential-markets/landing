@@ -4,36 +4,15 @@ import { MenuIcon, XIcon } from "lucide-react";
 import { navbarLinks } from "@/constants/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [activeLink, setActiveLink] = useState(""); // New state for active link
-  const navbarRef = useRef(null); // Ref for the navbar
-
-  const handleScroll = () => {
-    if (window.scrollY > lastScrollY) {
-      // Scrolling down
-      setIsMenuOpen(false);
-      setIsVisible(false);
-    } else {
-      // Scrolling up
-      setIsVisible(true);
-    }
-    setLastScrollY(window.scrollY);
-
-    // Update active link based on scroll position
-    navbarLinks.forEach(({ href }) => {
-      const section = document.querySelector(href);
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 0 && rect.bottom >= 0) {
-          setActiveLink(href);
-        }
-      }
-    });
-  };
+  const [activeLink, setActiveLink] = useState("");
+  const location = useLocation();
+  const navbarRef = useRef(null);
 
   const handleClickOutside = (event: MouseEvent) => {
     const current = navbarRef.current as HTMLElement | null;
@@ -43,14 +22,26 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        // Scrolling down
+        setIsMenuOpen(false);
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
     window.addEventListener("scroll", handleScroll);
+    setActiveLink(location.pathname);
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [lastScrollY]);
+  }, [location.pathname, lastScrollY]);
 
   return (
     <div>

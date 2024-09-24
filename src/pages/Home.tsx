@@ -1,24 +1,25 @@
 import Hero from "@/components/sections/hero/Hero";
-import Clients from "@/components/sections/clients/Clients";
+import Algorithms from "@/components/sections/algorithms/Algorithms";
 import Features from "@/components/sections/features/Features";
 import Guide from "@/components/sections/guide/Guide";
 import Joinees from "@/components/sections/joinees/Joinees";
-import Pricing from "@/components/sections/pricing/Pricing";
 import FrequentlyAskedQuestions from "@/components/sections/faq/FrequentlyAskedQuestions";
-import DeveloperCallToAction from "@/components/sections/developer-cta/DeveloperCallToAction";
+import CallToAction from "@/components/sections/cta/CallToAction";
 import PrivateSetup from "@/components/sections/private-setup/PrivateSetup";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  const location = useLocation();
+  const isDeveloperPage = location.pathname === "/developer";
   return (
     <>
-      <Hero />
-      <Clients />
-      <Features />
-      <Guide />
-      <Joinees />
-      <Pricing />
-      <FrequentlyAskedQuestions />
-      <DeveloperCallToAction />
+      <Hero isDeveloperPage={isDeveloperPage} />
+      <Algorithms />
+      <Features isDeveloperPage={isDeveloperPage} />
+      <Guide isDeveloperPage={isDeveloperPage} />
+      <Joinees isDeveloperPage={isDeveloperPage} />
+      <FrequentlyAskedQuestions isDeveloperPage={isDeveloperPage} />
+      <CallToAction isDeveloperPage={isDeveloperPage} />
       <PrivateSetup />
     </>
   );

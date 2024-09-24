@@ -10,11 +10,7 @@ const Mockup = ({ imageSrc, altText, className }: MockupProps) => {
       className={`border border-black h-fit rounded-xl relative ${className}`}
     >
       <div className="rounded-xl xl:rounded-2xl border-[8px] border-zinc-700 relative">
-        <img
-          src={imageSrc}
-          alt={altText}
-          className="rounded-lg xl:rounded-xl"
-        />
+        <img src={imageSrc} alt={altText} className="rounded-lg" />
       </div>
     </div>
   );

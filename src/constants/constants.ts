@@ -3,23 +3,19 @@ import { icons } from "lucide-react";
 export const navbarLinks = [
   {
     name: "Home",
-    href: "#home",
-  },
-  {
-    name: "Features",
-    href: "#features",
-  },
-  {
-    name: "Guide",
-    href: "#guide",
-  },
-  {
-    name: "Pricing",
-    href: "#pricing",
+    href: "/",
   },
   {
     name: "Developers",
-    href: "#developer-cta",
+    href: "/developer",
+  },
+  {
+    name: "Pricing",
+    href: "/pricing",
+  },
+  {
+    name: "About",
+    href: "/about",
   },
 ];
 

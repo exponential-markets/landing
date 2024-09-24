@@ -4,7 +4,7 @@ import XTwitterIcon from "@/components/shared/XTwitterIcon";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between pb-5 md:pb-10 xl:pb-20">
+    <div className="mt-24 flex flex-col md:flex-row justify-between pb-5 md:pb-10 xl:pb-20">
       <div>
         <div className="flex items-center gap-4">
           <img src="/logo.svg" alt="Exponential" className="size-10" />

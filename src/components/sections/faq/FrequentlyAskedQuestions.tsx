@@ -1,7 +1,18 @@
-import { faqData } from "@/constants/constants";
 import FaqCard from "@/components/sections/faq/FaqCard";
+import { useTranslation } from "react-i18next";
 
-const FrequentlyAskedQuestions = () => {
+const FrequentlyAskedQuestions = ({
+  isDeveloperPage,
+}: {
+  isDeveloperPage: boolean;
+}) => {
+  const { t } = useTranslation();
+  const contentKey = isDeveloperPage ? "developer.faq" : "investor.faq";
+
+  const faqData = t(`${contentKey}`, {
+    returnObjects: true,
+  }) as { question: string; answer: string }[];
+
   return (
     <div
       id="faq"
