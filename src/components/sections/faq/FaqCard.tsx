@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface FaqCardProps {
   question: string;
   answer: string;
+  isOpenByDefault?: boolean;
 }
 
-const FaqCard = ({ question, answer }: FaqCardProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+const FaqCard = ({ question, answer, isOpenByDefault }: FaqCardProps) => {
+  const [isOpen, setIsOpen] = useState(isOpenByDefault);
 
   return (
-    <div className="flex flex-col gap-2 border bg-secondary p-4 md:p-6 rounded-lg">
+    <div className="flex flex-col border bg-card p-4 md:p-6 rounded-lg">
       <div className="flex justify-between items-center">
-        <p className="text-lg text-balance w-fit">{question}</p>
+        <p className="text-balance w-fit -tracking-[0.245]">{question}</p>
         <div className="size-5">
           {isOpen ? (
             <Minus
@@ -28,11 +30,14 @@ const FaqCard = ({ question, answer }: FaqCardProps) => {
         </div>
       </div>
       <div
-        className={`overflow-hidden transition-max-height duration-300 ease-in-out ${
-          isOpen ? "max-h-96" : "max-h-0"
-        }`}
+        className={cn(
+          "overflow-hidden transition-mt transition-max-height duration-300 ease-in-out",
+          isOpen ? "max-h-96 mt-4" : "max-h-0 mt-0"
+        )}
       >
-        <p className="text-lg text-balance text-muted-foreground">{answer}</p>
+        <p className="text-pretty text-muted-foreground max-w-[80%] leading-[1.8] -tracking-[0.245]">
+          {answer}
+        </p>
       </div>
     </div>
   );

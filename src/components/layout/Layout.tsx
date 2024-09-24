@@ -1,11 +1,14 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Outlet } from "react-router-dom";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = () => {
   return (
     <div className="min-h-screen relative">
       <Navbar />
-      <div>{children}</div>
+      <div>
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

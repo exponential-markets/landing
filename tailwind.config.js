@@ -64,13 +64,13 @@ export default {
       width: {
         "navbar-width": "calc(100vw - 40px)",
         "navbar-width-md": "calc(100vw - 80px)",
-        "navbar-width-xl": "calc(100vw - 160px)",
+        "navbar-width-xl": "calc(100vw - 240px)",
       },
       backgroundImage: {
         "hero-gradient":
           "radial-gradient(ellipse at center, hsl(var(--primary)), rgba(0, 0, 0, 0) 70%)",
         "pricing-card-gradient":
-          "linear-gradient(180deg, rgba(160, 224, 13, 1) 0%, rgba(160, 224, 13, 0) 100%)",
+          "radial-gradient(ellipse at center, rgba(160, 224, 13, 1) 80%, rgba(160, 224, 13, 0) 100%)",
       },
       animation: {
         scrollX:
@@ -100,7 +100,7 @@ export default {
         {
           "bg-grid": (value) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="84" height="84" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
         },

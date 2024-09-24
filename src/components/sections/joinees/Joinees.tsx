@@ -4,36 +4,42 @@ import { Component, Figma } from "lucide-react";
 
 const Joinees = () => {
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex gap-4 items-center">
+    <div className="flex flex-col xl:grid xl:grid-cols-2 mt-40 xl:px-12">
+      <div className="flex flex-col justify-center md:mx-32 lg:mx-44 xl:mx-0">
         <Button variant="secondary" size="icon">
           <Component className="size-5 text-primary fill-primary" />
         </Button>
-        <p className="text-3xl font-medium xl:text-4xl">Latest Joinees</p>
+        <div className="flex gap-4 mt-6">
+          <p className="text-3xl font-medium md:text-[42px] lg:text-5xl xl:text-6xl">
+            Latest Joinees
+          </p>
+        </div>
+        <div className="my-6 xl:mt-2 xl:mb-6">
+          <p className="text-base text-muted-foreground text-balance">
+            Just welcomed our latest investors on board! Fancy seeing your
+            profile here? Log in and refresh your screen ;)
+          </p>
+        </div>
+        <Button size="lg" className="rounded-full w-fit text-base">
+          Discover More
+        </Button>
       </div>
-      <div className="my-6 text-center">
-        <p className="text-lg text-muted-foreground text-balance xl:px-64">
-          Just welcomed our latest investors on board! Fancy seeing your profile
-          here? Log in and refresh your screen ;)
-        </p>
-      </div>
-      <Button className="rounded-full">Discover More</Button>
-      <div className="mt-20 min-[820px]:px-12 lg:px-24 flex w-full">
+      <div className="mt-20 min-[820px]:px-12 lg:px-24 xl:px-0 flex gap-4 w-full">
         <div className="w-full">
           <InfiniteVerticalMovingCards speed="normal" pauseOnHover={false}>
-            <div className="bg-secondary py-12 mx-2 text-3xl flex flex-col gap-2 items-center rounded-lg">
+            <div className="bg-card py-12 ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
               <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
                 <Figma className="size-14" />
               </div>
               <p className="text-2xl font-medium w-max mt-8">Vitalik Buterin</p>
             </div>
-            <div className="bg-secondary py-12 mx-2 text-3xl flex flex-col gap-2 items-center rounded-lg">
+            <div className="bg-card py-12 ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
               <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
                 <Figma className="size-14" />
               </div>
               <p className="text-2xl font-medium w-max mt-8">Vitalik Buterin</p>
             </div>
-            <div className="bg-secondary py-12 mx-2 text-3xl flex flex-col gap-2 items-center rounded-lg">
+            <div className="bg-card py-12 ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
               <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
                 <Figma className="size-14" />
               </div>
@@ -47,19 +53,19 @@ const Joinees = () => {
             speed="normal"
             pauseOnHover={false}
           >
-            <div className="bg-secondary py-12 mx-2 text-3xl flex flex-col gap-2 items-center rounded-lg">
+            <div className="bg-card py-12 mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
               <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
                 <Figma className="size-14" />
               </div>
               <p className="text-2xl font-medium w-max mt-8">Vitalik Buterin</p>
             </div>
-            <div className="bg-secondary py-12 mx-2 text-3xl flex flex-col gap-2 items-center rounded-lg">
+            <div className="bg-card py-12 mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
               <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
                 <Figma className="size-14" />
               </div>
               <p className="text-2xl font-medium w-max mt-8">Vitalik Buterin</p>
             </div>
-            <div className="bg-secondary py-12 mx-2 text-3xl flex flex-col gap-2 items-center rounded-lg">
+            <div className="bg-card py-12 mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
               <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
                 <Figma className="size-14" />
               </div>

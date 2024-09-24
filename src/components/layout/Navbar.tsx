@@ -44,23 +44,21 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    document.addEventListener("mousedown", handleClickOutside); // Add event listener for clicks outside
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("mousedown", handleClickOutside); // Clean up event listener
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [lastScrollY]);
 
   return (
     <div>
       <nav
-        ref={navbarRef} // Attach ref to the navbar
+        ref={navbarRef}
         className={cn(
-          "fixed w-navbar-width md:w-navbar-width-md xl:w-navbar-width-xl top-5 md:top-10 p-4 border z-50 backdrop-blur-[8px] bg-background/70 rounded-lg lg:rounded-full transition-transform duration-300",
-          isVisible
-            ? "translate-y-0"
-            : "-translate-y-[86px] md:-translate-y-[106px]"
+          "translate-x-1/2 right-1/2 fixed w-navbar-width md:w-navbar-width-md xl:w-navbar-width-xl top-5 p-4 xl:px-20 border z-50 backdrop-blur-[8px] bg-background/70 rounded-lg lg:rounded-full transition-transform duration-300",
+          isVisible ? "translate-y-0" : "-translate-y-[94px]"
         )}
       >
         <div className="flex justify-between items-center">
@@ -88,7 +86,10 @@ const Navbar = () => {
             ))}
           </div>
           <div className="hidden lg:flex flex-1 justify-end gap-4 xl:gap-6 items-center">
-            <Button variant="outline" className="rounded-full">
+            <Button
+              variant="outline"
+              className="rounded-full hover:bg-foreground hover:text-background border-2 border-foreground"
+            >
               Schedule a Call
             </Button>
             <Button className="rounded-full">Early Access</Button>

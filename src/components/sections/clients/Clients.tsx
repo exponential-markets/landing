@@ -3,7 +3,7 @@ import { PartyPopper } from "lucide-react";
 
 const Clients = () => {
   return (
-    <div className="mt-28">
+    <div className="mt-14">
       <InfiniteHorizontalMovingCards
         direction="left"
         speed="normal"
