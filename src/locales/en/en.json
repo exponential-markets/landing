@@ -422,12 +422,61 @@
           "className": "text-primary"
         },
         {
-          "text": "Our Team",
+          "text": " Our Team",
           "className": ""
         }
       ],
-      "description": "Discover How Saasta Redefines Project Management for Modern Teams",
       "members": [
+        {
+          "image": "/src/assets/vitalik buterin.jpg",
+          "name": "Vitalik Buterin",
+          "role": "Co-Founder",
+          "description": "Vitalik is a seasoned project management expert with over 20 years of experience in the industry. He is passionate about helping teams achieve their goals and drive success.",
+          "contacts": {
+            "twitter": "https://twitter.com/johndoe",
+            "mobile": "9292929292"
+          }
+        },
+        {
+          "image": "/src/assets/vitalik buterin.jpg",
+          "name": "Vitalik Buterin",
+          "role": "Co-Founder",
+          "description": "Vitalik is a seasoned project management expert with over 20 years of experience in the industry. He is passionate about helping teams achieve their goals and drive success.",
+          "contacts": {
+            "twitter": "https://twitter.com/johndoe",
+            "mobile": "9292929292"
+          }
+        },
+        {
+          "image": "/src/assets/vitalik buterin.jpg",
+          "name": "Vitalik Buterin",
+          "role": "Co-Founder",
+          "description": "Vitalik is a seasoned project management expert with over 20 years of experience in the industry. He is passionate about helping teams achieve their goals and drive success.",
+          "contacts": {
+            "twitter": "https://twitter.com/johndoe",
+            "mobile": "9292929292"
+          }
+        },
+        {
+          "image": "/src/assets/vitalik buterin.jpg",
+          "name": "Vitalik Buterin",
+          "role": "Co-Founder",
+          "description": "Vitalik is a seasoned project management expert with over 20 years of experience in the industry. He is passionate about helping teams achieve their goals and drive success.",
+          "contacts": {
+            "twitter": "https://twitter.com/johndoe",
+            "mobile": "9292929292"
+          }
+        },
+        {
+          "image": "/src/assets/vitalik buterin.jpg",
+          "name": "Vitalik Buterin",
+          "role": "Co-Founder",
+          "description": "Vitalik is a seasoned project management expert with over 20 years of experience in the industry. He is passionate about helping teams achieve their goals and drive success.",
+          "contacts": {
+            "twitter": "https://twitter.com/johndoe",
+            "mobile": "9292929292"
+          }
+        },
         {
           "image": "/src/assets/vitalik buterin.jpg",
           "name": "Vitalik Buterin",
