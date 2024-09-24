@@ -1,6 +1,6 @@
 import Badge from "@/components/shared/Badge";
 import { Button } from "@/components/ui/button";
-import { TeamMember } from "@/types";
+// import { TeamMember } from "@/types";
 import { Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -15,7 +15,7 @@ const About = () => {
     text: string;
     className: string;
   }[];
-  const team = t("team.members", { returnObjects: true }) as TeamMember[];
+  //   const team = t("team.members", { returnObjects: true }) as TeamMember[];
 
   return (
     <div className="mt-44 flex flex-col gap-4">
