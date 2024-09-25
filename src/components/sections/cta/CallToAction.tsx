@@ -1,10 +1,13 @@
 import Badge from "@/components/shared/Badge";
 import Mockup from "@/components/shared/Mockup";
 import { Button } from "@/components/ui/button";
+import { scheduleCall } from "@/lib/cta";
 import { ArrowUpRight, Sparkle } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { usePostHog } from "posthog-js/react";
 
 const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
+  const posthog = usePostHog();
   const { t } = useTranslation();
   const contentKey = isDeveloperPage ? "developer.cta" : "investor.cta";
 
@@ -36,10 +39,19 @@ const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
             size="lg"
             className="rounded-full text-base border-2 border-foreground hover:bg-foreground hover:text-background"
           >
-            {isDeveloperPage ? "Join Waitlist" : "Join Dev Waitlist"}
+            Join Waitlist
             <ArrowUpRight className="size-5 ml-2" />
           </Button>
-          <Button size="lg" className="rounded-full text-base">
+          <Button
+            size="lg"
+            className="rounded-full text-base"
+            onClick={() => {
+              posthog.capture("schedule_call", {
+                from: "change_role_cta",
+              });
+              scheduleCall();
+            }}
+          >
             Book a Call with Founders
           </Button>
         </div>
@@ -73,7 +85,17 @@ const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
               Discover More
               <ArrowUpRight className="size-5 ml-2" />
             </Button>
-            <Button className="rounded-full">Book a Call with Founders</Button>
+            <Button
+              onClick={() => {
+                posthog.capture("schedule_call", {
+                  from: "change_role_cta",
+                });
+                scheduleCall();
+              }}
+              className="rounded-full"
+            >
+              Book a Call with Founders
+            </Button>
           </div>
           <Mockup imageSrc={mockups[1].imageSrc} altText={mockups[1].altText} />
         </div>

@@ -1,18 +1,19 @@
 import InfiniteHorizontalMovingCards from "@/components/ui/infinite-horizontal-moving-cards";
-import { cn } from "@/lib/utils";
 
-const algorithms = [
+const news = [
   {
-    name: "Asana",
-    cagr: 23.5,
+    title:
+      "Algorithms helped foreign funds and proprietary trading desks pocket 588.4 billion rupees ($7 billion) in gross profits from trading Indian equity derivatives",
+    source: "Mint",
   },
   {
-    name: "SpaceX",
-    cagr: 13.5,
+    title:
+      "The crypto market has already been making large moves in the first half of 2024, generating new all time highs for Bitcoin and many other tokens.",
+    source: "Blockpit",
   },
   {
-    name: "Tesla",
-    cagr: -14.3,
+    title: "In the spot FX market, algorithmic trading is now almost at 75%",
+    source: "BNP Paribas",
   },
 ];
 
@@ -24,20 +25,10 @@ const Algorithms = () => {
         speed="normal"
         pauseOnHover={false}
       >
-        {algorithms.map((algorithm, index) => (
-          <div key={index} className="flex flex-col gap-1 items-center">
-            <span className="text-3xl">{algorithm.name}</span>
-            <p className="text-base">
-              <span
-                className={cn(
-                  "text-base",
-                  algorithm.cagr > 0 ? "text-emerald-400" : "text-red-400"
-                )}
-              >
-                {algorithm.cagr}%{" "}
-              </span>
-              CAGR
-            </p>
+        {news.map((algorithm, index) => (
+          <div key={index} className="flex flex-col gap-1 items-center w-160">
+            <span className="text-base font-medium">{algorithm.title}</span>
+            <p className="text-xs text-muted-foreground">{algorithm.source}</p>
           </div>
         ))}
       </InfiniteHorizontalMovingCards>

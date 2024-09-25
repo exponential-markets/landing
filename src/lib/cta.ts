@@ -14,7 +14,6 @@ export const requestEarlyAccess = async (
     const response = await fetch(
       "https://exponential-waitlist.spalriwalau.workers.dev/",
       {
-        mode: "no-cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,8 +23,6 @@ export const requestEarlyAccess = async (
     );
 
     if (response.ok) {
-      localStorage.setItem("waitlistEmail", email);
-      localStorage.setItem("joinedWaitlist", "true");
       return true;
     }
     return false;

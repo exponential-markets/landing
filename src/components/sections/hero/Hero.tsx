@@ -24,7 +24,10 @@ const Hero = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
       className="flex flex-col items-center bg-grid-white/[0.035] relative"
     >
       <div className="z-10 mt-36">
-        <Badge icon={<Sparkles className="size-2" />} text="MVP is Live!" />
+        <Badge
+          icon={<Sparkles className="size-2" />}
+          text="Early Access is Live!"
+        />
       </div>
       <div className="text-center flex flex-col items-center text-4xl md:text-6xl xl:text-7xl font-medium text-balance z-10">
         <div className="lg:w-2/3 mx-auto md:leading-[1.2] text-pretty">

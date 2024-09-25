@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { scheduleCall } from "@/lib/cta";
+import { usePostHog } from "posthog-js/react";
 
 const PrivateSetup = () => {
+  const posthog = usePostHog();
   return (
     <div id="private-setup" className="mt-24 flex justify-center">
       <div className="border-2 max-w-[960px] border-foreground/10 rounded-lg">
@@ -12,7 +15,17 @@ const PrivateSetup = () => {
             Join our existing trader groups utilizing our Infra on their servers
             without concerns about international data and financial rules
           </p>
-          <Button className="rounded-full">Get Started Today</Button>
+          <Button
+            onClick={() => {
+              posthog.capture("schedule_call", {
+                from: "private_setup",
+              });
+              scheduleCall();
+            }}
+            className="rounded-full"
+          >
+            Lets Talk!
+          </Button>
         </div>
       </div>
     </div>

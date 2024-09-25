@@ -5,8 +5,11 @@ import { navbarLinks } from "@/constants/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { useLocation } from "react-router-dom";
+import { scheduleCall } from "@/lib/cta";
+import { usePostHog } from "posthog-js/react";
 
 const Navbar = () => {
+  const posthog = usePostHog();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -81,6 +84,12 @@ const Navbar = () => {
               variant="outline"
               size="lg"
               className="rounded-full hover:bg-foreground hover:text-background border-2 border-foreground px-6"
+              onClick={() => {
+                posthog.capture("schedule_call", {
+                  from: "navbar",
+                });
+                scheduleCall();
+              }}
             >
               Schedule a Call
             </Button>

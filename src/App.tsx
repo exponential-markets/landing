@@ -4,19 +4,30 @@ import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
 import About from "@/pages/About";
 import "@/lib/i18n";
+import posthog from "posthog-js";
+import { PostHogProvider } from "posthog-js/react";
+
+posthog.init("phc_Pf23onE68qvYSLrFboMEl6TdGqX3HIy2pLqGSlVfuwt", {
+  api_host: "https://us.i.posthog.com",
+  loaded: (posthog) => {
+    if (import.meta.env.DEV) posthog.debug();
+  },
+});
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/developer" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/about" element={<About />} />
-        </Route>
-      </Routes>
-    </Router>
+    <PostHogProvider client={posthog}>
+      <Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/developer" element={<Home />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/about" element={<About />} />
+          </Route>
+        </Routes>
+      </Router>
+    </PostHogProvider>
   );
 }
 

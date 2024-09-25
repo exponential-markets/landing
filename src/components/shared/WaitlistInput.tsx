@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { requestEarlyAccess } from "@/lib/cta";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { usePostHog } from "posthog-js/react";
 
 const WaitlistInput = ({
   buttonText,
@@ -16,6 +17,7 @@ const WaitlistInput = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const posthog = usePostHog();
 
   useEffect(() => {
     const storedEmail = localStorage.getItem("waitlistEmail");
@@ -28,6 +30,10 @@ const WaitlistInput = ({
 
   const handleSubmit = async () => {
     setIsLoading(true);
+    posthog.identify(email, { role });
+    posthog.capture("request_early_access", {
+      from: "waitlist_input",
+    });
     const success = await requestEarlyAccess(email, role, setIsError);
     setIsLoading(false);
     if (success) {

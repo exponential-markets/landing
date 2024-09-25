@@ -1,5 +1,7 @@
 import FaqCard from "@/components/sections/faq/FaqCard";
+import { scheduleCall } from "@/lib/cta";
 import { Mail } from "lucide-react";
+import { usePostHog } from "posthog-js/react";
 import { useTranslation } from "react-i18next";
 
 const FrequentlyAskedQuestions = ({
@@ -8,6 +10,7 @@ const FrequentlyAskedQuestions = ({
   isDeveloperPage: boolean;
 }) => {
   const { t } = useTranslation();
+  const posthog = usePostHog();
   const contentKey = isDeveloperPage ? "developer.faq" : "investor.faq";
 
   const title = t(`${contentKey}.title`, {
@@ -41,6 +44,12 @@ const FrequentlyAskedQuestions = ({
                   href={t(`${contentKey}.contact.link.href`)}
                   className="text-primary"
                   target="_blank"
+                  onClick={() => {
+                    posthog.capture("contact_us_faq", {
+                      from: "faq",
+                    });
+                    scheduleCall();
+                  }}
                 >
                   {" "}
                   {t(`${contentKey}.contact.link.text`)}

@@ -9,8 +9,7 @@ const HackerText = ({
   className?: string;
 }) => {
   const [displayText, setDisplayText] = useState("_".repeat(text.length));
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const characters = "abcdefghijklmnopqrstuvwxyz";
   const elementRef = useRef<HTMLSpanElement>(null);
 
   const scrambleText = useCallback(() => {
