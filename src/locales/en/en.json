@@ -125,28 +125,44 @@
       "description": "Just welcomed our latest investors on board! Fancy seeing your profile here? Log in and refresh your screen ;)",
       "cta": "Discover More"
     },
-    "faq": [
-      {
-        "question": "How can I start investing in algorithmic trading strategies?",
-        "answer": "To begin investing in algorithms, simply sign up on our platform, browse through the available algorithmic trading strategies, and choose one to invest in. You can start with as little as $10, and no prior experience or technical knowledge is needed."
+    "faq": {
+      "title": [
+        { "text": "Frequently Asked Questions", "className": "" },
+        { "text": " (FAQs)", "className": "text-primary" }
+      ],
+      "description": ["Got questions?", "We have answers!"],
+      "contact": {
+        "question": "Have other questions?",
+        "description": "If you have more questions",
+        "link": {
+          "text": "contact us",
+          "href": "/contact"
+        },
+        "suffix": "so we can help"
       },
-      {
-        "question": "Are the algorithmic trading strategies reliable?",
-        "answer": "Yes, all algorithms on our platform undergo rigorous backtesting against years of historical market data, including bear markets. We take extra measures to minimize overfitting, ensuring that the algorithms perform well in real-world trading environments."
-      },
-      {
-        "question": "Do I need to pay any upfront fees or sign up for a subscription?",
-        "answer": "No, there are no subscription fees or upfront costs. You only pay a small fee when you exit an algorithm, but only if it has generated profits for you."
-      },
-      {
-        "question": "What happens if an algorithm doesn’t generate profits?",
-        "answer": "You only pay a fee when the algorithm generates profits. If an algorithm underperforms or doesn’t make money, there are no charges. Our goal is to protect your investments and ensure you only pay when you earn."
-      },
-      {
-        "question": "Are these algorithmic trading strategies designed for small investors?",
-        "answer": "Yes, our platform is built specifically for retail investors. It provides access to advanced algorithmic trading strategies, without the usual high entry costs or complexity, making it accessible to everyone."
-      }
-    ],
+      "data": [
+        {
+          "question": "How can I start investing in algorithmic trading strategies?",
+          "answer": "To begin investing in algorithms, simply sign up on our platform, browse through the available algorithmic trading strategies, and choose one to invest in. You can start with as little as $10, and no prior experience or technical knowledge is needed."
+        },
+        {
+          "question": "Are the algorithmic trading strategies reliable?",
+          "answer": "Yes, all algorithms on our platform undergo rigorous backtesting against years of historical market data, including bear markets. We take extra measures to minimize overfitting, ensuring that the algorithms perform well in real-world trading environments."
+        },
+        {
+          "question": "Do I need to pay any upfront fees or sign up for a subscription?",
+          "answer": "No, there are no subscription fees or upfront costs. You only pay a small fee when you exit an algorithm, but only if it has generated profits for you."
+        },
+        {
+          "question": "What happens if an algorithm doesn’t generate profits?",
+          "answer": "You only pay a fee when the algorithm generates profits. If an algorithm underperforms or doesn’t make money, there are no charges. Our goal is to protect your investments and ensure you only pay when you earn."
+        },
+        {
+          "question": "Are these algorithmic trading strategies designed for small investors?",
+          "answer": "Yes, our platform is built specifically for retail investors. It provides access to advanced algorithmic trading strategies, without the usual high entry costs or complexity, making it accessible to everyone."
+        }
+      ]
+    },
     "cta": {
       "badge": "Let your Code make Money!",
       "title": "Code Algorithms? Get Paid",
@@ -285,28 +301,44 @@
       "description": "Just welcomed our latest developers on board! Fancy seeing your profile here? Log in and refresh this page ;)",
       "cta": "Discover More"
     },
-    "faq": [
-      {
-        "question": "How do I start writing algorithms on the platform?",
-        "answer": "Sign up, access our cloud-hosted IDE, and use the provided backtesting engine to create and deploy your algorithms."
+    "faq": {
+      "title": [
+        { "text": "Frequently Asked Questions", "className": "" },
+        { "text": " (FAQs)", "className": "text-primary" }
+      ],
+      "description": ["Got questions?", "We have answers!"],
+      "contact": {
+        "question": "Have other questions?",
+        "description": "If you have more questions",
+        "link": {
+          "text": "contact us",
+          "href": "/contact"
+        },
+        "suffix": "so we can help"
       },
-      {
-        "question": "Do I need to invest money to test my algorithms?",
-        "answer": "No, you don’t need to invest your own money. Investors fund your strategies, and you earn commissions on profits."
-      },
-      {
-        "question": "Do I need to pay any upfront fees or sign up for a subscription?",
-        "answer": "No, there are no subscription fees or upfront costs. Pure earnings, no hidden charges"
-      },
-      {
-        "question": "What programming languages can I use, and is there support for testing algorithms?",
-        "answer": "You can write algorithms in Python, and we provide historical data along with a powerful backtesting engine to test and deploy your algorithms before they go live."
-      },
-      {
-        "question": "How can I track the performance of my algorithms?",
-        "answer": "Our platform provides detailed performance metrics, including profit, drawdown, Sharpe ratio and other key stats, in real-time."
-      }
-    ],
+      "data": [
+        {
+          "question": "How do I start writing algorithms on the platform?",
+          "answer": "Sign up, access our cloud-hosted IDE, and use the provided backtesting engine to create and deploy your algorithms."
+        },
+        {
+          "question": "Do I need to invest money to test my algorithms?",
+          "answer": "No, you don’t need to invest your own money. Investors fund your strategies, and you earn commissions on profits."
+        },
+        {
+          "question": "Do I need to pay any upfront fees or sign up for a subscription?",
+          "answer": "No, there are no subscription fees or upfront costs. Pure earnings, no hidden charges"
+        },
+        {
+          "question": "What programming languages can I use, and is there support for testing algorithms?",
+          "answer": "You can write algorithms in Python, and we provide historical data along with a powerful backtesting engine to test and deploy your algorithms before they go live."
+        },
+        {
+          "question": "How can I track the performance of my algorithms?",
+          "answer": "Our platform provides detailed performance metrics, including profit, drawdown, Sharpe ratio and other key stats, in real-time."
+        }
+      ]
+    },
     "cta": {
       "badge": "Start Investing in Algorithms!",
       "title": "Want to Invest in Algorithms?",
