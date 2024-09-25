@@ -25,7 +25,7 @@
       ],
       "description": "Exponential Developers, Exponential Algorithms! Are you an Exponential Investor?",
       "features": ["No KYC needed", "Pay only on Profits"],
-      "mockup": "/public/images/Light Investor Dashboard.png"
+      "mockup": "/images/Light Investor Dashboard.png"
     },
     "features": {
       "title": "Invest Exponentially",
@@ -77,7 +77,7 @@
             }
           ],
           "description": "Explore algorithms created by elite developers on the platform, scrutinize their historical profits, AUM, profitable trades, and additional metrics to ascertain if this is the selection for you.",
-          "mockup": "/public/images/find algorithm.png",
+          "mockup": "/images/find algorithm.png",
           "features": []
         },
         {
@@ -92,7 +92,7 @@
             }
           ],
           "description": "Transfer USDT on ETH chain from your wallet to your algorithm's wallet using Metamask or manually as per your convenience.",
-          "mockup": "/public/images/Dark Wallet Integration.png",
+          "mockup": "/images/Dark Wallet Integration.png",
           "features": [
             "No API Key Integration or Third Party Linking",
             "Each user gets their own wallet for any algorithm they deploy",
@@ -111,7 +111,7 @@
             }
           ],
           "description": "Sit Back & Enjoy your Returns. Don't worry, we don't charge you until you exit the algorithm and also make a profit.",
-          "mockup": "/public/images/Dark Algorithm Live.png",
+          "mockup": "/images/Dark Algorithm Live.png",
           "features": [
             "Real-time Monitoring",
             "100% Transparent on-chain transactions to see your funds in action",
@@ -153,15 +153,15 @@
       "description": "Write Python algorithms with our backtesting engine & helper tools. From our IDE, deploy strategies, retain full IP, & earn commissions as investors engage!",
       "mockups": [
         {
-          "imageSrc": "/public/images/Light Developer Dashboard.png",
+          "imageSrc": "/images/Light Developer Dashboard.png",
           "altText": "Developer Dashboard"
         },
         {
-          "imageSrc": "/public/images/Light Developer IDE.png",
+          "imageSrc": "/images/Light Developer IDE.png",
           "altText": "Developer IDE"
         },
         {
-          "imageSrc": "/public/images/Light Developer Algorithms.png",
+          "imageSrc": "/images/Light Developer Algorithms.png",
           "altText": "Developer Algorithms"
         }
       ]
@@ -185,7 +185,7 @@
       ],
       "description": "Write algorithms, No investment needed. Earn top commissions as investors fund your strategies.",
       "features": ["Minute-Level Data", "Backtesting Engine"],
-      "mockup": "/public/images/Light Developer Dashboard.png"
+      "mockup": "/images/Light Developer Dashboard.png"
     },
     "features": {
       "title": "Develop Exponentially",
@@ -237,7 +237,7 @@
             }
           ],
           "description": "Write algorithm in Python on our online IDE with the help of standard open source libraries, helper methods, ticker data. Test it against example dataset",
-          "mockup": "/public/images/Light Developer IDE.png",
+          "mockup": "/images/Light Developer IDE.png",
           "features": []
         },
         {
@@ -252,7 +252,7 @@
             }
           ],
           "description": "Backtest against multiple Test Cases we've designed for you to make sure your algorithm has what it takes to sustain market conditions be it a Bear or a Bull",
-          "mockup": "/public/images/Light Developer Backtesting.png",
+          "mockup": "/images/Light Developer Backtesting.png",
           "features": [
             "Free Backtesting upto minutely data",
             "Set Algorithm frequeuncy anywhere between 1 second & 1 year",
@@ -271,7 +271,7 @@
             }
           ],
           "description": "Sit Back while Investors invest. Enjoy your Returns whenever they withdraw from your algorithm profitably",
-          "mockup": "/public/images/Light Investor Algorithm View.png",
+          "mockup": "/images/Light Investor Algorithm View.png",
           "features": [
             "Real-time Monitoring",
             "100% Transparent on-chain transactions to see how many $ are invested",
@@ -313,15 +313,15 @@
       "description": "Invest in Algorithms written by Top Quant Developers",
       "mockups": [
         {
-          "imageSrc": "/public/images/Light Investor Algorithms.png",
+          "imageSrc": "/images/Light Investor Algorithms.png",
           "altText": "Investor Algorithms"
         },
         {
-          "imageSrc": "/public/images/Light Investor Dashboard.png",
+          "imageSrc": "/images/Light Investor Dashboard.png",
           "altText": "Investor Dashboard"
         },
         {
-          "imageSrc": "/public/images/Light Investor Algorithm View.png",
+          "imageSrc": "/images/Light Investor Algorithm View.png",
           "altText": "Investor Algorithm View"
         }
       ]
@@ -419,7 +419,7 @@
       "title": "WHO ARE WE",
       "founders": [
         {
-          "image": "/public/images/vitalik buterin.jpg",
+          "image": "/images/vitalik buterin.jpg",
           "name": "Vitalik Buterin",
           "role": "Co-Founder",
           "badge": "Investment trader",
@@ -435,7 +435,7 @@
           }
         },
         {
-          "image": "/public/images/vitalik buterin.jpg",
+          "image": "/images/vitalik buterin.jpg",
           "name": "Vitalik Buterin",
           "role": "Co-Founder",
           "badge": "Algorithmic Developer",
