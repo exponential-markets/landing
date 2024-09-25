@@ -6,11 +6,13 @@ import { cn } from "@/lib/utils";
 
 const WaitlistButton = ({
   buttonText,
+  role,
   showIcon,
   className,
   variant,
 }: {
   buttonText: string;
+  role: string | null;
   showIcon: boolean;
   className?: string;
   variant?: ButtonProps["variant"];
@@ -19,10 +21,11 @@ const WaitlistButton = ({
 
   useEffect(() => {
     const joinedWaitlist = localStorage.getItem("joinedWaitlist");
-    if (joinedWaitlist === "true") {
+    const userRole = localStorage.getItem("role");
+    if (joinedWaitlist === "true" && userRole === role) {
       setShowInput(true);
     }
-  }, []);
+  }, [role]);
 
   const handleClick = () => {
     setShowInput(true);
@@ -40,7 +43,7 @@ const WaitlistButton = ({
           {buttonText} {showIcon && <ArrowUpRight className="size-5 ml-2" />}
         </Button>
       ) : (
-        <WaitlistInput buttonText="Join Waitlist" role="user" />
+        <WaitlistInput buttonText="Join Waitlist" role={role!} />
       )}
     </div>
   );

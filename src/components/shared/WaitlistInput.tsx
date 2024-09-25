@@ -19,10 +19,12 @@ const WaitlistInput = ({
   const [isSuccess, setIsSuccess] = useState(false);
   const posthog = usePostHog();
 
+  const userRole = localStorage.getItem("role");
+
   useEffect(() => {
     const storedEmail = localStorage.getItem("waitlistEmail");
     const joinedWaitlist = localStorage.getItem("joinedWaitlist");
-    if (storedEmail && joinedWaitlist === "true") {
+    if (storedEmail && joinedWaitlist === "true" && role == userRole) {
       setEmail(storedEmail);
       setIsSuccess(true);
     }
@@ -66,11 +68,14 @@ const WaitlistInput = ({
       </div>
       <p
         className={cn(
-          "text-red-700 text-sm text-center mt-1",
-          isError ? "block" : "invisible"
+          "text-sm text-center mt-1",
+          isError || isSuccess ? "block" : "invisible",
+          isError ? "text-red-700" : "text-emerald-700"
         )}
       >
-        Please enter a valid email address!
+        {isSuccess
+          ? "You've been added to the waitlist"
+          : "Please enter a valid email address!"}
       </p>
     </div>
   );

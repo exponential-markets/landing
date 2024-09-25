@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import ExponentialLogo from "@/assets/logo.svg";
-import { MenuIcon, XIcon } from "lucide-react";
+import EarlyAccess from "@/components/shared/EarlyAccess";
 import { navbarLinks } from "@/constants/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { useLocation } from "react-router-dom";
-import { scheduleCall } from "@/lib/cta";
 import { usePostHog } from "posthog-js/react";
+import { scheduleCall } from "@/lib/cta";
+import ExponentialLogo from "@/assets/logo.svg";
+import { MenuIcon, XIcon } from "lucide-react";
 
 const Navbar = () => {
   const posthog = usePostHog();
@@ -93,9 +94,7 @@ const Navbar = () => {
             >
               Schedule a Call
             </Button>
-            <Button size="lg" className="rounded-full px-6">
-              Early Access
-            </Button>
+            <EarlyAccess />
           </div>
           <button
             onClick={() => {
