@@ -35,7 +35,7 @@ const FaqCard = ({ question, answer, isOpenByDefault }: FaqCardProps) => {
           isOpen ? "max-h-96 mt-4" : "max-h-0 mt-0"
         )}
       >
-        <p className="text-pretty text-muted-foreground max-w-[80%] leading-[1.8] -tracking-[0.245]">
+        <p className="text-pretty text-muted-foreground leading-[1.8] -tracking-[0.245]">
           {answer}
         </p>
       </div>
