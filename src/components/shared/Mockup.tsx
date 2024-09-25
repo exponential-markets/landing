@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 type MockupProps = {
   imageSrc: string;
   altText: string;
@@ -7,11 +9,12 @@ type MockupProps = {
 const Mockup = ({ imageSrc, altText, className }: MockupProps) => {
   return (
     <div
-      className={`border border-black h-fit rounded-xl relative ${className}`}
+      className={cn(
+        "rounded-xl xl:rounded-2xl border-[8px] border-zinc-700 relative overflow-hidden",
+        className
+      )}
     >
-      <div className="rounded-xl xl:rounded-2xl border-[8px] border-zinc-700 relative">
-        <img src={imageSrc} alt={altText} className="rounded-lg" />
-      </div>
+      <img src={imageSrc} alt={altText} className="rounded-lg object-cover" />
     </div>
   );
 };

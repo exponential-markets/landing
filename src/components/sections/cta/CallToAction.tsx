@@ -25,7 +25,7 @@ const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         <p className="text-3xl md:text-[42px] lg:text-5xl xl:text-6xl font-medium text-center text-balance">
           {t(`${contentKey}.title`)}
         </p>
-        <p className="mt-4 xl:text-xl text-center text-pretty text-muted-foreground min-[820px]:px-20 lg:px-36 xl:px-64">
+        <p className="mt-4 xl:text-xl text-center text-pretty text-muted-foreground max-w-[800px]">
           {t(`${contentKey}.description`)}
         </p>
       </div>
@@ -59,7 +59,7 @@ const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         <Mockup
           imageSrc={mockups[0].imageSrc}
           altText={mockups[0].altText}
-          className="mt-3"
+          className="mt-3 h-fit"
         />
         <div className="flex flex-col gap-14">
           <div className="flex justify-center gap-4">
@@ -77,7 +77,7 @@ const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         <Mockup
           imageSrc={mockups[2].imageSrc}
           altText={mockups[2].altText}
-          className="mt-3"
+          className="mt-3 h-fit"
         />
       </div>
     </div>

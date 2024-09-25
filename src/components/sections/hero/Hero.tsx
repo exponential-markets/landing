@@ -20,31 +20,36 @@ const Hero = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
   return (
     <div
       id="home"
-      className="flex flex-col items-center bg-grid-white/[0.03] relative"
+      className="flex flex-col items-center bg-grid-white/[0.035] relative"
     >
-      <div className="z-10 mt-[134px] md:mt-[156px]">
-        <Badge icon={<Sparkles className="size-2.5" />} text="MVP is Live!" />
+      <div className="z-10 mt-36">
+        <Badge icon={<Sparkles className="size-2" />} text="MVP is Live!" />
       </div>
-      <div className="text-center text-4xl md:text-6xl xl:text-7xl md:leading-[1.2] font-semibold text-balance z-10">
-        <div className="lg:w-2/3 mx-auto">
+      <div className="text-center flex flex-col items-center text-4xl md:text-6xl xl:text-7xl font-medium text-balance z-10">
+        <div className="lg:w-2/3 mx-auto md:leading-[1.2]">
           {heroTitleParts.map((part, index) => (
             <span key={index} className={part.className}>
               {part.text}
             </span>
           ))}
         </div>
-        <p className="text-base mt-4 font-normal text-white/70">
+        <p className="text-base text-pretty leading-[1.8] mt-4 font-normal text-white/70 min-w-[350px] max-w-[30%]">
           {t(`${contentKey}.description`)}
         </p>
       </div>
-      <div className="mt-8 w-full bg-background md:w-1/2 xl:w-1/3 flex border rounded-xl p-2 z-20">
+      <div className="mt-8 w-full bg-background max-w-[500px] flex border rounded-xl p-2 z-20">
         <Input placeholder="example@gmail.com" className="border-0" />
-        <Button className="">Request Early Access</Button>
+        <Button size="lg" className="p-3 text-base font-normal">
+          Request Early Access
+        </Button>
       </div>
       <div className="relative z-10">
         <div className="mt-4 flex gap-6 justify-center">
           {features.map((feature, index) => (
-            <div key={index} className="flex items-center gap-2">
+            <div
+              key={index}
+              className="flex items-center gap-2 text-sm text-white/70"
+            >
               <Check className="text-primary" />
               <span>{feature}</span>
             </div>

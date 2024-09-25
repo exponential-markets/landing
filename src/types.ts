@@ -7,13 +7,13 @@ export type PricingPlan = {
   cta: { text: string; type: "primary" | "outline" };
 };
 
-export type TeamMember = {
+export type Founder = {
   image: string;
   name: string;
   role: string;
-  description: string;
+  badge: string;
+  bulletins: string[];
   contacts: {
-    twitter: string;
-    mobile: string;
+    email: string;
   };
 };

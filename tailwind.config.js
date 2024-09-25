@@ -59,7 +59,8 @@ export default {
         },
       },
       fontFamily: {
-        urbanist: ["Urbanist", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        grotesk: ["Space Grotesk", "sans-serif"],
       },
       width: {
         "navbar-width": "calc(100vw - 40px)",

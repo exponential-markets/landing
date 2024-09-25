@@ -19,7 +19,7 @@ const Features = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
 
   return (
     <div id="features" className="flex flex-col items-center mt-14">
-      <Badge icon={<Sparkles className="size-2.5" />} text="FEATURES" />
+      <Badge icon={<Sparkles className="size-2" />} text="FEATURES" />
       <div className="text-3xl font-medium text-center md:text-[42px] lg:text-5xl xl:text-6xl xl:leading-[1.2]">
         {t(`${contentKey}.title`)}
       </div>

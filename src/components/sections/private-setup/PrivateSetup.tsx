@@ -1,20 +1,14 @@
-import Badge from "@/components/shared/Badge";
 import { Button } from "@/components/ui/button";
-import { Sparkles } from "lucide-react";
 
 const PrivateSetup = () => {
   return (
-    <div id="private-setup" className="mt-24 lg:px-24 xl:px-40">
-      <div className="border-2 border-foreground/10 rounded-lg">
-        <div className="flex flex-col items-center gap-4 bg-gradient-to-b from-card to-transparent rounded-md p-8">
-          <Badge
-            icon={<Sparkles className="size-2.5" />}
-            text="Private Setup"
-          />
+    <div id="private-setup" className="mt-24 flex justify-center">
+      <div className="border-2 max-w-[960px] border-foreground/10 rounded-lg">
+        <div className="flex flex-col items-center gap-4 bg-gradient-to-b from-card to-transparent rounded-md p-6 md:p-20">
           <p className="text-3xl font-medium text-balance text-center md:text-[42px] lg:text-5xl xl:text-6xl">
             Want a private trading setup?
           </p>
-          <p className="text-muted-foreground text-balance md:text-pretty text-center xl:w-2/3">
+          <p className="text-muted-foreground text-balance md:text-pretty text-center max-w-[600px]">
             Join our existing trader groups utilizing our Infra on their servers
             without concerns about international data and financial rules
           </p>

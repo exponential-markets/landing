@@ -3,7 +3,7 @@ import { PartyPopper } from "lucide-react";
 
 const Algorithms = () => {
   return (
-    <div className="mt-14">
+    <div className="mt-14 flex justify-center">
       <InfiniteHorizontalMovingCards
         direction="left"
         speed="normal"

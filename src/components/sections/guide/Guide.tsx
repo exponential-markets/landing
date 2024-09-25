@@ -26,11 +26,11 @@ const Guide = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         {steps.map((step, index) => (
           <div
             key={index}
-            className="flex flex-col gap-10 md:gap-16 md:grid md:grid-cols-2 xl:px-12"
+            className="flex flex-col gap-10 md:gap-16 lg:gap-[100px] md:grid md:grid-cols-2"
           >
             <div
               className={cn(
-                "flex flex-col justify-center",
+                "flex flex-col justify-center max-w-[540px]",
                 index % 2 === 0 ? "md:order-1" : "md:order-2"
               )}
             >
@@ -45,14 +45,14 @@ const Guide = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
                   </span>
                 ))}
               </p>
-              <p className="text-muted-foreground text-balance md:text-pretty pt-4">
-                {steps[0].description}
+              <p className="text-muted-foreground text-balance md:text-pretty mt-4 max-w-[500px] leading-[1.8]">
+                {step.description}
               </p>
-              <div className="flex flex-col gap-2 mt-4">
-                {steps[0].features.map((feature, index) => (
+              <div className="flex flex-col gap-2 mt-8">
+                {step.features.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 text-muted-foreground"
+                    className="flex items-center gap-2 text-sm text-light text-muted-foreground"
                   >
                     <div className="size-5">
                       <Check className="text-primary size-5" />
@@ -62,11 +62,13 @@ const Guide = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
                 ))}
               </div>
             </div>
-            <Mockup
-              imageSrc={step.mockup}
-              altText={step.title[0].text}
-              className={cn(index % 2 === 0 ? "md:order-2" : "md:order-1")}
-            />
+            <div className={cn(index % 2 === 0 ? "md:order-2" : "md:order-1")}>
+              <Mockup
+                imageSrc={step.mockup}
+                altText={step.title[0].text}
+                className="max-h-[470px] max-w-[540px] border-0 mx-atuo"
+              />
+            </div>
           </div>
         ))}
       </div>
