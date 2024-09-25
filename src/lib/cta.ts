@@ -24,8 +24,6 @@ export const requestEarlyAccess = async (
     );
 
     if (response.ok) {
-      localStorage.setItem("waitlistEmail", email);
-      localStorage.setItem("joinedWaitlist", "true");
       return true;
     }
     return false;

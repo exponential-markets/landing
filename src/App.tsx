@@ -1,4 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import Layout from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
@@ -8,14 +9,16 @@ import "@/lib/i18n";
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/developer" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/about" element={<About />} />
-        </Route>
-      </Routes>
+      <GoogleOAuthProvider clientId="373049870743-cgblifie9ee206800gdv9mqdl5ob6evj.apps.googleusercontent.com">
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/developer" element={<Home />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/about" element={<About />} />
+          </Route>
+        </Routes>
+      </GoogleOAuthProvider>
     </Router>
   );
 }

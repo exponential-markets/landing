@@ -1,19 +1,26 @@
 import WaitlistButton from "@/components/shared/WaitlistButton";
 import { Button } from "@/components/ui/button";
 import InfiniteVerticalMovingCards from "@/components/ui/infinite-vertical-moving-cards";
+import { cn } from "@/lib/utils";
 import { Component } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const newJoinees = [
   {
-    username: "Vitalik Buterin",
-    bio: "Founder of Ethereum",
-    image: "/images/vitalik buterin.jpg",
+    algoName: "Ethereum",
+    cagr: 23.5,
+    aum: "106k",
+    profitableTrades: 78,
+    creatorName: "Vitalik Buterin",
+    creatorImage: "/images/vitalik buterin.jpg",
   },
   {
-    username: "Satoshi Nakamoto",
-    bio: "Founder of Bitcoin",
-    image: "/images/satoshi nakamoto.jpg",
+    algoName: "Bitcoin",
+    cagr: 19.5,
+    aum: "91k",
+    profitableTrades: 58,
+    creatorName: "Satoshi Nakamoto",
+    creatorImage: "/images/satoshi nakamoto.jpg",
   },
 ];
 
@@ -38,7 +45,11 @@ const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
               {t(`${contentKey}.description`)}
             </p>
           </div>
-          <WaitlistButton buttonText="Join Waitlist" showIcon />
+          <WaitlistButton
+            role={isDeveloperPage ? "developer" : "investor"}
+            buttonText="Join Waitlist"
+            showIcon
+          />
         </div>
         <div className="mt-20 min-[820px]:px-12 lg:px-24 xl:px-0 flex gap-4 w-full xl:w-[620px]">
           <div className="w-full">
@@ -46,21 +57,46 @@ const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
               {newJoinees.map((joinee, index) => (
                 <div
                   key={index}
-                  className="bg-card py-12 xl:ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg"
+                  className="bg-card p-4 xl:ml-6 text-3xl flex flex-col gap-8 items-center justify-between rounded-lg"
                 >
-                  <div className="p-2 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                    <img
-                      src={joinee.image}
-                      alt={joinee.username}
-                      className="size-16 rounded-full object-cover"
-                    />
+                  <div className="flex justify-between w-full">
+                    <p className="text-xs">
+                      Profitable Trades <br />{" "}
+                      <span className="text-xs text-muted-foreground">
+                        {joinee.profitableTrades}
+                      </span>
+                    </p>
+                    <p className="text-xs">
+                      AUM
+                      <br />{" "}
+                      <span className="text-xs text-muted-foreground">
+                        {joinee.aum}
+                      </span>
+                    </p>
                   </div>
-                  <p className="text-2xl font-medium w-max mt-4">
-                    {joinee.username}
-                  </p>
-                  <p className="text-muted-foreground text-base max-w-40 text-center text-ellipsis mt-2">
-                    {joinee.bio}
-                  </p>
+                  <div>
+                    <p className="text-2xl font-medium w-max mt-2">
+                      {joinee.algoName}
+                    </p>
+                    <p className="text-muted-foreground text-xs text-center mt-1">
+                      <span
+                        className={cn(
+                          joinee.cagr > 0 ? "text-emerald-400" : "text-red-400"
+                        )}
+                      >
+                        {joinee.cagr}%
+                      </span>{" "}
+                      CAGR
+                    </p>
+                  </div>
+                  <div className="flex gap-2 text-sm items-center">
+                    <img
+                      src={joinee.creatorImage}
+                      alt={joinee.creatorName}
+                      className="size-6 rounded-full object-cover"
+                    />
+                    {joinee.creatorName}
+                  </div>
                 </div>
               ))}
             </InfiniteVerticalMovingCards>
@@ -74,21 +110,45 @@ const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
               {newJoinees.map((joinee, index) => (
                 <div
                   key={index}
-                  className="bg-card py-12 xl:mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg"
+                  className="bg-card p-4 xl:mr-6 text-3xl flex flex-col gap-8 items-center justify-between rounded-lg"
                 >
-                  <div className="p-2 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                    <img
-                      src={joinee.image}
-                      alt={joinee.username}
-                      className="size-16 rounded-full object-cover"
-                    />
+                  <div className="flex justify-between w-full">
+                    <p className="text-sm">
+                      Profitable Trades <br />{" "}
+                      <span className="text-xs text-muted-foreground">
+                        {joinee.profitableTrades}
+                      </span>
+                    </p>
+                    <p className="text-sm">
+                      AUM <br />{" "}
+                      <span className="text-xs text-muted-foreground">
+                        {joinee.aum}
+                      </span>
+                    </p>
                   </div>
-                  <p className="text-2xl font-medium w-max mt-4">
-                    {joinee.username}
-                  </p>
-                  <p className="text-muted-foreground text-base max-w-40 text-center text-ellipsis mt-2">
-                    {joinee.bio}
-                  </p>
+                  <div>
+                    <p className="text-2xl font-medium w-max mt-2">
+                      {joinee.algoName}
+                    </p>
+                    <p className="text-muted-foreground text-xs text-center mt-1">
+                      <span
+                        className={cn(
+                          joinee.cagr > 0 ? "text-emerald-400" : "text-red-400"
+                        )}
+                      >
+                        {joinee.cagr}%
+                      </span>{" "}
+                      CAGR
+                    </p>
+                  </div>
+                  <div className="flex gap-2 text-sm items-center">
+                    <img
+                      src={joinee.creatorImage}
+                      alt={joinee.creatorName}
+                      className="size-6 rounded-full object-cover"
+                    />
+                    {joinee.creatorName}
+                  </div>
                 </div>
               ))}
             </InfiniteVerticalMovingCards>

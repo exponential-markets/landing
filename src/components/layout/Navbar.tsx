@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import ExponentialLogo from "@/assets/logo.svg";
-import { MenuIcon, XIcon } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import EarlyAccess from "@/components/shared/EarlyAccess";
+import { Button } from "@/components/ui/button";
 import { navbarLinks } from "@/constants/constants";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
-import { useLocation } from "react-router-dom";
+import { scheduleCall } from "@/lib/cta";
+import ExponentialLogo from "@/assets/logo.svg";
+import { MenuIcon, XIcon } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,15 +80,14 @@ const Navbar = () => {
           </div>
           <div className="hidden lg:flex xl:flex-1 justify-end gap-4 xl:gap-6 items-center">
             <Button
+              onClick={scheduleCall}
               variant="outline"
               size="lg"
               className="rounded-full hover:bg-foreground hover:text-background border-2 border-foreground px-6"
             >
               Schedule a Call
             </Button>
-            <Button size="lg" className="rounded-full px-6">
-              Early Access
-            </Button>
+            <EarlyAccess />
           </div>
           <button
             onClick={() => {

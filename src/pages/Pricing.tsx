@@ -20,7 +20,7 @@ const Pricing = () => {
         <p className="text-3xl md:text-[42px] font-medium lg:text-5xl xl:text-6xl min-[820px]:w-1/2 text-center">
           {t("pricing.title")}
         </p>
-        <div className="mt-20 xl:px-16 grid grid-cols-1 min-[820px]:grid-cols-2 xl:grid-cols-3 justify-center gap-6">
+        <div className="mt-20 xl:mx-16 grid grid-cols-1 min-[820px]:grid-cols-2 xl:grid-cols-3 justify-center gap-6">
           {pricing.map((plan, index) => (
             <div
               className={cn(

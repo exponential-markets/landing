@@ -1,7 +1,9 @@
 import WaitlistButton from "@/components/shared/WaitlistButton";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import { PricingPlan } from "@/types";
+import { scheduleCall } from "@/lib/cta";
 
 const PricingCard = ({
   data,
@@ -47,19 +49,31 @@ const PricingCard = ({
           </div>
         </div>
         <div className="mt-10">
-          {data.cta.type === "primary" ? (
-            <WaitlistButton
-              buttonText={data.cta.text}
-              showIcon={false}
-              className="w-full rounded-full text-base"
-            />
+          {data.name.toLowerCase() != "enterprise" ? (
+            data.cta.type === "primary" ? (
+              <WaitlistButton
+                buttonText={data.cta.text}
+                role={data.name.toLowerCase()}
+                showIcon={false}
+                className="w-full rounded-full text-base"
+              />
+            ) : (
+              <WaitlistButton
+                buttonText={data.cta.text}
+                role={data.name.toLowerCase()}
+                showIcon={false}
+                variant="outline"
+                className="w-full text-base rounded-full border-2 border-foreground hover:text-background hover:bg-foreground"
+              />
+            )
           ) : (
-            <WaitlistButton
-              buttonText={data.cta.text}
-              showIcon={false}
+            <Button
+              onClick={scheduleCall}
               variant="outline"
               className="w-full text-base rounded-full border-2 border-foreground hover:text-background hover:bg-foreground"
-            />
+            >
+              Reach Out
+            </Button>
           )}
         </div>
       </div>
