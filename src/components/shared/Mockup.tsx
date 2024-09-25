@@ -4,9 +4,15 @@ type MockupProps = {
   imageSrc: string;
   altText: string;
   className?: string;
+  imageClassName?: string;
 };
 
-const Mockup = ({ imageSrc, altText, className }: MockupProps) => {
+const Mockup = ({
+  imageSrc,
+  altText,
+  className,
+  imageClassName,
+}: MockupProps) => {
   return (
     <div
       className={cn(
@@ -14,7 +20,11 @@ const Mockup = ({ imageSrc, altText, className }: MockupProps) => {
         className
       )}
     >
-      <img src={imageSrc} alt={altText} className="rounded-lg object-cover" />
+      <img
+        src={imageSrc}
+        alt={altText}
+        className={cn("rounded-lg object-cover", imageClassName)}
+      />
     </div>
   );
 };

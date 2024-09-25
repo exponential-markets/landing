@@ -67,6 +67,10 @@ const Guide = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
                 imageSrc={step.mockup}
                 altText={step.title[0].text}
                 className="max-h-[470px] max-w-[540px] border-0 mx-atuo"
+                imageClassName={cn(
+                  "border-[2rem] border-b-0 border-neutral-800",
+                  index % 2 === 0 ? "border-r-0" : "border-l-0"
+                )}
               />
             </div>
           </div>

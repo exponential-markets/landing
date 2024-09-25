@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
+import WaitlistButton from "@/components/shared/WaitlistButton";
 import { cn } from "@/lib/utils";
-import { PricingPlan } from "@/types";
 import { Check } from "lucide-react";
+import { PricingPlan } from "@/types";
 
 const PricingCard = ({
   data,
@@ -15,7 +15,7 @@ const PricingCard = ({
       <div className="text-center text-2xl">{data.name}</div>
       <div
         className={cn(
-          "flex flex-col justify-between w-full h-full mt-2 p-8 bg-card rounded-lg relative overflow-hidden",
+          "flex flex-col justify-between w-full h-full mt-2 px-8 pb-8 pt-4 bg-card rounded-lg relative overflow-hidden",
           className
         )}
       >
@@ -32,7 +32,7 @@ const PricingCard = ({
               {data.price === "$0" ? "/ per month" : ""}
             </p>
             {data.earn && (
-              <p className="text-muted-foreground text-balance w-1/3">
+              <p className="text-foreground font-bold text-balance w-1/3">
                 {data.earn}
               </p>
             )}
@@ -46,19 +46,22 @@ const PricingCard = ({
             ))}
           </div>
         </div>
-        {data.cta.type === "primary" ? (
-          <Button size="lg" className="mt-10 text-base rounded-full">
-            {data.cta.text}
-          </Button>
-        ) : (
-          <Button
-            className="mt-10 text-base rounded-full border-2 border-foreground hover:text-background hover:bg-foreground"
-            size="lg"
-            variant="outline"
-          >
-            {data.cta.text}
-          </Button>
-        )}
+        <div className="mt-10">
+          {data.cta.type === "primary" ? (
+            <WaitlistButton
+              buttonText={data.cta.text}
+              showIcon={false}
+              className="w-full rounded-full text-base"
+            />
+          ) : (
+            <WaitlistButton
+              buttonText={data.cta.text}
+              showIcon={false}
+              variant="outline"
+              className="w-full text-base rounded-full border-2 border-foreground hover:text-background hover:bg-foreground"
+            />
+          )}
+        </div>
       </div>
     </div>
   );

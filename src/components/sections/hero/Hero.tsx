@@ -1,12 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import Badge from "@/components/shared/Badge";
-import { Check, Sparkles } from "lucide-react";
 import Mockup from "@/components/shared/Mockup";
+import HackerText from "@/components/shared/HackerText";
+import WaitlistInput from "@/components/shared/WaitlistInput";
+import { Check, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Hero = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
   const { t } = useTranslation();
+  const role = isDeveloperPage ? "developer" : "investor";
   const contentKey = isDeveloperPage ? "developer.hero" : "investor.hero";
 
   const heroTitleParts = t(`${contentKey}.title`, {
@@ -26,25 +27,26 @@ const Hero = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         <Badge icon={<Sparkles className="size-2" />} text="MVP is Live!" />
       </div>
       <div className="text-center flex flex-col items-center text-4xl md:text-6xl xl:text-7xl font-medium text-balance z-10">
-        <div className="lg:w-2/3 mx-auto md:leading-[1.2]">
+        <div className="lg:w-2/3 mx-auto md:leading-[1.2] text-pretty">
           {heroTitleParts.map((part, index) => (
             <span key={index} className={part.className}>
-              {part.text}
+              {part.text.toLowerCase() == " algorithms" ? (
+                <HackerText text={part.text} />
+              ) : (
+                part.text
+              )}
             </span>
           ))}
         </div>
-        <p className="text-base text-pretty leading-[1.8] mt-4 font-normal text-white/70 min-w-[350px] max-w-[30%]">
+        <p className="text-base text-pretty leading-[1.8] mt-4 font-normal text-white/70 min-w-[350px] max-w-[540px]">
           {t(`${contentKey}.description`)}
         </p>
       </div>
-      <div className="mt-8 w-full bg-background max-w-[500px] flex border rounded-xl p-2 z-20">
-        <Input placeholder="example@gmail.com" className="border-0" />
-        <Button size="lg" className="p-3 text-base font-normal">
-          Request Early Access
-        </Button>
+      <div className="mt-12">
+        <WaitlistInput buttonText="Request Early Access" role={role} />
       </div>
       <div className="relative z-10">
-        <div className="mt-4 flex gap-6 justify-center">
+        <div className="flex gap-6 justify-center">
           {features.map((feature, index) => (
             <div
               key={index}

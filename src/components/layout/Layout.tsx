@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen relative">
+    <div className="relative">
       <Navbar />
       <div>
         <Outlet />

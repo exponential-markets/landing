@@ -1,3 +1,4 @@
+import PrivateSetup from "@/components/sections/private-setup/PrivateSetup";
 import Badge from "@/components/shared/Badge";
 import PricingCard from "@/components/shared/PricingCard";
 import { cn } from "@/lib/utils";
@@ -39,6 +40,7 @@ const Pricing = () => {
           ))}
         </div>
       </div>
+      <PrivateSetup />
     </>
   );
 };

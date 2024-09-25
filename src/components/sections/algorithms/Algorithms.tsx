@@ -1,5 +1,20 @@
 import InfiniteHorizontalMovingCards from "@/components/ui/infinite-horizontal-moving-cards";
-import { PartyPopper } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const algorithms = [
+  {
+    name: "Asana",
+    cagr: 23.5,
+  },
+  {
+    name: "SpaceX",
+    cagr: 13.5,
+  },
+  {
+    name: "Tesla",
+    cagr: -14.3,
+  },
+];
 
 const Algorithms = () => {
   return (
@@ -9,21 +24,22 @@ const Algorithms = () => {
         speed="normal"
         pauseOnHover={false}
       >
-        <div className="text-3xl flex gap-2 items-center">
-          <PartyPopper /> Asana
-        </div>
-        <div className="text-3xl flex gap-2 items-center">
-          <PartyPopper /> Hotjar
-        </div>
-        <div className="text-3xl flex gap-2 items-center">
-          <PartyPopper /> Maze
-        </div>
-        <div className="text-3xl flex gap-2 items-center">
-          <PartyPopper /> Afterpay
-        </div>
-        <div className="text-3xl flex gap-2 items-center">
-          <PartyPopper /> Classpass
-        </div>
+        {algorithms.map((algorithm, index) => (
+          <div key={index} className="flex flex-col gap-1 items-center">
+            <span className="text-3xl">{algorithm.name}</span>
+            <p className="text-base">
+              <span
+                className={cn(
+                  "text-base",
+                  algorithm.cagr > 0 ? "text-emerald-400" : "text-red-400"
+                )}
+              >
+                {algorithm.cagr}%{" "}
+              </span>
+              CAGR
+            </p>
+          </div>
+        ))}
       </InfiniteHorizontalMovingCards>
     </div>
   );

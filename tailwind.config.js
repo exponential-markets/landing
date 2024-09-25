@@ -60,7 +60,6 @@ export default {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        grotesk: ["Space Grotesk", "sans-serif"],
       },
       width: {
         "navbar-width": "calc(100vw - 40px)",

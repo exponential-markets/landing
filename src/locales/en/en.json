@@ -135,8 +135,8 @@
         "question": "Have other questions?",
         "description": "If you have more questions",
         "link": {
-          "text": "contact us",
-          "href": "/contact"
+          "text": "call us",
+          "href": "https://exponential.markets/calendar"
         },
         "suffix": "so we can help"
       },
@@ -192,10 +192,14 @@
         },
         {
           "text": " to",
-          "className": "text-white/60"
+          "className": "text-muted-foreground"
         },
         {
-          "text": " Code Algorithms",
+          "text": " Code",
+          "className": ""
+        },
+        {
+          "text": " Algorithms",
           "className": ""
         }
       ],
@@ -311,7 +315,7 @@
         "question": "Have other questions?",
         "description": "If you have more questions",
         "link": {
-          "text": "contact us",
+          "text": "call us",
           "href": "/contact"
         },
         "suffix": "so we can help"
@@ -366,7 +370,7 @@
         "name": "Developer",
         "description": "Join waitlist to claim while it lasts",
         "price": "$0",
-        "earn": "20% of Profits Made by Investors",
+        "earn": "Earn 20% of Profits Made by Investors",
         "features": [
           "Access to minutely data",
           "Access to our cloud hosted IDE",
@@ -417,14 +421,14 @@
     "quote": [
       {
         "text": "Our",
-        "className": "text-foreground/70"
+        "className": "text-muted-foreground"
       },
       {
         "text": " Vision"
       },
       {
         "text": " is to make",
-        "className": "text-foreground/70"
+        "className": "text-muted-foreground"
       },
       {
         "text": " algorithmic trading accessible",
@@ -432,29 +436,27 @@
       },
       {
         "text": " to",
-        "className": "text-foreground/70"
+        "className": "text-muted-foreground"
       },
       {
         "text": " all investors"
       },
       {
         "text": " in",
-        "className": "text-foreground/70"
+        "className": "text-muted-foreground"
       },
       {
         "text": " every market around the globe"
       }
     ],
     "by": "- Shubham & Parth, Founders",
-    "description": "We launch our product in web3 to streamline legalities and prepare for entry into traditional markets.",
     "team": {
-      "title": "WHO ARE WE",
       "founders": [
         {
           "image": "/images/vitalik buterin.jpg",
           "name": "Vitalik Buterin",
           "role": "Co-Founder",
-          "badge": "Investment trader",
+          "badge": "Investment Trader",
           "bulletins": [
             "lorem ipsum donor lorem ipsum donor",
             "lorem ipsum donor lorem ipsum donor",

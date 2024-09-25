@@ -48,12 +48,12 @@ const Navbar = () => {
       <nav
         ref={navbarRef}
         className={cn(
-          "translate-x-1/2 right-1/2 fixed w-navbar-width md:w-navbar-width-md xl:w-navbar-width-xl top-5 p-4 xl:px-20 border z-50 backdrop-blur-[8px] bg-background/70 rounded-lg lg:rounded-full transition-transform duration-300",
+          "translate-x-1/2 right-1/2 fixed w-navbar-width md:w-navbar-width-md xl:w-navbar-width-xl top-5 p-4 border z-50 backdrop-blur-[8px] bg-background/70 rounded-lg lg:rounded-full transition-transform duration-300",
           isVisible ? "translate-y-0" : "-translate-y-[100px]"
         )}
       >
         <div className="flex justify-between items-center">
-          <div className="flex-1 flex items-center gap-2">
+          <div className="xl:flex-1 flex items-center gap-2">
             <img
               src={ExponentialLogo}
               alt="Exponential Markets"
@@ -61,7 +61,7 @@ const Navbar = () => {
             />
             <span className="text-xl font-medium">Exponential</span>
           </div>
-          <div className="hidden lg:flex flex-1 items-center gap-6 xl:gap-10">
+          <div className="hidden lg:flex xl:flex-1 items-center gap-6 xl:gap-10">
             {navbarLinks.map(({ name, href }) => (
               <a
                 key={href}
@@ -76,7 +76,7 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex flex-1 justify-end gap-4 xl:gap-6 items-center">
+          <div className="hidden lg:flex xl:flex-1 justify-end gap-4 xl:gap-6 items-center">
             <Button
               variant="outline"
               size="lg"

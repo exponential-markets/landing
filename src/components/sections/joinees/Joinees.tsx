@@ -1,7 +1,21 @@
+import WaitlistButton from "@/components/shared/WaitlistButton";
 import { Button } from "@/components/ui/button";
 import InfiniteVerticalMovingCards from "@/components/ui/infinite-vertical-moving-cards";
-import { Component, Figma } from "lucide-react";
+import { Component } from "lucide-react";
 import { useTranslation } from "react-i18next";
+
+const newJoinees = [
+  {
+    username: "Vitalik Buterin",
+    bio: "Founder of Ethereum",
+    image: "/images/vitalik buterin.jpg",
+  },
+  {
+    username: "Satoshi Nakamoto",
+    bio: "Founder of Bitcoin",
+    image: "/images/satoshi nakamoto.jpg",
+  },
+];
 
 const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
   const { t } = useTranslation();
@@ -24,37 +38,31 @@ const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
               {t(`${contentKey}.description`)}
             </p>
           </div>
-          <Button size="lg" className="rounded-full w-fit text-base">
-            {t(`${contentKey}.cta`)}
-          </Button>
+          <WaitlistButton buttonText="Join Waitlist" showIcon />
         </div>
         <div className="mt-20 min-[820px]:px-12 lg:px-24 xl:px-0 flex gap-4 w-full xl:w-[620px]">
           <div className="w-full">
             <InfiniteVerticalMovingCards speed="normal" pauseOnHover={false}>
-              <div className="bg-card py-12 xl:ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
-                <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                  <Figma className="size-14" />
+              {newJoinees.map((joinee, index) => (
+                <div
+                  key={index}
+                  className="bg-card py-12 xl:ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg"
+                >
+                  <div className="p-2 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
+                    <img
+                      src={joinee.image}
+                      alt={joinee.username}
+                      className="size-16 rounded-full object-cover"
+                    />
+                  </div>
+                  <p className="text-2xl font-medium w-max mt-4">
+                    {joinee.username}
+                  </p>
+                  <p className="text-muted-foreground text-base max-w-40 text-center text-ellipsis mt-2">
+                    {joinee.bio}
+                  </p>
                 </div>
-                <p className="text-2xl font-medium w-max mt-8">
-                  Vitalik Buterin
-                </p>
-              </div>
-              <div className="bg-card py-12 xl:ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
-                <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                  <Figma className="size-14" />
-                </div>
-                <p className="text-2xl font-medium w-max mt-8">
-                  Vitalik Buterin
-                </p>
-              </div>
-              <div className="bg-card py-12 xl:ml-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
-                <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                  <Figma className="size-14" />
-                </div>
-                <p className="text-2xl font-medium w-max mt-8">
-                  Vitalik Buterin
-                </p>
-              </div>
+              ))}
             </InfiniteVerticalMovingCards>
           </div>
           <div className="hidden md:block w-full">
@@ -63,30 +71,26 @@ const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
               speed="normal"
               pauseOnHover={false}
             >
-              <div className="bg-card py-12 mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
-                <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                  <Figma className="size-14" />
+              {newJoinees.map((joinee, index) => (
+                <div
+                  key={index}
+                  className="bg-card py-12 xl:mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg"
+                >
+                  <div className="p-2 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
+                    <img
+                      src={joinee.image}
+                      alt={joinee.username}
+                      className="size-16 rounded-full object-cover"
+                    />
+                  </div>
+                  <p className="text-2xl font-medium w-max mt-4">
+                    {joinee.username}
+                  </p>
+                  <p className="text-muted-foreground text-base max-w-40 text-center text-ellipsis mt-2">
+                    {joinee.bio}
+                  </p>
                 </div>
-                <p className="text-2xl font-medium w-max mt-8">
-                  Vitalik Buterin
-                </p>
-              </div>
-              <div className="bg-card py-12 mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
-                <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                  <Figma className="size-14" />
-                </div>
-                <p className="text-2xl font-medium w-max mt-8">
-                  Vitalik Buterin
-                </p>
-              </div>
-              <div className="bg-card py-12 mr-6 text-3xl flex flex-col gap-2 items-center rounded-lg">
-                <div className="p-4 bg-background rounded-full border border-primary/50 border-b-0 border-r-0">
-                  <Figma className="size-14" />
-                </div>
-                <p className="text-2xl font-medium w-max mt-8">
-                  Vitalik Buterin
-                </p>
-              </div>
+              ))}
             </InfiniteVerticalMovingCards>
           </div>
         </div>

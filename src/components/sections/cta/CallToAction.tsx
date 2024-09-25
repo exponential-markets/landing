@@ -64,10 +64,13 @@ const CallToAction = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         <div className="flex flex-col gap-14">
           <div className="flex justify-center gap-4">
             <Button
+              onClick={() => {
+                window.location.href = isDeveloperPage ? "/" : "/developer";
+              }}
               variant="outline"
               className="rounded-full border-2 border-foreground hover:bg-foreground hover:text-background"
             >
-              {isDeveloperPage ? "Join Waitlist" : "Join Dev Waitlist"}
+              Discover More
               <ArrowUpRight className="size-5 ml-2" />
             </Button>
             <Button className="rounded-full">Book a Call with Founders</Button>
