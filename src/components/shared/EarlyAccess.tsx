@@ -79,39 +79,46 @@ const EarlyAccess = () => {
           <DialogContent className="max-w-[400px]">
             <DialogHeader>
               <DialogTitle>
-                {showSignInButton ? "Sign in to continue" : "Enter Invite Code"}
+                {showSignInButton
+                  ? "Congratulations! Let's proceed"
+                  : "Enter Invite Code"}
               </DialogTitle>
               <DialogDescription></DialogDescription>
             </DialogHeader>
             {showSignInButton ? (
-              <GoogleLogin
-                onSuccess={async (credentialResponse) => {
-                  const formData = new FormData();
-                  formData.append("credential", credentialResponse.credential!);
-
-                  const requestOptions = {
-                    method: "POST",
-                    body: formData,
-                  };
-
-                  try {
-                    const response = await fetch(
-                      "https://api.exponential.markets/user/auth",
-                      requestOptions
+              <div className="flex justify-center">
+                <GoogleLogin
+                  onSuccess={async (credentialResponse) => {
+                    const formData = new FormData();
+                    formData.append(
+                      "credential",
+                      credentialResponse.credential!
                     );
-                    const result: { token: string } = await response.json();
-                    // store the token in local storage
-                    localStorage.setItem("jwt", result.token);
 
-                    // Redirect to the dashboard app with the token as a URL parameter
-                    window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(
-                      result.token
-                    )}`;
-                  } catch (error) {
-                    console.error(error);
-                  }
-                }}
-              />
+                    const requestOptions = {
+                      method: "POST",
+                      body: formData,
+                    };
+
+                    try {
+                      const response = await fetch(
+                        "https://api.exponential.markets/user/auth",
+                        requestOptions
+                      );
+                      const result: { token: string } = await response.json();
+                      // store the token in local storage
+                      localStorage.setItem("jwt", result.token);
+
+                      // Redirect to the dashboard app with the token as a URL parameter
+                      window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(
+                        result.token
+                      )}`;
+                    } catch (error) {
+                      console.error(error);
+                    }
+                  }}
+                />
+              </div>
             ) : (
               <div>
                 <div className="flex gap-4 items-start">

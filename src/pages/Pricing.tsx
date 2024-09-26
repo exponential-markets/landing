@@ -14,13 +14,10 @@ const Pricing = () => {
     <>
       <div
         id="pricing"
-        className="mt-28 md:px-20 min-[820px]:px-0 flex flex-col gap-4 items-center"
+        className="pt-28 md:px-20 min-[820px]:px-0 flex flex-col items-center"
       >
         <Badge icon={<Sparkles className="size-2" />} text="PRICING" />
-        <p className="text-3xl md:text-[42px] font-medium lg:text-5xl xl:text-6xl min-[820px]:w-1/2 text-center">
-          {t("pricing.title")}
-        </p>
-        <div className="mt-20 xl:mx-16 grid grid-cols-1 min-[820px]:grid-cols-2 xl:grid-cols-3 justify-center gap-6">
+        <div className="xl:mx-16 grid grid-cols-1 min-[820px]:grid-cols-2 xl:grid-cols-3 justify-center gap-6">
           {pricing.map((plan, index) => (
             <div
               className={cn(

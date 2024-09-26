@@ -12,8 +12,10 @@ export type Founder = {
   name: string;
   role: string;
   badge: string;
-  bulletins: string[];
+  bio: string[];
   contacts: {
     email: string;
+    twitter: string;
+    linkedin: string;
   };
 };

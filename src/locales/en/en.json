@@ -25,7 +25,7 @@
       ],
       "description": "Exponential Developers, Exponential Algorithms! Are you an Exponential Investor?",
       "features": ["No KYC needed", "Pay only on Profits"],
-      "mockup": "/images/Light Investor Dashboard.png"
+      "mockup": "/images/Dark Investor Dashboard.png"
     },
     "features": {
       "title": "Invest Exponentially",
@@ -121,8 +121,8 @@
       ]
     },
     "joinees": {
-      "title": "Latest Joinees",
-      "description": "Just welcomed our latest investors on board! Fancy seeing your profile here? Log in and refresh your screen ;)",
+      "title": "Latest Algorithms",
+      "description": "Join the waitlist to get alpha access to these and more that are live on the platform",
       "cta": "Discover More"
     },
     "faq": {
@@ -169,15 +169,15 @@
       "description": "Write Python algorithms with our backtesting engine & helper tools. From our IDE, deploy strategies, retain full IP, & earn commissions as investors engage!",
       "mockups": [
         {
-          "imageSrc": "/images/Light Developer Dashboard.png",
+          "imageSrc": "/images/Dark Developer Dashboard.png",
           "altText": "Developer Dashboard"
         },
         {
-          "imageSrc": "/images/Light Developer IDE.png",
+          "imageSrc": "/images/Dark Developer Create Algorithm.png",
           "altText": "Developer IDE"
         },
         {
-          "imageSrc": "/images/Light Developer Algorithms.png",
+          "imageSrc": "/images/Dark Developer Algorithms.png",
           "altText": "Developer Algorithms"
         }
       ]
@@ -205,7 +205,7 @@
       ],
       "description": "Write algorithms, No investment needed. Earn top commissions as investors fund your strategies.",
       "features": ["Minute-Level Data", "Backtesting Engine"],
-      "mockup": "/images/Light Developer Dashboard.png"
+      "mockup": "/images/Dark Developer Dashboard.png"
     },
     "features": {
       "title": "Develop Exponentially",
@@ -257,7 +257,7 @@
             }
           ],
           "description": "Write algorithm in Python on our online IDE with the help of standard open source libraries, helper methods, ticker data. Test it against example dataset",
-          "mockup": "/images/Light Developer IDE.png",
+          "mockup": "/images/Dark Developer IDE.png",
           "features": []
         },
         {
@@ -272,7 +272,7 @@
             }
           ],
           "description": "Backtest against multiple Test Cases we've designed for you to make sure your algorithm has what it takes to sustain market conditions be it a Bear or a Bull",
-          "mockup": "/images/Light Developer Backtesting.png",
+          "mockup": "/images/Dark Developer Backtesting.png",
           "features": [
             "Free Backtesting upto minutely data",
             "Set Algorithm frequeuncy anywhere between 1 second & 1 year",
@@ -291,7 +291,7 @@
             }
           ],
           "description": "Sit Back while Investors invest. Enjoy your Returns whenever they withdraw from your algorithm profitably",
-          "mockup": "/images/Light Investor Algorithm View.png",
+          "mockup": "/images/Dark Developer Algorithm Deployed.png",
           "features": [
             "Real-time Monitoring",
             "100% Transparent on-chain transactions to see how many $ are invested",
@@ -301,8 +301,8 @@
       ]
     },
     "joinees": {
-      "title": "Latest Developers",
-      "description": "Just welcomed our latest developers on board! Fancy seeing your profile here? Log in and refresh this page ;)",
+      "title": "Latest Algorithms",
+      "description": "Join the waitlist to get alpha access to these and more that are live on the platform",
       "cta": "Discover More"
     },
     "faq": {
@@ -349,15 +349,15 @@
       "description": "Invest in Algorithms written by Top Quant Developers",
       "mockups": [
         {
-          "imageSrc": "/images/Light Investor Algorithms.png",
+          "imageSrc": "/images/Dark Investor Algorithms.png",
           "altText": "Investor Algorithms"
         },
         {
-          "imageSrc": "/images/Light Investor Dashboard.png",
+          "imageSrc": "/images/Dark Investor Dashboard.png",
           "altText": "Investor Dashboard"
         },
         {
-          "imageSrc": "/images/Light Investor Algorithm View.png",
+          "imageSrc": "/images/Dark Developer Algorithm Deployed.png",
           "altText": "Investor Algorithm View"
         }
       ]
@@ -453,35 +453,34 @@
     "team": {
       "founders": [
         {
-          "image": "/images/vitalik buterin.jpg",
-          "name": "Vitalik Buterin",
-          "role": "Co-Founder",
+          "image": "/images/shubham.jpeg",
+          "name": "Shubham Palriwala",
+          "role": "Co-Founder & CEO",
           "badge": "Investment Trader",
-          "bulletins": [
-            "lorem ipsum donor lorem ipsum donor",
-            "lorem ipsum donor lorem ipsum donor",
-            "lorem ipsum ipsum donor",
-            "lorem ipsum donor ipsum donor",
-            "lorem ipsum donor"
+          "bio": [
+            "Previously Co-Founder at Onboarding.Club,",
+            "Founding Engineer at Formbricks,",
+            "Networking Software Engineer at Cisco"
           ],
           "contacts": {
-            "email": "example@email.com"
+            "email": "shubham@exponential.markets",
+            "twitter": "https://x.com/ShubhamInTech",
+            "linkedin": "https://www.linkedin.com/in/shubhampalriwala/"
           }
         },
         {
-          "image": "/images/vitalik buterin.jpg",
-          "name": "Vitalik Buterin",
-          "role": "Co-Founder",
+          "image": "/images/parth.png",
+          "name": "Parth Ajmera",
+          "role": "Co-Founder & CEO",
           "badge": "Algorithmic Developer",
-          "bulletins": [
-            "lorem ipsum donor",
-            "lorem ipsum donor",
-            "lorem ipsum donor",
-            "lorem ipsum donor",
-            "lorem ipsum donor"
+          "bio": [
+            "Previously Tech Team Lead at Infurnia,",
+            "Software Engineer at Microsoft,",
+            "CS IIT Madras"
           ],
           "contacts": {
-            "email": "example@email.com"
+            "email": "parth@exponential.markets",
+            "linkedin": "https://www.linkedin.com/in/parth-ajmera-2458a9199/"
           }
         }
       ]

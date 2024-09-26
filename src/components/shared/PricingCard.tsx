@@ -48,7 +48,7 @@ const PricingCard = ({
             ))}
           </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-4">
           {data.name.toLowerCase() != "enterprise" ? (
             data.cta.type === "primary" ? (
               <WaitlistButton
