@@ -1,3 +1,10 @@
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
+const svgToDataUri = require("mini-svg-data-uri");
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
@@ -52,27 +59,64 @@ export default {
         },
       },
       fontFamily: {
-        urbanist: ["Urbanist", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+      },
+      width: {
+        "navbar-width": "calc(100vw - 40px)",
+        "navbar-width-md": "calc(100vw - 80px)",
+        "navbar-width-xl": "calc(100vw - 240px)",
       },
       backgroundImage: {
-        "wave-background": "url('/src/assets/Wave background.png')",
-        "noise-background": "url('/src/assets/noisebackground.png')",
-        "continue-button-background":
-          "radial-gradient(50% 50% at 50% 50%, #171717 0%, #494949 100%)",
-        "angular-gradient-1":
-          "conic-gradient(from 180deg at 50% 50%, rgba(217, 217, 217, 0.2) -30.91deg, #393939 28.87deg, #070707 97.79deg, #171717 182.64deg, #8D8D8D 260.16deg, rgba(221, 222, 222, 0.3) 307.42deg, rgba(217, 217, 217, 0.2) 329.09deg, #393939 388.87deg)",
-        "angular-gradient-2":
-          "conic-gradient(from 53.09deg at 50% 50%, #000000 0deg, #ABABAB 23.17deg, #818181 72deg, #3F3F3F 180deg, #000000 360deg)",
-        "angular-gradient-3":
-          "conic-gradient(from 53.09deg at 50% 50%, #000000 -51.12deg, rgba(229, 228, 226, 0.5) 69.48deg, #848884 143.28deg, #71797E 215.28deg, #000000 308.88deg, rgba(229, 228, 226, 0.5) 429.48deg)",
-        "card-gradient":
-          "linear-gradient(354.6deg, rgba(29, 29, 29, 0.6) 10.25%, rgba(0, 0, 0, 0.6) 33.18%, rgba(0, 0, 0, 0.6) 68.59%)",
+        "hero-gradient":
+          "radial-gradient(ellipse at center, hsl(var(--primary)), rgba(0, 0, 0, 0) 70%)",
+        "pricing-card-gradient":
+          "radial-gradient(ellipse at center, rgba(160, 224, 13, 1) 80%, rgba(160, 224, 13, 0) 100%)",
       },
-      boxShadow: {
-        "continue-button-shadow":
-          "0 0 20px #FFFFFF, 0 0 1px 4px rgba(255, 255, 255, 0.1), inset 0 -4px 2px rgba(0, 0, 0, 0.25), inset 0 2px 1px rgba(255, 255, 255, 0.25)",
+      animation: {
+        scrollX:
+          "scrollX var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scrollY:
+          "scrollY var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        scrollX: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+        scrollY: {
+          to: {
+            transform: "translateY(calc(-50% - 0.5rem))",
+          },
+        },
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    addVariablesForColors,
+    function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "bg-grid": (value) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="84" height="84" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+        },
+        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+      );
+    },
+  ],
 };
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}

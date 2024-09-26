@@ -1,15 +1,12 @@
-import { Toaster } from "sonner";
-import DeveloperSection from "./components/developers/DeveloperSection";
-import Footer from "./components/footer/Footer";
-import Hero from "./components/hero/Hero";
-import InvestorSection from "./components/investors/InvestorSection";
-import Navbar from "./components/navbar/Navbar";
-import StickyNavbarTab from "./components/navbar/StickyNavbarTab";
-import Pricing from "./components/pricing/Pricing";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Layout from "@/components/layout/Layout";
+import Home from "@/pages/Home";
+import Pricing from "@/pages/Pricing";
+import About from "@/pages/About";
+import "@/lib/i18n";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
-import formbricks from "@formbricks/js/website";
 
 posthog.init("phc_Pf23onE68qvYSLrFboMEl6TdGqX3HIy2pLqGSlVfuwt", {
   api_host: "https://us.i.posthog.com",
@@ -18,30 +15,23 @@ posthog.init("phc_Pf23onE68qvYSLrFboMEl6TdGqX3HIy2pLqGSlVfuwt", {
   },
 });
 
-formbricks.init({
-  environmentId: "cm0rz69yp000kp9k5sk0lzrvm",
-  apiHost: "https://app.formbricks.com",
-});
-
-const App = () => {
+function App() {
   return (
-    <>
-      <GoogleOAuthProvider
-        clientId={import.meta.env.VITE_GOOGLE_OAUTH_CLIENT_ID}
-      >
-        <PostHogProvider client={posthog}>
-          <Navbar />
-          <Hero />
-          <InvestorSection />
-          <DeveloperSection />
-          <Pricing />
-          <Footer />
-          <StickyNavbarTab />
-          <Toaster position="top-center" richColors />
-        </PostHogProvider>
-      </GoogleOAuthProvider>
-    </>
+    <PostHogProvider client={posthog}>
+      <Router>
+        <GoogleOAuthProvider clientId="373049870743-cgblifie9ee206800gdv9mqdl5ob6evj.apps.googleusercontent.com">
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/developer" element={<Home />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
+            </Route>
+          </Routes>
+        </GoogleOAuthProvider>
+      </Router>
+    </PostHogProvider>
   );
-};
+}
 
 export default App;
