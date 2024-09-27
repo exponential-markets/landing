@@ -455,10 +455,10 @@
         {
           "image": "/images/shubham.jpeg",
           "name": "Shubham Palriwala",
-          "role": "Co-Founder & CEO",
+          "role": "Co-Founder",
           "badge": "Investment Trader",
           "bio": [
-            "Previously Co-Founder at Onboarding.Club,",
+            "Co-Founder at Onboarding.Club,",
             "Founding Engineer at Formbricks,",
             "Networking Software Engineer at Cisco"
           ],
@@ -471,10 +471,10 @@
         {
           "image": "/images/parth.png",
           "name": "Parth Ajmera",
-          "role": "Co-Founder & CEO",
+          "role": "Co-Founder",
           "badge": "Algorithmic Developer",
           "bio": [
-            "Previously Tech Team Lead at Infurnia,",
+            "Tech Team Lead at Infurnia,",
             "Software Engineer at Microsoft,",
             "CS IIT Madras"
           ],

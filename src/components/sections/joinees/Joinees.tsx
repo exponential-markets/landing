@@ -5,21 +5,21 @@ import { cn } from "@/lib/utils";
 import { Component } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const newJoinees = [
+const algorithms = [
   {
     algoName: "Zephyr",
     cagr: 39.57,
     aum: "68k",
     profitableTrades: 378,
-    creatorName: "Shubham Palriwala",
-    creatorImage: "/images/shubham.jpeg",
+    creatorName: "Nisarg",
+    creatorImage: "/images/nisarg.jpeg",
   },
   {
     algoName: "RiseEdge",
     cagr: 27.3,
     aum: "214k",
     profitableTrades: 258,
-    creatorName: "Parth Ajmera",
+    creatorName: "Parth",
     creatorImage: "/images/parth.png",
   },
   {
@@ -27,24 +27,24 @@ const newJoinees = [
     cagr: 24.27,
     aum: "156k",
     profitableTrades: 163,
-    creatorName: "Ritik Jain",
-    creatorImage: "/images/ritik.jpeg",
+    creatorName: "Raghav",
+    creatorImage: "/images/raghav.jpeg",
   },
   {
-    algoName: "Zephyr",
+    algoName: "Spartan",
     cagr: 39.57,
     aum: "240k",
     profitableTrades: 208,
-    creatorName: "Sanjay Agarwal",
-    creatorImage: "/images/sanjay agarwal.jpeg",
+    creatorName: "Vinit",
+    creatorImage: "/images/vinit.jpeg",
   },
   {
     algoName: "RSC Oscillator",
     cagr: 39.57,
     aum: "240k",
     profitableTrades: 208,
-    creatorName: "Avi Sheta",
-    creatorImage: "/images/avi sheta.jpeg",
+    creatorName: "Ritik",
+    creatorImage: "/images/ritik.jpeg",
   },
 ];
 
@@ -78,7 +78,7 @@ const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         <div className="mt-20 min-[820px]:px-12 lg:px-24 xl:px-0 flex gap-4 w-full xl:w-[620px]">
           <div className="w-full">
             <InfiniteVerticalMovingCards speed="normal" pauseOnHover={false}>
-              {newJoinees.map((joinee, index) => (
+              {algorithms.slice(0, Math.ceil(algorithms.length / 2)).map((joinee, index) => (
                 <div
                   key={index}
                   className="bg-card p-4 xl:ml-6 text-3xl flex flex-col gap-8 items-center justify-between rounded-lg"
@@ -131,7 +131,7 @@ const Joinees = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
               speed="normal"
               pauseOnHover={false}
             >
-              {newJoinees.map((joinee, index) => (
+              {algorithms.slice(Math.ceil(algorithms.length / 2)).map((joinee, index) => (
                 <div
                   key={index}
                   className="bg-card p-4 xl:mr-6 text-3xl flex flex-col gap-8 items-center justify-between rounded-lg"
