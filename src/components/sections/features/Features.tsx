@@ -20,9 +20,9 @@ const Features = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
   return (
     <div id="features" className="flex flex-col items-center mt-14">
       <Badge icon={<Sparkles className="size-2" />} text="FEATURES" />
-      <div className="text-3xl font-medium text-center md:text-[42px] lg:text-5xl xl:text-6xl xl:leading-[1.2]">
+      <h2 className="text-3xl font-medium text-center md:text-[42px] lg:text-5xl xl:text-6xl xl:leading-[1.2]">
         {t(`${contentKey}.title`)}
-      </div>
+      </h2>
       <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8 xl:px-12">
         {featuresData.map((feature, index) => (
           <FeatureCard

@@ -26,6 +26,7 @@ function App() {
               <Route path="/developer" element={<Home />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/about" element={<About />} />
+              <Route path="*" element={<Home />} />
             </Route>
           </Routes>
         </GoogleOAuthProvider>

@@ -45,10 +45,11 @@ const About = () => {
                 src={founder.image}
                 alt={founder.name}
                 className="size-24 rounded-xl object-cover"
+                itemProp="image"
               />
               <div className="text-center w-full">
-                <p className="text-2xl font-medium">{founder.name}</p>
-                <p className="text-base">{founder.role}</p>
+                <p className="text-2xl font-medium" itemProp="name">{founder.name}</p>
+                <p className="text-base" itemProp="jobTitle">{founder.role}</p>
                 <div className="mt-2 text-base flex gap-4 justify-center text-muted-foreground">
                   {Object.entries(founder.contacts).map(([key, value]) => (
                     <a

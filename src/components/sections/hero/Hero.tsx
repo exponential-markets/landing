@@ -29,7 +29,7 @@ const Hero = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
           text="Early Access is Live!"
         />
       </div>
-      <div className="text-center flex flex-col items-center text-4xl md:text-6xl xl:text-7xl font-medium text-balance z-10">
+      <h1 className="text-center flex flex-col items-center text-4xl md:text-6xl xl:text-7xl font-medium text-balance z-10">
         <div className="lg:w-2/3 mx-auto md:leading-[1.2] text-pretty">
           {heroTitleParts.map((part, index) => (
             <span key={index} className={part.className}>
@@ -44,7 +44,7 @@ const Hero = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
         <p className="text-base text-pretty leading-[1.8] mt-4 font-normal text-white/70 min-w-[350px] max-w-[540px]">
           {t(`${contentKey}.description`)}
         </p>
-      </div>
+      </h1>
       <div className="mt-12">
         <WaitlistInput buttonText="Request Early Access" role={role} />
       </div>
