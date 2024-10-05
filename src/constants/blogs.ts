@@ -6,7 +6,7 @@ export const blogs = [
       "Explore the fundamentals of algorithmic trading, from strategy development to implementation and optimization.",
     date: "2024-10-04",
     readTime: "5 min read",
-    image: "/public/images/blog-1-header.png",
+    image: "/images/blog-1-header.png",
     imageAlt: "Algorithmic Trading Basics: A Beginner's Journey",
     content: [
       {
@@ -93,7 +93,7 @@ export const blogs = [
       "Like a masterful symphony, algorithmic trading strategies orchestrate precision and harmony. Such strategies empower intelligent decision-making, revolutionizing industries and enhancing human capabilities in unprecedented ways.",
     date: "2024-10-05",
     readTime: "7 min read",
-    image: "/public/images/blog-2-header.png",
+    image: "/images/blog-2-header.png",
     imageAlt: "Algorithmic Strategies: A Beginners Master Guide",
     content: [
       {
