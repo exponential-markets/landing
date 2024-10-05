@@ -4,6 +4,8 @@ import Layout from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
 import About from "@/pages/About";
+import Blogs from "@/pages/blogs/Blogs";
+import Blog from "@/pages/blogs/id/Blog";
 import "@/lib/i18n";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
@@ -26,7 +28,8 @@ function App() {
               <Route path="/developer" element={<Home />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/about" element={<About />} />
-              <Route path="*" element={<Home />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/:id" element={<Blog />} />
             </Route>
           </Routes>
         </GoogleOAuthProvider>

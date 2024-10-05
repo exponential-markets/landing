@@ -60,7 +60,7 @@ const Hero = ({ isDeveloperPage }: { isDeveloperPage: boolean }) => {
             </div>
           ))}
         </div>
-        <div className="w-full h-1/2 right-1/2 translate-x-1/2 absolute top-8 md:-top-6 lg:-top-10 xl:-top-8 bg-hero-gradient opacity-30"></div>
+        <div className="w-4/5 h-2/3 right-1/2 translate-x-1/2 absolute top-8 md:-top-6 lg:-top-10 xl:-top-8 bg-hero-gradient opacity-30"></div>
         <Mockup
           imageSrc={t(`${contentKey}.mockup`)}
           altText="hero-image"
