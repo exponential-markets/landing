@@ -17,6 +17,10 @@ export const navbarLinks = [
     name: "About",
     href: "/about",
   },
+  {
+    name: "Blogs",
+    href: "/blogs",
+  },
 ];
 
 export const faqData = [
