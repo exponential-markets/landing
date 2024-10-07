@@ -1,9 +1,8 @@
-// import { Button } from "@/components/ui/button";
-// import { Link, Phone } from "lucide-react";
-// import XTwitterIcon from "@/components/shared/XTwitterIcon";
-
 import { scheduleCall } from "@/lib/cta";
 import { usePostHog } from "posthog-js/react";
+import { Button } from "../ui/button";
+import XTwitterIcon from "../shared/XTwitterIcon";
+import { Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   const posthog = usePostHog();
@@ -17,46 +16,26 @@ const Footer = () => {
         <p className="text-lg text-muted-foreground text-balance mt-4">
           Algorithmic Trading Marketplace
         </p>
-        {/* <div className="flex gap-4 mt-8">
-          <Button variant="secondary" className="rounded-full size-12">
-            <Link className="text-primary size-4" />
-          </Button>
-          <Button variant="secondary" className="rounded-full size-12">
+        <div className="flex gap-4 mt-2 mx-auto">
+          
+          <Button variant="secondary" className="rounded-full size-12" onClick={() => {
+            window.open("https://twitter.com/exponentialchat", "_blank");
+          }}>
             <XTwitterIcon className="text-primary size-4" />
           </Button>
-          <Button variant="secondary" className="rounded-full size-12">
+          <Button variant="secondary" className="rounded-full size-12" onClick={() => {
+            window.open("mailto:contact@exponential.markets", "_blank");
+          }}>
+            <Mail className="text-primary size-4" />
+          </Button>
+          <Button variant="secondary" className="rounded-full size-12" onClick={() => {
+            posthog.capture("schedule_call", {
+              from: "footer",
+            });
+            scheduleCall();
+          }}>
             <Phone className="text-primary size-4" />
           </Button>
-        </div> */}
-      </div>
-      <div className="flex flex-col gap-4 mt-16 md:mt-0">
-        <p className="text-2xl">Contact Us</p>
-        <div className="flex flex-col gap-3 text-muted-foreground">
-          <p>
-            <a
-              onClick={() => {
-                posthog.capture("send_email", {
-                  from: "footer",
-                });
-              }}
-              href="mailto:contact@exponential.markets"
-            >
-              Email
-            </a>
-          </p>
-          <p>
-            <a
-              onClick={() => {
-                posthog.capture("schedule_call", {
-                  from: "footer",
-                });
-                scheduleCall();
-              }}
-              className="cursor-pointer"
-            >
-              Schedule a Call
-            </a>
-          </p>
         </div>
       </div>
     </div>
