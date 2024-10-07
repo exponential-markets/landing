@@ -370,7 +370,7 @@
         "name": "Developer",
         "description": "Join waitlist to claim while it lasts",
         "price": "$0",
-        "earn": "Earn 20% of Profits Made by Investors",
+        "earn": "Earn 8% of Profits Made by Investors",
         "features": [
           "Access to minutely data",
           "Access to our cloud hosted IDE",
@@ -394,7 +394,7 @@
           "Chat with Founders anytime",
           "Wallet Integration",
           "Early Entry to Potential Token Airdrop",
-          "Pay 25% (of profit) Fee only on Profits"
+          "Pay 10% (of profit) Fee only on Profits"
         ],
         "cta": { "text": "Claim Now", "type": "primary" }
       },
