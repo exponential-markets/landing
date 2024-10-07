@@ -28,6 +28,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
+        console.log("Scrolling down", window.scrollY, lastScrollY, isVisible);
         // Scrolling down
         setIsMenuOpen(false);
         setIsVisible(false);

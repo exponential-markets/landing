@@ -4,8 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
   scroll-behavior: smooth;
+  overscroll-behavior: none;
 }
 
 @layer base {
@@ -26,14 +28,16 @@ html {
     --accent-foreground: 0 0% 100%;
     --destructive: 0 100% 30%;
     --destructive-foreground: 0 0% 100%;
-    --border: 90 3 13%;
+    --border: 90 3% 13%;
     --input: 78 30% 18%;
     --ring: 78 89% 46.5%;
     --radius: 0.5rem;
   }
 }
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     @apply border-border;
   }
   body {
@@ -55,10 +59,11 @@ blockquote {
   padding-left: 10px;
   margin: 20px 0;
 }
-ul {
+
+.blog-ul {
   list-style-type: disc;
   padding-left: 2rem;
 }
-li {
+.blog-ul li {
   margin-bottom: 10px;
 }
