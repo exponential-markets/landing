@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
-import { isJwtExpired } from "@/lib/jwt";
 
 const EarlyAccess = () => {
   const [inviteCode, setInviteCode] = useState("");
@@ -20,24 +19,6 @@ const EarlyAccess = () => {
   const [error, setError] = useState("");
 
   const jwt = localStorage.getItem("jwt");
-  let jwtExpired = true;
-  let jwtPayload: any = null;
-
-  if (jwt) {
-    jwtExpired = isJwtExpired(jwt);
-    if (!jwtExpired) {
-      jwtPayload = JSON.parse(atob(jwt.split('.')[1])); // Decode JWT payload
-    }
-  }
-
-  const handleEarlyAccessClick = () => {
-    // Redirect if JWT is valid and user is not waitlisted
-    if (jwt && !jwtExpired && jwtPayload && !jwtPayload.waitlisted) {
-      window.location.href = "https://app.exponential.markets/auth?token=" + encodeURIComponent(jwt);
-    } else {
-      setShowSignInButton(true); // Show Google sign-in if not valid
-    }
-  };
 
   const handleGoogleSignIn = async (credentialResponse: any) => {
     const formData = new FormData();
@@ -114,7 +95,7 @@ const EarlyAccess = () => {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <Button size="lg" className="rounded-full px-6" onClick={handleEarlyAccessClick}>
+          <Button size="lg" className="rounded-full px-6">
             Early Access
           </Button>
         </DialogTrigger>
@@ -127,7 +108,7 @@ const EarlyAccess = () => {
             </DialogTitle>
             <DialogDescription>
               {showSignInButton
-                ? "Join the waitlist now!"
+                ? "Sign in with Google to get access to the waitlist."
                 : "Have an invite code? Enter it below."}
             </DialogDescription>
           </DialogHeader>
