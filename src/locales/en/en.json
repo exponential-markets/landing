@@ -3,27 +3,27 @@
     "hero": {
       "title": [
         {
-          "text": "Invest",
+          "text": "Profits",
           "className": "text-primary"
         },
         {
-          "text": " in",
+          "text": " on",
           "className": "text-muted-foreground"
         },
         {
-          "text": " Algorithms",
-          "className": ""
-        },
-        {
-          "text": " by",
-          "className": "text-muted-foreground"
-        },
-        {
-          "text": " Quant Developers",
+          "text": " AutoPilot",
           "className": "text-primary"
+        },
+        {
+          "text": " Driven by",
+          "className": "text-muted-foreground"
+        },
+        {
+          "text": " Quants",
+          "className": "text-white"
         }
       ],
-      "description": "Exponential Developers, Exponential Algorithms! Are you an Exponential Investor?",
+      "description": "Decentralized, Transparent, & 100% on-chain algorithmic trading.",
       "features": ["No KYC needed", "Pay only on Profits"],
       "mockup": "/images/Dark Investor Dashboard.png"
     },
@@ -37,7 +37,7 @@
         },
         {
           "title": "No KYC needed",
-          "description": "We just execute trades from our co-owned wallet",
+          "description": "We just execute trades from your self-custodial wallet",
           "icon": "User"
         },
         {
@@ -47,7 +47,7 @@
         },
         {
           "title": "No API Integrations",
-          "description": "All you need is USDT in ETH wallet and you're good to go",
+          "description": "All you need is ETH and you're good to go",
           "icon": "WalletMinimal"
         },
         {
@@ -57,7 +57,7 @@
         },
         {
           "title": "Withdraw Anytime",
-          "description": "Withdraw your funds from an algorithm anytime anywhere",
+          "description": "Withdraw your funds from anytime anywhere",
           "icon": "HandCoins"
         }
       ]
@@ -91,11 +91,11 @@
               "className": "text-primary"
             }
           ],
-          "description": "Transfer USDT on ETH chain from your wallet to your algorithm's wallet using Metamask or manually as per your convenience.",
+          "description": "Transfer ETH from your wallet to the self-custodian using Metamask or manually as per your convenience.",
           "mockup": "/images/Dark Wallet Integration.png",
           "features": [
             "No API Key Integration or Third Party Linking",
-            "Each user gets their own wallet for any algorithm they deploy",
+            "Our system has zero-knowledge of your wallets",
             "Withdraw anytime from an algorithm back to your wallet"
           ]
         },
@@ -203,7 +203,7 @@
           "className": ""
         }
       ],
-      "description": "Write algorithms, No investment needed. Earn top commissions as investors fund your strategies.",
+      "description": "Start your own Quant Fund. Access investors' capital, maximize earnings, and make top commissions.",
       "features": ["Minute-Level Data", "Backtesting Engine"],
       "mockup": "/images/Dark Developer Dashboard.png"
     },
