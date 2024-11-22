@@ -3,7 +3,7 @@ import EarlyAccess from "@/components/shared/EarlyAccess";
 import { navbarLinks } from "@/constants/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { usePostHog } from "posthog-js/react";
 import { scheduleCall } from "@/lib/cta";
 import ExponentialLogo from "@/assets/logo.svg";
@@ -28,7 +28,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        console.log("Scrolling down", window.scrollY, lastScrollY, isVisible);
         // Scrolling down
         setIsMenuOpen(false);
         setIsVisible(false);
@@ -58,14 +57,14 @@ const Navbar = () => {
         )}
       >
         <div className="flex justify-between items-center">
-          <div className="xl:flex-1 flex items-center gap-2">
+          <Link to="/" className="xl:flex-1 flex items-center gap-2">
             <img
               src={ExponentialLogo}
               alt="Exponential Markets"
-              className="size-10"
+              className="ml-4 size-8"
             />
             <span className="text-xl font-medium">Exponential</span>
-          </div>
+          </Link>
           <div className="hidden lg:flex xl:flex-1 items-center gap-6 xl:gap-10">
             {navbarLinks.map(({ name, href }) => (
               <a
