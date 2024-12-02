@@ -21,7 +21,7 @@ function App() {
   return (
     <PostHogProvider client={posthog}>
       <Router>
-        <GoogleOAuthProvider clientId="373049870743-cgblifie9ee206800gdv9mqdl5ob6evj.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="466166715128-g3qdmonrsithnmvr4v932iptikfao2kh.apps.googleusercontent.com">
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />

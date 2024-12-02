@@ -26,7 +26,7 @@ const EarlyAccess = () => {
 
     const requestOptions = {
       method: "POST",
-      body: formData,
+      body: JSON.stringify({ credential: credentialResponse.credential }),
     };
 
     try {
@@ -38,10 +38,12 @@ const EarlyAccess = () => {
       localStorage.setItem("jwt", result.token); // Store JWT in state
 
       // Check if waitlisted
-      const jwtPayload = JSON.parse(atob(result.token.split('.')[1]));
+      const jwtPayload = JSON.parse(atob(result.token.split(".")[1]));
       if (!jwtPayload.waitlisted) {
         localStorage.setItem("jwt", result.token);
-        window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(result.token)}`;
+        window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(
+          result.token
+        )}`;
       } else {
         setShowSignInButton(false); // Show invite code input
       }
@@ -60,7 +62,7 @@ const EarlyAccess = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${jwt}`, // Include JWT as a Bearer token
+        Authorization: `Bearer ${jwt}`, // Include JWT as a Bearer token
       },
       body: raw,
     };
@@ -74,10 +76,12 @@ const EarlyAccess = () => {
 
       if (result.token) {
         // decode jwt
-        const jwtPayload = JSON.parse(atob(result.token.split('.')[1]));
+        const jwtPayload = JSON.parse(atob(result.token.split(".")[1]));
         if (!jwtPayload.waitlisted) {
           localStorage.setItem("jwt", result.token); // Store new JWT
-          window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(result.token)}`;
+          window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(
+            result.token
+          )}`;
         } else {
           setError("Invalid invite code. Please try again.");
         }
@@ -114,9 +118,7 @@ const EarlyAccess = () => {
           </DialogHeader>
           {showSignInButton ? (
             <div className="flex justify-center">
-              <GoogleLogin
-                onSuccess={handleGoogleSignIn}
-              />
+              <GoogleLogin onSuccess={handleGoogleSignIn} />
             </div>
           ) : (
             <div>
@@ -129,15 +131,11 @@ const EarlyAccess = () => {
                 />
                 <Button onClick={handleSubmit} disabled={loading}>
                   Submit
-                  {loading && (
-                    <Loader2 className="animate-spin size-4 ml-2" />
-                  )}
+                  {loading && <Loader2 className="animate-spin size-4 ml-2" />}
                 </Button>
               </div>
               {error && (
-                <p className="text-red-500 text-center mt-1 text-sm">
-                  {error}
-                </p>
+                <p className="text-red-500 text-center mt-1 text-sm">{error}</p>
               )}
             </div>
           )}
