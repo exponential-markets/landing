@@ -1,3 +1,5 @@
+import { withAccountKitUi, createColorSet } from "@account-kit/react/tailwind";
+
 const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
@@ -6,7 +8,7 @@ const {
 const svgToDataUri = require("mini-svg-data-uri");
 
 /** @type {import('tailwindcss').Config} */
-export default {
+export default withAccountKitUi({
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -108,7 +110,19 @@ export default {
       );
     },
   ],
-};
+},{
+      // override account kit themes
+      colors: {
+        // "btn-primary": createColorSet("#A0E00D", "#A0E00D"),
+        // "fg-accent-brand": createColorSet("#A0E00D", "#A0E00D"),
+        // "btn-secondary": createColorSet("#1C1F1D", "#1C1F1D"),
+        // "bg-surface-default": createColorSet("#1C1F1D", "#020617"),
+        // "bg-surface-subtle": createColorSet("#2A2D2B", "#2A2D2B"),
+        // active: createColorSet("#A0E00D", "#A0E00D"),
+      },
+      borderRadius: "sm",
+  
+});
 
 function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));

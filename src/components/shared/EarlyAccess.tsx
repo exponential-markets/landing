@@ -1,147 +1,86 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { GoogleLogin } from "@react-oauth/google";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Loader2 } from "lucide-react";
+import { useAuthModal, useUser } from "@account-kit/react";
+import { connectAndSignMessage } from "@/auth/signMessage";
 
 const EarlyAccess = () => {
-  const [inviteCode, setInviteCode] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showSignInButton, setShowSignInButton] = useState(true);
-  const [error, setError] = useState("");
+  const [buttonState, setButtonState] = useState<'default' | 'waitlisted' | 'app'>('default');
+  const { openAuthModal } = useAuthModal();
+  const user = useUser();
+  const authInProgress = useRef(false);
 
-  const jwt = localStorage.getItem("jwt");
-
-  const handleGoogleSignIn = async (credentialResponse: any) => {
-    const formData = new FormData();
-    formData.append("credential", credentialResponse.credential!);
-
-    const requestOptions = {
-      method: "POST",
-      body: JSON.stringify({ credential: credentialResponse.credential }),
-    };
-
-    try {
-      const response = await fetch(
-        "https://api.exponential.markets/user/auth",
-        requestOptions
-      );
-      const result: { token: string } = await response.json();
-      localStorage.setItem("jwt", result.token); // Store JWT in state
-
-      // Check if waitlisted
-      const jwtPayload = JSON.parse(atob(result.token.split(".")[1]));
-      if (!jwtPayload.waitlisted) {
-        localStorage.setItem("jwt", result.token);
-        window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(
-          result.token
-        )}`;
-      } else {
-        setShowSignInButton(false); // Show invite code input
+  // Check JWT on mount and after auth
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      try {
+        const jwtPayload = JSON.parse(atob(jwt.split(".")[1]));
+        setButtonState(jwtPayload.waitlisted ? 'waitlisted' : 'app');
+      } catch {
+        setButtonState('default');
       }
-    } catch (error) {
-      console.error(error);
     }
-  };
+  }, []);
 
-  const handleSubmit = async () => {
-    setLoading(true);
-    const raw = JSON.stringify({
-      invite_code: inviteCode,
-    });
+  // Handle auth after wallet connection only if no JWT exists
+  useEffect(() => {
+    const handleAuth = async () => {
+      if (!user || authInProgress.current) return;
+      
+      const existingJwt = localStorage.getItem("jwt");
+      if (existingJwt) return;
 
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${jwt}`, // Include JWT as a Bearer token
-      },
-      body: raw,
-    };
+      try {
+        authInProgress.current = true;
+        setLoading(true);
+        const authResponse = await connectAndSignMessage(window, user);
 
-    try {
-      const response = await fetch(
-        "https://api.exponential.markets/investor/check-invite",
-        requestOptions
-      );
-      const result: { token?: string } = await response.json();
-
-      if (result.token) {
-        // decode jwt
-        const jwtPayload = JSON.parse(atob(result.token.split(".")[1]));
-        if (!jwtPayload.waitlisted) {
-          localStorage.setItem("jwt", result.token); // Store new JWT
-          window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(
-            result.token
-          )}`;
-        } else {
-          setError("Invalid invite code. Please try again.");
+        if (authResponse.success && authResponse.token) {
+          localStorage.setItem('jwt', authResponse.token);
+          const jwtPayload = JSON.parse(atob(authResponse.token.split('.')[1]));
+          setButtonState(jwtPayload.waitlisted ? 'waitlisted' : 'app');
         }
-      } else {
-        setError("Invalid invite code. Please try again.");
+      } catch (error) {
+        console.error('Auth error:', error);
+      } finally {
+        setLoading(false);
+        authInProgress.current = false;
       }
-    } catch {
-      setError("An error occurred. Please try again later.");
-    } finally {
-      setLoading(false);
+    };
+
+    handleAuth();
+  }, [user]);
+
+  const handleEarlyAccessClick = () => {
+    if (buttonState === 'app') {
+      const jwt = localStorage.getItem('jwt');
+      window.location.href = `https://app.exponential.markets/auth?token=${encodeURIComponent(jwt!)}`;
+      return;
+    }
+
+    const jwt = localStorage.getItem("jwt");
+    if (!user && !jwt) {
+      openAuthModal();
     }
   };
+
+  const buttonText = {
+    default: 'Early Access',
+    waitlisted: 'Waitlisted',
+    app: 'Go to App'
+  }[buttonState];
 
   return (
-    <>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button size="lg" className="rounded-full px-6">
-            Early Access
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="max-w-[400px]">
-          <DialogHeader>
-            <DialogTitle>
-              {showSignInButton
-                ? "Sign in with Google"
-                : "You're on the waitlist!"}
-            </DialogTitle>
-            <DialogDescription>
-              {showSignInButton
-                ? "Sign in with Google to get access to the waitlist."
-                : "Have an invite code? Enter it below."}
-            </DialogDescription>
-          </DialogHeader>
-          {showSignInButton ? (
-            <div className="flex justify-center">
-              <GoogleLogin onSuccess={handleGoogleSignIn} />
-            </div>
-          ) : (
-            <div>
-              <div className="flex gap-4 items-start">
-                <Input
-                  type="text"
-                  value={inviteCode}
-                  onChange={(e) => setInviteCode(e.target.value)}
-                  placeholder="Enter your invite code"
-                />
-                <Button onClick={handleSubmit} disabled={loading}>
-                  Submit
-                  {loading && <Loader2 className="animate-spin size-4 ml-2" />}
-                </Button>
-              </div>
-              {error && (
-                <p className="text-red-500 text-center mt-1 text-sm">{error}</p>
-              )}
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
-    </>
+    <Button
+      size="lg"
+      className="rounded-full px-6"
+      onClick={handleEarlyAccessClick}
+      disabled={loading || buttonState === 'waitlisted'}
+    >
+      {loading ? <Loader2 className="animate-spin size-4" /> : buttonText}
+    </Button>
   );
 };
 

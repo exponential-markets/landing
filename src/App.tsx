@@ -9,6 +9,12 @@ import Blog from "@/pages/blogs/id/Blog";
 import "@/lib/i18n";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
+import { AlchemyAccountProvider } from "@account-kit/react";
+import { QueryClientProvider } from "@tanstack/react-query";
+// import { useEffect, useState } from "react";
+import { alchemyConfig, alchemyQueryClient } from "./auth/alchemy";
+// import { AuthState } from "./auth/types";
+// import { connectAndSignMessage } from "./auth/signMessage";
 
 posthog.init("phc_Pf23onE68qvYSLrFboMEl6TdGqX3HIy2pLqGSlVfuwt", {
   api_host: "https://us.i.posthog.com",
@@ -17,24 +23,47 @@ posthog.init("phc_Pf23onE68qvYSLrFboMEl6TdGqX3HIy2pLqGSlVfuwt", {
   },
 });
 
+
 function App() {
+  // const [authState, setAuthState] = useState<AuthState>({
+  //   isAuthenticated: false,
+  // });
+
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem('auth_token');
+  //   if (token) {
+  //     setAuthState({
+  //       isAuthenticated: true,
+  //       token,
+  //     });
+  //   }
+  // }, []);
+
   return (
-    <PostHogProvider client={posthog}>
-      <Router>
-        <GoogleOAuthProvider clientId="466166715128-g3qdmonrsithnmvr4v932iptikfao2kh.apps.googleusercontent.com">
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/developer" element={<Home />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route path="/blogs/:id" element={<Blog />} />
-            </Route>
-          </Routes>
-        </GoogleOAuthProvider>
-      </Router>
-    </PostHogProvider>
+    <QueryClientProvider client={alchemyQueryClient}>
+      <AlchemyAccountProvider config={alchemyConfig} queryClient={alchemyQueryClient}>
+        <PostHogProvider client={posthog}>
+          <Router>
+            {/* <GoogleOAuthProvider clientId="466166715128-g3qdmonrsithnmvr4v932iptikfao2kh.apps.googleusercontent.com"> */}
+              <Routes>
+                <Route element={<Layout 
+                  // authState={authState} 
+                  // onConnectWallet={() => connectAndSignMessage(window, setAuthState)} 
+                />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/developer" element={<Home />} />
+                  <Route path="/pricing" element={<Pricing />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/blogs" element={<Blogs />} />
+                  <Route path="/blogs/:id" element={<Blog />} />
+                </Route>
+              </Routes>
+            {/* </GoogleOAuthProvider> */}
+          </Router>
+        </PostHogProvider>
+      </AlchemyAccountProvider>
+    </QueryClientProvider>
   );
 }
 
